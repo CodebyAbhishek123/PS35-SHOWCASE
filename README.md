@@ -1,13 +1,13 @@
-# ⚖️ MetronAI — PS35 Showcase | Automated Legal Metrology & OIML R-76 Evaluation Engine
+# ⚖️ TARAZU. — OIML R 76-1 MVP | Automated Legal Metrology & Evaluation Engine
 
 [![React](https://img.shields.io/badge/React-19-blue.svg?logo=react)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF.svg?logo=vite)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38B2AC.svg?logo=tailwindcss)](https://tailwindcss.com/)
-[![OIML R-76](https://img.shields.io/badge/Standard-OIML%20R--76-emerald.svg)](https://www.oiml.org/)
+[![OIML R-76](https://img.shields.io/badge/Standard-OIML%20R--76-5842F6.svg)](https://www.oiml.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 > **Smart India Hackathon (SIH) Problem Statement 26035 (PS35)**  
-> An end-to-end automated platform for Type Evaluation, Turning-Point Calculation, Stepped MPE Boundary Validation, and Tamper-Evident Certification of Non-Automatic Weighing Instruments (NAWI) under **OIML Recommendation R-76** and the **Legal Metrology Act, 2009**.
+> **TARAZU.** is an end-to-end automated platform for Type Evaluation, Turning-Point Calculation, Stepped MPE Boundary Validation, and Tamper-Evident Certification of Non-Automatic Weighing Instruments (NAWI) under **OIML Recommendation R-76** and the **Legal Metrology Act, 2009**.
 
 ---
 
@@ -17,7 +17,7 @@ Type evaluation of Non-Automatic Weighing Instruments (NAWI) under **OIML R-76**
 
 Traditionally, Regional Reference Standard Laboratories (RRSL) and state testing facilities rely on manual spreadsheets and custom Word templates. This leads to computational mistakes, inconsistent report formats across states, and vulnerabilities to unauthorized post-test modification.
 
-**MetronAI (PS35-SHOWCASE)** replaces legacy manual workflows with a real-time mathematical calculation engine, automated Maximum Permissible Error (MPE) compliance verification, SHA-256 cryptographic hashing, interactive live test sandboxing, and standardized multi-format export capabilities.
+**TARAZU.** replaces legacy manual workflows with a real-time mathematical calculation engine (`#5842F6` theme), automated Maximum Permissible Error (MPE) compliance verification, SHA-256 cryptographic hashing, interactive live test sandboxing, and standardized multi-format export capabilities.
 
 ---
 
@@ -54,7 +54,7 @@ Traditionally, Regional Reference Standard Laboratories (RRSL) and state testing
 | Category | Technology | Description |
 | :--- | :--- | :--- |
 | **Frontend Framework** | React 19 + Vite 8 | Ultra-fast build toolchain & modern component hierarchy |
-| **Styling & UI** | Tailwind CSS v4 | Responsive layout system & custom legal metrology theme |
+| **Styling & UI** | Tailwind CSS v4 + Tarazu Palette (`#5842F6`) | Responsive layout system & custom legal metrology theme |
 | **Icons & Micro-UI** | Lucide React | Modern vector icons & UI symbols |
 | **Document Export** | `jspdf` & `html2canvas` | High-fidelity PDF generation & DOM image capture |
 | **Visual Effects** | `canvas-confetti` | Milestone celebrate triggers upon report generation |

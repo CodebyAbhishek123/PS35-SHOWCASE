@@ -1,123 +1,120 @@
 import React from 'react';
-import { Landmark, Scale, BookOpen, ExternalLink, ShieldCheck } from 'lucide-react';
+import { ShieldCheck, Scale, Award, Layers, CheckCircle2, ChevronRight, FileCheck } from 'lucide-react';
 
 export function AboutSection() {
-  const instruments = [
+  const nawiCategories = [
     {
-      title: "Commercial Retail Scales",
-      desc: "Supermarket price-computing, counter scales (Class III) protecting everyday consumer grocery transactions.",
-      eRange: "e = 1 g to 10 g",
-      capacity: "Up to 30 kg"
+      class: "Class I",
+      title: "Special Accuracy (Analytical Balances)",
+      eRange: "e ≤ 1 mg, n > 50,000",
+      desc: "Used in micro-laboratories, pharmaceutical R&D, chemical analysis, and precious mass standards verification."
     },
     {
-      title: "Industrial Platform Scales",
-      desc: "Heavy-duty platform scales (Class III) for warehouses, factories, and agricultural APMC mandis.",
-      eRange: "e = 20 g to 200 g",
-      capacity: "100 kg to 2,000 kg"
+      class: "Class II",
+      title: "High Accuracy (Jewellery & Precision Scales)",
+      eRange: "1 mg ≤ e ≤ 50 mg, n ≤ 100,000",
+      desc: "Used in gold bullion trading, gemstones, precision manufacturing, and commercial assay laboratories."
     },
     {
-      title: "Road & Rail Weighbridges",
-      desc: "Multi-load cell weighbridges (Class III) for interstate transport, freight, and toll plaza compliance.",
-      eRange: "e = 10 kg to 50 kg",
-      capacity: "20,000 kg to 100,000 kg"
+      class: "Class III",
+      title: "Medium Accuracy (Retail & Commercial Scales)",
+      eRange: "0.1 g ≤ e ≤ 2 g, n ≤ 10,000",
+      desc: "Used in grocery retail, supermarket checkout scales, package weighing, agricultural mandi trading, and industrial shipping."
     },
     {
-      title: "Analytical & Lab Balances",
-      desc: "High precision electromagnetic force balances (Class I & II) for pharmaceuticals and bullion/gold trading.",
-      eRange: "e = 0.1 mg to 10 mg",
-      capacity: "50 g to 500 g"
+      class: "Class IV",
+      title: "Ordinary Accuracy (Weighbridges & Heavy Industrial)",
+      eRange: "e ≥ 5 g, n ≤ 1,000",
+      desc: "Used in highway weighbridges, truck scale terminals, freight depots, bulk cargo, and construction material yards."
     }
   ];
 
   return (
-    <section id="about" className="py-20 md:py-28 relative border-t border-slate-200 bg-white text-slate-800">
+    <section id="about" className="py-20 md:py-28 relative border-t border-slate-200 bg-[#F8FAFC] text-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#F0EDE4] border border-[#004741]/20 text-xs font-bold text-[#004741]">
-            <span>REGULATORY CONTEXT & SCOPE</span>
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EEF2FF] border border-[#5842F6]/20 text-xs font-bold text-[#5842F6]">
+            <span>LEGAL METROLOGY CONTEXT</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-[#004741]">
-            Department of Consumer Affairs <span className="text-[#FF1E27]">& Legal Metrology</span>
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
+            About <span className="text-[#5842F6]">Legal Metrology & OIML R-76</span>
           </h2>
           <p className="text-slate-600 text-sm sm:text-base">
-            Ensuring measurement accuracy and consumer protection across all commercial transactions in India under statutory mandates.
+            Legal metrology protects trade fairness and consumer rights by establishing uniform legal standards for measuring instruments across India.
           </p>
         </div>
 
-        {/* 2 Column Overview */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
+        {/* Top Info Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-center">
           
           <div className="lg:col-span-7 space-y-5">
             <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-[#F0EDE4] border border-[#004741]/30 text-[#004741]">
-                <Landmark className="w-6 h-6" />
+              <div className="p-2.5 rounded-xl bg-[#EEF2FF] border border-[#5842F6]/30 text-[#5842F6]">
+                <ShieldCheck className="w-6 h-6" />
               </div>
-              <div>
-                <h3 className="text-xl font-black text-[#004741]">The Statutory Mandate</h3>
-                <p className="text-xs text-slate-500">Legal Metrology Act, 2009 & General Rules 2011</p>
-              </div>
+              <h3 className="text-xl font-black text-slate-900">The Statutory Mandate</h3>
             </div>
 
-            <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-              Under Section 19 of the <strong className="text-[#004741] font-bold">Legal Metrology Act, 2009</strong>, every Non-Automatic Weighing Instrument (NAWI) intended for trade, commerce, healthcare, or industrial weighing must obtain <strong className="text-[#FF1E27] font-bold">Model Approval</strong> from the Central Government before manufacture, import, or sale.
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              Under Section 19 of the <strong className="text-slate-900 font-bold">Legal Metrology Act, 2009</strong>, every Non-Automatic Weighing Instrument (NAWI) intended for trade, commerce, healthcare, or industrial weighing must obtain <strong className="text-[#5842F6] font-bold">Model Approval</strong> from the Central Government before manufacture, import, or sale.
             </p>
 
-            <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-              Model approvals are granted only after designated laboratories (such as Regional Reference Standards Laboratories - RRSLs and NABL accredited centres) conduct exhaustive type evaluation as per <strong className="text-[#004741] font-bold">OIML Recommendation R 76-1:2006</strong>.
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              Model approvals are granted only after designated laboratories (such as Regional Reference Standards Laboratories - RRSLs and NABL accredited centres) conduct exhaustive type evaluation as per <strong className="text-slate-900 font-bold">OIML Recommendation R 76-1:2006</strong>.
             </p>
 
-            <div className="grid grid-cols-2 gap-3 pt-2">
-              <div className="p-3.5 rounded-xl bg-[#F0EDE4] border border-[#004741]/20">
-                <div className="text-xs text-slate-600">Standard Followed</div>
-                <div className="text-sm font-black text-[#004741] mt-0.5">OIML R-76-1 (2006)</div>
+            <div className="grid grid-cols-2 gap-4 pt-2">
+              <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                <div className="text-xs font-bold text-slate-400">Primary Technical Standard</div>
+                <div className="text-sm font-black text-[#5842F6] mt-0.5">OIML R-76-1 (2006)</div>
               </div>
-              <div className="p-3.5 rounded-xl bg-[#F0EDE4] border border-[#004741]/20">
-                <div className="text-xs text-slate-600">Beneficiary</div>
-                <div className="text-sm font-black text-[#004741] mt-0.5">1.4 Billion Consumers & Trade</div>
+              <div className="p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                <div className="text-xs font-bold text-slate-400">Protected Economic Base</div>
+                <div className="text-sm font-black text-[#5842F6] mt-0.5">1.4 Billion Consumers & Trade</div>
               </div>
             </div>
           </div>
 
           <div className="lg:col-span-5">
-            <div className="bg-[#F0EDE4] p-6 rounded-2xl border border-[#004741]/20 space-y-4 shadow-md">
-              <div className="flex items-center justify-between pb-3 border-b border-[#004741]/20">
-                <span className="text-sm font-black text-[#004741]">OIML Accuracy Class Hierarchy</span>
-                <span className="text-xs text-emerald-700 font-mono font-bold">Table 3 (Clause 3.2)</span>
+            <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-4 shadow-sm">
+              <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                <span className="text-sm font-black text-slate-900">OIML Accuracy Class Hierarchy</span>
+                <span className="text-xs font-bold text-[#5842F6] bg-[#EEF2FF] px-2.5 py-0.5 rounded-full">Table 3 Guidelines</span>
               </div>
 
-              <div className="space-y-3 text-xs">
-                <div className="p-3 rounded-lg bg-white border border-emerald-300 flex justify-between items-center shadow-xs">
-                  <div>
-                    <div className="font-bold text-emerald-700">Class I (Special)</div>
-                    <div className="text-slate-600">Analytical & Micro Balances (n ≥ 50,000)</div>
+              <div className="space-y-3">
+                <div className="p-3 rounded-xl bg-[#EEF2FF] border border-[#5842F6]/20 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-3 h-3 rounded-full bg-[#5842F6]" />
+                    <span className="text-xs font-black text-slate-900">Class I</span>
                   </div>
-                  <span className="px-2 py-1 rounded bg-emerald-100 text-emerald-800 font-mono font-bold">±0.5e to ±1.5e</span>
+                  <span className="text-xs font-bold text-[#5842F6]">Special Accuracy</span>
                 </div>
 
-                <div className="p-3 rounded-lg bg-white border border-cyan-300 flex justify-between items-center shadow-xs">
-                  <div>
-                    <div className="font-bold text-cyan-700">Class II (High)</div>
-                    <div className="text-slate-600">Pharma & Gold Scales (100 ≤ n ≤ 100,000)</div>
+                <div className="p-3 rounded-xl bg-cyan-50 border border-cyan-200 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-3 h-3 rounded-full bg-[#06B6D4]" />
+                    <span className="text-xs font-black text-slate-900">Class II</span>
                   </div>
-                  <span className="px-2 py-1 rounded bg-cyan-100 text-cyan-800 font-mono font-bold">±0.5e to ±1.5e</span>
+                  <span className="text-xs font-bold text-[#06B6D4]">High Accuracy</span>
                 </div>
 
-                <div className="p-3 rounded-lg bg-white border border-blue-300 flex justify-between items-center shadow-xs">
-                  <div>
-                    <div className="font-bold text-blue-700">Class III (Medium)</div>
-                    <div className="text-slate-600">Retail, Platform Scales, Weighbridges (100 ≤ n ≤ 10,000)</div>
+                <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-3 h-3 rounded-full bg-[#00C853]" />
+                    <span className="text-xs font-black text-slate-900">Class III</span>
                   </div>
-                  <span className="px-2 py-1 rounded bg-blue-100 text-blue-800 font-mono font-bold">±0.5e to ±1.5e</span>
+                  <span className="text-xs font-bold text-emerald-700">Medium Accuracy</span>
                 </div>
 
-                <div className="p-3 rounded-lg bg-white border border-amber-300 flex justify-between items-center shadow-xs">
-                  <div>
-                    <div className="font-bold text-amber-700">Class IV (Ordinary)</div>
-                    <div className="text-slate-600">Crane & Heavy Bulk Scales (100 ≤ n ≤ 1,000)</div>
+                <div className="p-3 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-3 h-3 rounded-full bg-slate-500" />
+                    <span className="text-xs font-black text-slate-900">Class IIII</span>
                   </div>
-                  <span className="px-2 py-1 rounded bg-amber-100 text-amber-800 font-mono font-bold">±0.5e to ±1.5e</span>
+                  <span className="text-xs font-bold text-slate-600">Ordinary Accuracy</span>
                 </div>
               </div>
             </div>
@@ -125,19 +122,20 @@ export function AboutSection() {
 
         </div>
 
-        {/* Instruments in Scope Cards */}
-        <div className="mt-8">
-          <div className="text-center mb-8">
-            <h3 className="text-xl font-black text-[#004741]">NAWI Categories Covered Under The System</h3>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {instruments.map((inst, i) => (
-              <div key={i} className="p-5 rounded-xl bg-[#F0EDE4] border border-[#004741]/20 hover:border-[#004741] transition-colors shadow-sm">
-                <h4 className="font-bold text-[#004741] text-sm mb-1">{inst.title}</h4>
-                <p className="text-xs text-slate-600 mb-3 leading-relaxed">{inst.desc}</p>
-                <div className="pt-2 border-t border-[#004741]/20 space-y-1 text-[11px]">
-                  <div className="text-slate-600">Scale Interval: <span className="text-[#FF1E27] font-mono font-bold">{inst.eRange}</span></div>
-                  <div className="text-slate-600">Capacity: <span className="text-slate-900 font-mono font-bold">{inst.capacity}</span></div>
+        {/* 4 NAWI Categories Cards */}
+        <div className="space-y-6">
+          <h3 className="text-xl font-black text-slate-900">NAWI Categories Covered Under The System</h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {nawiCategories.map((inst, i) => (
+              <div key={i} className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-[#5842F6] transition-all shadow-2xs">
+                <div className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-black bg-[#EEF2FF] text-[#5842F6] uppercase mb-2">
+                  {inst.class}
+                </div>
+                <h4 className="font-bold text-slate-900 text-sm mb-1">{inst.title}</h4>
+                <p className="text-xs text-slate-600 leading-relaxed mb-3">{inst.desc}</p>
+                <div className="pt-2 border-t border-slate-100 text-[11px] font-mono text-indigo-900 font-bold">
+                  {inst.eRange}
                 </div>
               </div>
             ))}

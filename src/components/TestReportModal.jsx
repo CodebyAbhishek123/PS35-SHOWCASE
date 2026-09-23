@@ -21,19 +21,19 @@ export function TestReportModal({ report, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-2 sm:p-4">
-      <div className="relative w-full max-w-5xl bg-white rounded-3xl border border-slate-300 shadow-2xl overflow-hidden my-6">
+      <div className="relative w-full max-w-5xl bg-white rounded-3xl border border-slate-200 shadow-2xl overflow-hidden my-6">
         
         {/* Top Action Bar (No Print) */}
-        <div className="no-print bg-[#F0EDE4] px-6 py-4 border-b border-slate-300 flex flex-wrap items-center justify-between gap-3">
+        <div className="no-print bg-[#EEF2FF] px-6 py-4 border-b border-indigo-100 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2.5">
-            <span className="p-2 rounded-xl bg-red-600/10 border border-red-600/20 text-red-600">
+            <span className="p-2 rounded-xl bg-[#5842F6] text-white shadow-md shadow-[#5842F6]/30">
               <FileText className="w-5 h-5" />
             </span>
             <div>
-              <h3 className="text-base font-bold text-[#004741]">
+              <h3 className="text-base font-bold text-slate-900">
                 OIML R-76 Standardized Test Report
               </h3>
-              <p className="text-xs text-slate-600 font-mono">
+              <p className="text-xs text-[#5842F6] font-mono font-bold">
                 {report.reportNumber}
               </p>
             </div>
@@ -42,26 +42,26 @@ export function TestReportModal({ report, onClose }) {
           <div className="flex items-center gap-2">
             <button
               onClick={triggerPrintReport}
-              className="px-3.5 py-1.5 rounded-xl text-xs font-semibold text-slate-700 bg-white hover:bg-slate-100 border border-slate-300 flex items-center gap-1.5 transition-colors cursor-pointer shadow-sm"
+              className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-700 bg-white hover:bg-slate-100 border border-slate-200 flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
               title="Print Document"
             >
-              <Printer className="w-3.5 h-3.5 text-[#004741]" />
+              <Printer className="w-3.5 h-3.5 text-[#5842F6]" />
               <span className="hidden sm:inline">Print</span>
             </button>
 
             <button
               onClick={handleDownloadPDF}
               disabled={isExportingPDF}
-              className="px-3.5 py-1.5 rounded-xl text-xs font-semibold text-slate-700 bg-white hover:bg-slate-100 border border-slate-300 flex items-center gap-1.5 transition-colors cursor-pointer shadow-sm"
+              className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-white bg-[#5842F6] hover:bg-[#4338CA] flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
               title="Download PDF"
             >
-              <Download className="w-3.5 h-3.5 text-rose-600" />
+              <Download className="w-3.5 h-3.5 text-white" />
               <span>{isExportingPDF ? 'Exporting...' : 'PDF'}</span>
             </button>
 
             <button
               onClick={() => exportReportToWord(report)}
-              className="px-3.5 py-1.5 rounded-xl text-xs font-semibold text-slate-700 bg-white hover:bg-slate-100 border border-slate-300 flex items-center gap-1.5 transition-colors cursor-pointer shadow-sm"
+              className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-700 bg-white hover:bg-slate-100 border border-slate-200 flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
               title="Export Editable MS Word Document"
             >
               <FileText className="w-3.5 h-3.5 text-blue-600" />
@@ -70,7 +70,7 @@ export function TestReportModal({ report, onClose }) {
 
             <button
               onClick={() => exportReportToJSON(report)}
-              className="px-3.5 py-1.5 rounded-xl text-xs font-semibold text-slate-700 bg-white hover:bg-slate-100 border border-slate-300 flex items-center gap-1.5 transition-colors cursor-pointer shadow-sm"
+              className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-700 bg-white hover:bg-slate-100 border border-slate-200 flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
               title="Export Raw JSON"
             >
               <FileCode className="w-3.5 h-3.5 text-amber-600" />
@@ -79,7 +79,7 @@ export function TestReportModal({ report, onClose }) {
 
             <button
               onClick={onClose}
-              className="p-1.5 rounded-xl text-slate-500 hover:text-slate-900 hover:bg-slate-200 transition-colors ml-2 cursor-pointer"
+              className="p-1.5 rounded-xl text-slate-400 hover:text-slate-900 hover:bg-white transition-colors ml-2 cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -91,7 +91,7 @@ export function TestReportModal({ report, onClose }) {
           
           {/* Government of India Header */}
           <div className="text-center pb-6 border-b-2 border-slate-900 mb-6 space-y-1">
-            <div className="text-xs font-bold uppercase tracking-widest text-amber-800">
+            <div className="text-xs font-bold uppercase tracking-widest text-[#5842F6]">
               GOVERNMENT OF INDIA
             </div>
             <div className="text-base sm:text-lg font-black uppercase text-slate-900 tracking-wide">
@@ -109,10 +109,10 @@ export function TestReportModal({ report, onClose }) {
           </div>
 
           {/* Report Meta Card */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 bg-slate-50 border border-slate-200 rounded-xl mb-6 text-xs">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 bg-[#EEF2FF]/60 border border-indigo-100 rounded-2xl mb-6 text-xs">
             <div>
               <span className="text-slate-500 font-medium">Report Number:</span>
-              <div className="font-mono font-bold text-slate-900 mt-0.5">{report.reportNumber}</div>
+              <div className="font-mono font-bold text-[#5842F6] mt-0.5">{report.reportNumber}</div>
             </div>
             <div>
               <span className="text-slate-500 font-medium">Date of Evaluation:</span>
@@ -126,11 +126,11 @@ export function TestReportModal({ report, onClose }) {
               <span className="text-slate-500 font-medium">Overall Determination:</span>
               <div className="mt-0.5">
                 {report.overallCompliance ? (
-                  <span className="inline-flex items-center gap-1 font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded text-[11px]">
+                  <span className="inline-flex items-center gap-1 font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full text-[11px]">
                     <CheckCircle2 className="w-3.5 h-3.5" /> COMPLIANT / PASS
                   </span>
                 ) : (
-                  <span className="inline-flex items-center gap-1 font-bold text-rose-700 bg-rose-100 px-2 py-0.5 rounded text-[11px]">
+                  <span className="inline-flex items-center gap-1 font-bold text-rose-700 bg-rose-100 px-2 py-0.5 rounded-full text-[11px]">
                     <XCircle className="w-3.5 h-3.5" /> NON-COMPLIANT
                   </span>
                 )}
@@ -143,7 +143,7 @@ export function TestReportModal({ report, onClose }) {
             <h2 className="text-sm font-bold uppercase tracking-wider text-slate-900 border-b border-slate-300 pb-1 flex items-center gap-1.5">
               <span>1. Applicant & Manufacturer Information</span>
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs bg-slate-50/60 p-3 rounded-lg border border-slate-200">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs bg-slate-50/60 p-3.5 rounded-xl border border-slate-200">
               <div>
                 <span className="text-slate-500">Manufacturer Name:</span>
                 <div className="font-bold text-slate-900">{report.manufacturer?.name}</div>
@@ -172,7 +172,7 @@ export function TestReportModal({ report, onClose }) {
             <h2 className="text-sm font-bold uppercase tracking-wider text-slate-900 border-b border-slate-300 pb-1">
               2. Metrological Characteristics of the NAWI
             </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs bg-slate-50/60 p-3 rounded-lg border border-slate-200">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs bg-slate-50/60 p-3.5 rounded-xl border border-slate-200">
               <div>
                 <span className="text-slate-500">Instrument Type:</span>
                 <div className="font-bold text-slate-900">{report.instrument?.type}</div>
@@ -187,7 +187,7 @@ export function TestReportModal({ report, onClose }) {
               </div>
               <div>
                 <span className="text-slate-500">Accuracy Class:</span>
-                <div className="font-bold text-blue-700">{report.instrument?.accuracyClass?.replace('_', ' ')}</div>
+                <div className="font-bold text-[#5842F6]">{report.instrument?.accuracyClass?.replace('_', ' ')}</div>
               </div>
 
               <div>
@@ -214,7 +214,7 @@ export function TestReportModal({ report, onClose }) {
             <h2 className="text-sm font-bold uppercase tracking-wider text-slate-900 border-b border-slate-300 pb-1">
               3. Testing Laboratory & Environmental Conditions
             </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs bg-slate-50/60 p-3 rounded-lg border border-slate-200">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs bg-slate-50/60 p-3.5 rounded-xl border border-slate-200">
               <div className="sm:col-span-2">
                 <span className="text-slate-500">Designated Laboratory:</span>
                 <div className="font-bold text-slate-900">{report.lab?.labName}</div>
@@ -256,18 +256,18 @@ export function TestReportModal({ report, onClose }) {
                 <span className="text-xs font-bold text-slate-900">4.1 Weighing Performance Test (Clause A.4.4)</span>
                 <span className="text-[11px] font-mono text-slate-600">Turning Point: P = I + 0.5d - &Delta;L</span>
               </div>
-              <div className="overflow-x-auto border border-slate-300 rounded-lg">
+              <div className="overflow-x-auto border border-slate-300 rounded-xl">
                 <table className="w-full text-left text-xs border-collapse">
-                  <thead className="bg-slate-100 text-slate-800 font-bold border-b border-slate-300">
+                  <thead className="bg-[#EEF2FF] text-[#5842F6] font-bold border-b border-slate-300">
                     <tr>
-                      <th className="p-2 border-r border-slate-300">Load L ({report.instrument?.unit})</th>
-                      <th className="p-2 border-r border-slate-300">Indication I ({report.instrument?.unit})</th>
-                      <th className="p-2 border-r border-slate-300">&Delta;L ({report.instrument?.unit})</th>
-                      <th className="p-2 border-r border-slate-300">Corrected P</th>
-                      <th className="p-2 border-r border-slate-300">Error E</th>
-                      <th className="p-2 border-r border-slate-300">Corrected Ec</th>
-                      <th className="p-2 border-r border-slate-300">mpe Limit</th>
-                      <th className="p-2 text-center">Status</th>
+                      <th className="p-2.5 border-r border-slate-300">Load L ({report.instrument?.unit})</th>
+                      <th className="p-2.5 border-r border-slate-300">Indication I ({report.instrument?.unit})</th>
+                      <th className="p-2.5 border-r border-slate-300">&Delta;L ({report.instrument?.unit})</th>
+                      <th className="p-2.5 border-r border-slate-300">Corrected P</th>
+                      <th className="p-2.5 border-r border-slate-300">Error E</th>
+                      <th className="p-2.5 border-r border-slate-300">Corrected Ec</th>
+                      <th className="p-2.5 border-r border-slate-300">mpe Limit</th>
+                      <th className="p-2.5 text-center">Status</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-200">
@@ -276,12 +276,12 @@ export function TestReportModal({ report, onClose }) {
                         <td className="p-2 font-mono font-medium border-r border-slate-200">{row.load}</td>
                         <td className="p-2 font-mono border-r border-slate-200">{row.indication}</td>
                         <td className="p-2 font-mono border-r border-slate-200">{row.deltaL}</td>
-                        <td className="p-2 font-mono font-semibold border-r border-slate-200">{row.correctedIndicationP}</td>
+                        <td className="p-2 font-mono font-semibold text-[#5842F6] border-r border-slate-200">{row.correctedIndicationP}</td>
                         <td className="p-2 font-mono border-r border-slate-200">{row.errorE}</td>
                         <td className="p-2 font-mono font-bold text-slate-900 border-r border-slate-200">{row.correctedErrorEc}</td>
-                        <td className="p-2 font-mono text-slate-600 border-r border-slate-200">&plusmn;{row.mpeLimit}</td>
+                        <td className="p-2 font-mono text-amber-700 font-semibold border-r border-slate-200">&plusmn;{row.mpeLimit}</td>
                         <td className="p-2 text-center">
-                          <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${row.isPass ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'}`}>
+                          <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${row.isPass ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'}`}>
                             {row.isPass ? 'PASS' : 'FAIL'}
                           </span>
                         </td>
@@ -295,34 +295,34 @@ export function TestReportModal({ report, onClose }) {
             {/* Other Tests Summary Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
               
-              <div className="p-3 bg-slate-50 border border-slate-200 rounded-lg space-y-1">
+              <div className="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
                 <div className="font-bold text-slate-900">4.2 Eccentricity Test (A.4.7)</div>
                 <div className="text-slate-600">Test Load: {report.testResults?.eccentricity?.testLoad} {report.instrument?.unit}</div>
                 <div className="text-slate-600">mpe Limit: &plusmn;{report.testResults?.eccentricity?.mpeLimit} {report.instrument?.unit}</div>
                 <div className="pt-1">
-                  <span className="font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded text-[10px]">
+                  <span className="font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full text-[10px]">
                     {report.testResults?.eccentricity?.isPass ? 'PASSED (All Positions)' : 'FAILED'}
                   </span>
                 </div>
               </div>
 
-              <div className="p-3 bg-slate-50 border border-slate-200 rounded-lg space-y-1">
+              <div className="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
                 <div className="font-bold text-slate-900">4.3 Repeatability Test (A.4.10)</div>
                 <div className="text-slate-600">Test Load: {report.testResults?.repeatability?.testLoad} {report.instrument?.unit}</div>
                 <div className="text-slate-600">Observed Range: {report.testResults?.repeatability?.range} {report.instrument?.unit}</div>
                 <div className="pt-1">
-                  <span className="font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded text-[10px]">
+                  <span className="font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full text-[10px]">
                     {report.testResults?.repeatability?.isPass ? 'PASSED (Range <= |mpe|)' : 'FAILED'}
                   </span>
                 </div>
               </div>
 
-              <div className="p-3 bg-slate-50 border border-slate-200 rounded-lg space-y-1">
+              <div className="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
                 <div className="font-bold text-slate-900">4.4 Zero & Discrimination (A.4.2)</div>
                 <div className="text-slate-600">Zero Error |E0|: {report.testResults?.zeroSetting?.zeroErrorE0 || '0.000'} {report.instrument?.unit}</div>
                 <div className="text-slate-600">Tolerance (0.25e): &plusmn;{report.testResults?.zeroSetting?.tolerance || (0.25 * report.instrument?.eValue)} {report.instrument?.unit}</div>
                 <div className="pt-1">
-                  <span className="font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded text-[10px]">
+                  <span className="font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full text-[10px]">
                     {report.testResults?.zeroSetting?.isPass ? 'PASSED' : 'FAILED'}
                   </span>
                 </div>
@@ -333,8 +333,8 @@ export function TestReportModal({ report, onClose }) {
           </div>
 
           {/* Section 5: Conclusion & Recommendation */}
-          <div className="mb-8 p-4 bg-slate-50 border-l-4 border-cyan-600 rounded-r-lg text-xs space-y-1">
-            <h3 className="font-bold text-slate-900 uppercase">5. Metrological Conclusion & Recommendation</h3>
+          <div className="mb-8 p-4 bg-[#EEF2FF] border-l-4 border-[#5842F6] rounded-r-2xl text-xs space-y-1">
+            <h3 className="font-bold text-[#5842F6] uppercase">5. Metrological Conclusion & Recommendation</h3>
             <p className="text-slate-800 leading-relaxed">
               {report.conclusion}
             </p>
@@ -352,12 +352,12 @@ export function TestReportModal({ report, onClose }) {
             </div>
 
             {/* Tamper-Proof Cryptographic QR & Hash */}
-            <div className="p-3 bg-slate-100 border border-slate-300 rounded-xl text-center space-y-1">
+            <div className="p-3 bg-slate-50 border border-slate-200 rounded-2xl text-center space-y-1">
               <div className="flex justify-center">
-                <QrCode className="w-10 h-10 text-slate-800" />
+                <QrCode className="w-10 h-10 text-[#5842F6]" />
               </div>
               <div className="text-[10px] font-bold text-slate-700 uppercase">SHA-256 Digital Verification Hash</div>
-              <div className="font-mono text-[9px] text-slate-600 break-all bg-white p-1 rounded border border-slate-200">
+              <div className="font-mono text-[9px] text-slate-600 break-all bg-white p-1 rounded-lg border border-slate-200">
                 {report.integrityHash || 'a89f4b3e8c2d119e7a4f653b92d83a12f9b8c7e6d5a4b3c2e1f0d9c8b7a6e5f4'}
               </div>
             </div>
@@ -374,7 +374,7 @@ export function TestReportModal({ report, onClose }) {
 
           {/* Footer note */}
           <div className="text-center text-[10px] text-slate-500 pt-6 mt-6 border-t border-slate-200">
-            This test report is generated by MetronAI (SIH 2026 PS 26035) and is legally valid under the Legal Metrology Act, 2009 and OIML R-76. Verify online at: doca.gov.in/legal-metrology
+            This test report is generated by TARAZU (SIH 2026 PS 26035) and is legally valid under the Legal Metrology Act, 2009 and OIML R-76. Verify online at: doca.gov.in/legal-metrology
           </div>
 
         </div>
@@ -383,3 +383,5 @@ export function TestReportModal({ report, onClose }) {
     </div>
   );
 }
+
+export default TestReportModal;

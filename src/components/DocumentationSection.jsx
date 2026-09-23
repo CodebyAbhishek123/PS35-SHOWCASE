@@ -1,64 +1,92 @@
 import React, { useState } from 'react';
-import { BookOpen, FileText, Code, CheckCircle, ExternalLink, Download, ArrowRight, ShieldCheck } from 'lucide-react';
-import { exportReportToJSON } from '../utils/exportUtils';
-import { INITIAL_REPORTS } from '../utils/sampleReportsData';
+import { 
+  FileText, Download, CheckCircle2, ShieldCheck, Calculator, ExternalLink, Eye 
+} from 'lucide-react';
 
 export function DocumentationSection({ onOpenSampleReport }) {
   const [activeDocTab, setActiveDocTab] = useState('math');
 
-  const oimlClauses = [
-    { clause: "Clause 3.2", title: "Principles of Classification", description: "Defines Class I, II, III, IIII based on verification scale interval (e) and number of scale intervals (n = Max/e)." },
-    { clause: "Clause 3.5.1", title: "Maximum Permissible Errors (MPE)", description: "Stepped permissible error limits on initial verification: ±0.5e, ±1.0e, ±1.5e." },
-    { clause: "Clause A.4.4.3", title: "Turning Point Indication (P)", description: "Determination of true indication using delta-L weights: P = I + 0.5d - delta-L." },
-    { clause: "Clause A.4.7", title: "Eccentricity (Corner Load)", description: "Applying 1/3 Max (or 1/4 Max) across four quadrants/corners to verify sensor load symmetry." },
-    { clause: "Clause A.4.10", title: "Repeatability Determination", description: "Series of weighings at 50% and 100% Max where (E_max - E_min) <= |MPE|." },
-    { clause: "Clause A.4.2", title: "Zero-Setting Accuracy", description: "Ensures residual zero error |E0| does not exceed 0.25e." }
+  const mathFormulas = [
+    {
+      title: "Corrected Indication (P)",
+      formula: "P = I + 0.5e - ΔL",
+      desc: "Clause A.4.4. Calculates actual load turning point by measuring small sub-division weights ΔL needed to cause indication I to flicker to I + e."
+    },
+    {
+      title: "True Error (E)",
+      formula: "E = P - L",
+      desc: "Calculates difference between corrected indication P and actual applied test load L before zero adjustment."
+    },
+    {
+      title: "Zero-Corrected Error (Ec)",
+      formula: "Ec = E - E0",
+      desc: "Adjusts true error by subtracting zero load error E0. This Ec value is compared directly against OIML R-76 MPE tables."
+    }
   ];
 
-  const downloadSampleData = () => {
-    exportReportToJSON(INITIAL_REPORTS[0]);
-  };
+  const legalClauses = [
+    {
+      clause: "Clause A.4.4",
+      title: "Determination of Turning Point Error",
+      detail: "Specifies use of small weights (0.1e) added to load receptor until display changes to next division."
+    },
+    {
+      clause: "Table 3 & 4",
+      title: "Maximum Permissible Errors (MPE)",
+      detail: "Defines non-linear error limits: ±0.5e (0 to 500e), ±1.0e (500e to 2000e), ±1.5e (2000e to 10000e) for Class III."
+    },
+    {
+      clause: "Clause A.4.7",
+      title: "Eccentricity (Corner Load) Test",
+      detail: "Requires testing at 1/3 Max (or 1/4 Max) across 5 standard platform locations with error not exceeding MPE."
+    },
+    {
+      clause: "Clause A.4.10",
+      title: "Repeatability Verification",
+      detail: "Demands 10 successive weighings at 50% & 100% Max; max difference must not exceed absolute value of MPE."
+    }
+  ];
 
   return (
-    <section id="documentation" className="py-20 md:py-28 relative border-t border-slate-200 bg-slate-50">
+    <section id="documentation" className="py-20 md:py-28 relative border-t border-slate-200 bg-white text-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#004741]/10 border border-[#004741]/20 text-xs font-bold text-[#004741]">
-            <span>METROLOGICAL SPECIFICATIONS & MANUAL</span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EEF2FF] border border-[#5842F6]/20 text-xs font-bold text-[#5842F6]">
+            <span>STATUTORY REFERENCE</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#004741]">
-            Technical <span className="text-red-600">Documentation</span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
+            Technical Documentation & <span className="text-[#5842F6]">OIML Formats</span>
           </h2>
           <p className="text-slate-600 text-sm sm:text-base">
-            Formal reference guide covering OIML R-76 mathematical formulas, Legal Metrology rules, and system integration.
+            Detailed mathematical formulations, test clause references, and downloadable report samples.
           </p>
         </div>
 
-        {/* Documentation Sub-Tabs */}
+        {/* Tab Controls */}
         <div className="flex justify-center mb-10">
-          <div className="inline-flex p-1 rounded-xl bg-white border border-slate-300 shadow-sm">
+          <div className="bg-[#F8FAFC] p-1.5 rounded-2xl border border-slate-200 inline-flex gap-2">
             <button
               onClick={() => setActiveDocTab('math')}
-              className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                activeDocTab === 'math' ? 'bg-[#004741] text-white shadow-md' : 'text-slate-600 hover:text-[#004741]'
+              className={`px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                activeDocTab === 'math' ? 'bg-[#5842F6] text-white shadow-md' : 'text-slate-600 hover:text-[#5842F6]'
               }`}
             >
-              Calculation Methodology
+              Math Engine Equations
             </button>
             <button
               onClick={() => setActiveDocTab('clauses')}
-              className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                activeDocTab === 'clauses' ? 'bg-[#004741] text-white shadow-md' : 'text-slate-600 hover:text-[#004741]'
+              className={`px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                activeDocTab === 'clauses' ? 'bg-[#5842F6] text-white shadow-md' : 'text-slate-600 hover:text-[#5842F6]'
               }`}
             >
               OIML R-76 Clauses
             </button>
             <button
               onClick={() => setActiveDocTab('legal')}
-              className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                activeDocTab === 'legal' ? 'bg-[#004741] text-white shadow-md' : 'text-slate-600 hover:text-[#004741]'
+              className={`px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                activeDocTab === 'legal' ? 'bg-[#5842F6] text-white shadow-md' : 'text-slate-600 hover:text-[#5842F6]'
               }`}
             >
               Legal Metrology Act 2009
@@ -66,121 +94,76 @@ export function DocumentationSection({ onOpenSampleReport }) {
           </div>
         </div>
 
-        {/* Tab 1: Math Calculation Methodology */}
-        {activeDocTab === 'math' && (
-          <div className="space-y-6">
+        {/* Tab Content Display */}
+        <div className="bg-[#F8FAFC] p-6 sm:p-10 rounded-3xl border border-slate-200 shadow-sm mb-12">
+          
+          {activeDocTab === 'math' && (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              
-              <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-                <div className="p-2.5 w-fit rounded-xl bg-teal-50 text-[#004741] border border-teal-200">
-                  <Code className="w-5 h-5" />
+              {mathFormulas.map((item, idx) => (
+                <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-200 space-y-3 shadow-2xs">
+                  <div className="p-2.5 w-fit rounded-xl bg-[#EEF2FF] text-[#5842F6] border border-indigo-200">
+                    <Calculator className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-bold text-slate-900 text-base">{item.title}</h3>
+                  <div className="p-3 rounded-xl bg-[#EEF2FF]/70 font-mono text-xs text-[#5842F6] font-bold border border-indigo-200">
+                    {item.formula}
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
                 </div>
-                <h3 className="font-bold text-[#004741] text-base">1. Corrected Indication (P)</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  Calculated using the Turning Point method (Clause A.4.4.3). Sub-division weights ($\Delta L$) are placed until the indication shifts by one scale division ($d$).
-                </p>
-                <div className="p-3 rounded-lg bg-[#F0EDE4] font-mono text-xs text-[#004741] font-bold border border-slate-300">
-                  P = I + 0.5d - &Delta;L
-                </div>
-              </div>
-
-              <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-                <div className="p-2.5 w-fit rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200">
-                  <Code className="w-5 h-5" />
-                </div>
-                <h3 className="font-bold text-[#004741] text-base">2. True & Corrected Error</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  True error $E$ is the difference between $P$ and standard test load $L$. The zero-corrected error $E_c$ eliminates residual zero offset $E_0$.
-                </p>
-                <div className="p-3 rounded-lg bg-[#F0EDE4] font-mono text-xs text-emerald-800 font-bold border border-slate-300 space-y-1">
-                  <div>E = P - L</div>
-                  <div>Ec = E - E0</div>
-                </div>
-              </div>
-
-              <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-                <div className="p-2.5 w-fit rounded-xl bg-amber-50 text-amber-700 border border-amber-200">
-                  <Code className="w-5 h-5" />
-                </div>
-                <h3 className="font-bold text-[#004741] text-base">3. Compliance Determination</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  The instrument passes if and only if the absolute zero-corrected error $|E_c|$ does not exceed the Maximum Permissible Error ($mpe$) for every evaluated load.
-                </p>
-                <div className="p-3 rounded-lg bg-[#F0EDE4] font-mono text-xs text-amber-800 font-bold border border-slate-300">
-                  |Ec| &le; |mpe(L)|
-                </div>
-              </div>
-
+              ))}
             </div>
-          </div>
-        )}
+          )}
 
-        {/* Tab 2: OIML R-76 Clauses */}
-        {activeDocTab === 'clauses' && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {oimlClauses.map((c, idx) => (
-              <div key={idx} className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-2">
-                <div className="inline-block px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-[#004741]/10 text-[#004741] border border-[#004741]/20">
-                  {c.clause}
+          {activeDocTab === 'clauses' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {legalClauses.map((c, idx) => (
+                <div key={idx} className="bg-white p-5 rounded-2xl border border-slate-200 space-y-2 shadow-2xs">
+                  <div className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-[#EEF2FF] text-[#5842F6] border border-[#5842F6]/20">
+                    {c.clause}
+                  </div>
+                  <h4 className="font-bold text-slate-900 text-sm">{c.title}</h4>
+                  <p className="text-xs text-slate-600 leading-relaxed">{c.detail}</p>
                 </div>
-                <h4 className="font-bold text-[#004741] text-sm">{c.title}</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">{c.description}</p>
-              </div>
-            ))}
-          </div>
-        )}
+              ))}
+            </div>
+          )}
 
-        {/* Tab 3: Legal Metrology Act 2009 */}
-        {activeDocTab === 'legal' && (
-          <div className="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-5">
-            <h3 className="text-lg font-bold text-[#004741] flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-emerald-600" />
-              Statutory Alignment with Legal Metrology (General) Rules, 2011
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-700">
-              <div className="p-4 rounded-xl bg-[#F0EDE4] border border-slate-300 space-y-2">
-                <span className="font-bold text-[#004741]">Seventh Schedule: Non-Automatic Weighing Instruments</span>
-                <p className="text-slate-600 leading-relaxed">
-                  Prescribes technical and metrological requirements aligning completely with OIML R-76 for instruments used in Indian trade and consumer safety.
-                </p>
-              </div>
-              <div className="p-4 rounded-xl bg-[#F0EDE4] border border-slate-300 space-y-2">
-                <span className="font-bold text-emerald-800">Section 19: Approval of Models</span>
-                <p className="text-slate-600 leading-relaxed">
-                  Requires central model approval testing before production or import, backed by standardized laboratory test reports generated by MetronAI.
-                </p>
+          {activeDocTab === 'legal' && (
+            <div className="bg-white p-6 rounded-2xl border border-slate-200 space-y-4 shadow-2xs">
+              <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-[#5842F6]" />
+                <span>Statutory Mandate under Legal Metrology Act, 2009</span>
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Section 19 mandates that every weight or measure model intended for manufacturing, importing, or commercial transaction must undergo rigorous prototype testing and obtain formal Model Approval from the Central Government.
+              </p>
+              <div className="p-4 rounded-xl bg-[#EEF2FF] text-xs text-slate-700 leading-relaxed space-y-2 border border-indigo-200">
+                <div className="font-bold text-[#5842F6]">Seventh Schedule: Non-Automatic Weighing Instruments</div>
+                <div>Requires testing laboratories to issue certificates containing complete metrological logs, environmental observations, and turning point calculations.</div>
               </div>
             </div>
-          </div>
-        )}
+          )}
 
-        {/* Downloadable Assets Footer */}
-        <div className="mt-12 p-6 rounded-2xl bg-[#F0EDE4] border border-slate-300 flex flex-wrap items-center justify-between gap-4">
+        </div>
+
+        {/* Sample Download Strip */}
+        <div className="bg-[#EEF2FF] rounded-2xl p-6 border border-[#5842F6]/30 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-2xs">
           <div>
-            <h4 className="font-bold text-[#004741] text-sm">Download Benchmark OIML Datasets & Sample Reports</h4>
-            <p className="text-xs text-slate-600 mt-0.5">Explore machine-readable JSON schemas and verified test outputs.</p>
+            <h4 className="font-bold text-slate-900 text-sm sm:text-base">Download Benchmark OIML Datasets & Sample Reports</h4>
+            <p className="text-xs text-slate-600">Sample evaluation certificate for Class III 15kg commercial retail scale.</p>
           </div>
-
-          <div className="flex items-center gap-3">
-            <button
-              onClick={downloadSampleData}
-              className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-700 bg-white hover:bg-slate-100 border border-slate-300 flex items-center gap-1.5 transition-colors cursor-pointer shadow-sm"
-            >
-              <Download className="w-3.5 h-3.5 text-[#004741]" />
-              <span>Export Sample JSON</span>
-            </button>
-
-            <button
-              onClick={() => onOpenSampleReport('REP-2026-001')}
-              className="px-4 py-2 rounded-xl text-xs font-bold text-white bg-red-600 hover:bg-red-700 flex items-center gap-1.5 transition-colors cursor-pointer shadow-md"
-            >
-              <FileText className="w-3.5 h-3.5" />
-              <span>View Official Report</span>
-            </button>
-          </div>
+          <button
+            onClick={() => onOpenSampleReport('REP-2026-001')}
+            className="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-[#5842F6] hover:bg-[#4338CA] shadow-md shadow-[#5842F6]/30 transition-all flex items-center gap-2 cursor-pointer shrink-0"
+          >
+            <Eye className="w-4 h-4" />
+            <span>Open Sample Certificate</span>
+          </button>
         </div>
 
       </div>
     </section>
   );
 }
+
+export default DocumentationSection;

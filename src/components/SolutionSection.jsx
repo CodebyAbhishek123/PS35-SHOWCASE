@@ -41,16 +41,16 @@ export function SolutionSection({ onOpenSandbox }) {
   ];
 
   return (
-    <section id="solution" className="py-20 md:py-28 relative border-t border-slate-200 bg-slate-50 text-slate-800">
+    <section id="solution" className="py-20 md:py-28 relative border-t border-slate-200 bg-white text-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#F0EDE4] border border-[#004741]/20 text-xs font-bold text-[#004741]">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EEF2FF] border border-[#5842F6]/20 text-xs font-bold text-[#5842F6]">
             <span>OUR PROPOSED ARCHITECTURE</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-[#004741]">
-            End-to-End <span className="text-[#FF1E27]">Automated Type Evaluation</span>
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
+            End-to-End <span className="text-[#5842F6]">Automated Type Evaluation</span>
           </h2>
           <p className="text-slate-600 text-sm sm:text-base">
             From test bench observations to digitally signed, tamper-evident statutory reports in seconds.
@@ -62,18 +62,18 @@ export function SolutionSection({ onOpenSandbox }) {
           {steps.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div key={idx} className="bg-white p-5 rounded-2xl border border-slate-200 flex flex-col justify-between relative group hover:border-[#004741] transition-all shadow-sm">
+              <div key={idx} className="bg-[#F8FAFC] p-5 rounded-2xl border border-slate-200 flex flex-col justify-between relative group hover:border-[#5842F6] transition-all shadow-2xs">
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-2xl font-black text-slate-300 group-hover:text-[#004741] font-mono transition-colors">
+                    <span className="text-2xl font-black text-slate-300 group-hover:text-[#5842F6] font-mono transition-colors">
                       {item.step}
                     </span>
-                    <div className="p-2 rounded-lg bg-[#F0EDE4] text-[#004741]">
+                    <div className="p-2 rounded-xl bg-[#EEF2FF] text-[#5842F6]">
                       <Icon className="w-4 h-4" />
                     </div>
                   </div>
 
-                  <h3 className="font-bold text-[#004741] text-sm sm:text-base mb-2">
+                  <h3 className="font-bold text-slate-900 text-sm sm:text-base mb-2">
                     {item.title}
                   </h3>
 
@@ -82,8 +82,8 @@ export function SolutionSection({ onOpenSandbox }) {
                   </p>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-slate-100">
-                  <span className="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-[#F0EDE4] text-[#004741] border border-[#004741]/20">
+                <div className="mt-4 pt-3 border-t border-slate-200">
+                  <span className="inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-[#EEF2FF] text-[#5842F6] border border-[#5842F6]/20">
                     {item.badge}
                   </span>
                 </div>

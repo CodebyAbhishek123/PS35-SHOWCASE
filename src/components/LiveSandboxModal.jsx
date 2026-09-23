@@ -121,7 +121,6 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
 
   // Generate Report Action
   const handleFinalizeReport = async () => {
-    // Trigger confetti
     try {
       confetti({
         particleCount: 100,
@@ -204,22 +203,22 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-2 sm:p-4">
-      <div className="relative w-full max-w-5xl bg-white rounded-3xl border border-slate-300 shadow-2xl overflow-hidden my-6">
+      <div className="relative w-full max-w-5xl bg-white rounded-3xl border border-slate-200 shadow-2xl overflow-hidden my-6">
         
         {/* Header Bar */}
-        <div className="bg-[#F0EDE4] px-6 py-4 border-b border-slate-300 flex items-center justify-between">
+        <div className="bg-[#EEF2FF] px-6 py-4 border-b border-indigo-100 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="p-2 rounded-xl bg-red-600/10 border border-red-600/20 text-red-600">
+            <span className="p-2.5 rounded-xl bg-[#5842F6] text-white shadow-md shadow-[#5842F6]/30">
               <Scale className="w-5 h-5" />
             </span>
             <div>
-              <h3 className="text-base font-bold text-[#004741] flex items-center gap-2">
-                OIML R-76 Guided Type Evaluation Wizard
-                <span className="text-[11px] font-semibold text-red-600 bg-red-600/10 px-2 py-0.5 rounded border border-red-600/20">
+              <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+                TARAZU — OIML R-76 Type Evaluation Wizard
+                <span className="text-[11px] font-extrabold text-[#5842F6] bg-white px-2 py-0.5 rounded-full border border-[#5842F6]/30">
                   Step {currentStep} of 4
                 </span>
               </h3>
-              <p className="text-xs text-slate-600">
+              <p className="text-xs text-slate-500 font-medium">
                 Department of Consumer Affairs • Smart India Hackathon PS 26035
               </p>
             </div>
@@ -227,14 +226,14 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-xl text-slate-500 hover:text-slate-900 hover:bg-slate-200 transition-colors cursor-pointer"
+            className="p-1.5 rounded-xl text-slate-400 hover:text-slate-900 hover:bg-white transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Wizard Steps Progress Indicator */}
-        <div className="bg-slate-100 px-6 py-3 border-b border-slate-300 flex items-center justify-between text-xs">
+        <div className="bg-slate-50 px-6 py-3 border-b border-slate-200 flex items-center justify-between text-xs">
           {[
             { step: 1, title: 'Instrument Meta' },
             { step: 2, title: 'Lab Conditions' },
@@ -246,18 +245,18 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
               onClick={() => setCurrentStep(s.step)}
               className={`flex items-center gap-2 font-medium transition-colors cursor-pointer ${
                 currentStep === s.step 
-                  ? 'text-red-600 font-bold' 
+                  ? 'text-[#5842F6] font-extrabold' 
                   : currentStep > s.step 
-                    ? 'text-emerald-700 font-semibold' 
-                    : 'text-slate-500'
+                    ? 'text-emerald-600 font-bold' 
+                    : 'text-slate-400'
               }`}
             >
               <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] ${
                 currentStep === s.step 
-                  ? 'bg-red-600 text-white' 
+                  ? 'bg-[#5842F6] text-white' 
                   : currentStep > s.step 
                     ? 'bg-emerald-100 text-emerald-800 border border-emerald-300 font-bold' 
-                    : 'bg-slate-200 text-slate-600'
+                    : 'bg-slate-200 text-slate-500'
               }`}>
                 {currentStep > s.step ? '✓' : s.step}
               </span>
@@ -267,16 +266,16 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
         </div>
 
         {/* Step Content */}
-        <div className="p-6 max-h-[70vh] overflow-y-auto space-y-6 bg-slate-50">
+        <div className="p-6 max-h-[70vh] overflow-y-auto space-y-6 bg-[#F8FAFC]">
           
           {/* STEP 1: Instrument & Manufacturer */}
           {currentStep === 1 && (
             <div className="space-y-5">
-              <div className="border-b border-slate-300 pb-3">
-                <h4 className="text-sm font-bold text-[#004741] uppercase tracking-wider">
+              <div className="border-b border-slate-200 pb-3">
+                <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider">
                   1. Applicant & Instrument Specifications
                 </h4>
-                <p className="text-xs text-slate-600">
+                <p className="text-xs text-slate-500">
                   Enter manufacturer details and core metrological characteristics.
                 </p>
               </div>
@@ -288,7 +287,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                     type="text"
                     value={formData.manufacturerName}
                     onChange={(e) => setFormData({ ...formData, manufacturerName: e.target.value })}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-800 font-medium focus:border-red-600 focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-slate-800 font-medium focus:border-[#5842F6] focus:outline-none"
                   />
                 </div>
 
@@ -298,7 +297,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                     type="text"
                     value={formData.manufacturerReg}
                     onChange={(e) => setFormData({ ...formData, manufacturerReg: e.target.value })}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-800 font-medium focus:border-red-600 focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-slate-800 font-medium focus:border-[#5842F6] focus:outline-none"
                   />
                 </div>
 
@@ -308,7 +307,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                     type="text"
                     value={formData.manufacturerAddress}
                     onChange={(e) => setFormData({ ...formData, manufacturerAddress: e.target.value })}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-800 font-medium focus:border-red-600 focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-slate-800 font-medium focus:border-[#5842F6] focus:outline-none"
                   />
                 </div>
 
@@ -318,7 +317,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                     type="text"
                     value={formData.instrumentType}
                     onChange={(e) => setFormData({ ...formData, instrumentType: e.target.value })}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-800 font-medium focus:border-red-600 focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-slate-800 font-medium focus:border-[#5842F6] focus:outline-none"
                   />
                 </div>
 
@@ -328,7 +327,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                     type="text"
                     value={formData.modelName}
                     onChange={(e) => setFormData({ ...formData, modelName: e.target.value })}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-800 font-medium focus:border-red-600 focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-slate-800 font-medium focus:border-[#5842F6] focus:outline-none"
                   />
                 </div>
 
@@ -338,7 +337,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                     type="text"
                     value={formData.serialNumber}
                     onChange={(e) => setFormData({ ...formData, serialNumber: e.target.value })}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-800 font-medium focus:border-red-600 focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-slate-800 font-medium focus:border-[#5842F6] focus:outline-none"
                   />
                 </div>
 
@@ -347,7 +346,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                   <select
                     value={formData.accuracyClass}
                     onChange={(e) => setFormData({ ...formData, accuracyClass: e.target.value })}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-800 font-medium focus:border-red-600 focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-slate-800 font-medium focus:border-[#5842F6] focus:outline-none"
                   >
                     <option value="CLASS_I">Class I (Special) - Analytical Balance</option>
                     <option value="CLASS_II">Class II (High) - Laboratory/Gold Scale</option>
@@ -362,7 +361,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                     type="number"
                     value={formData.maxCapacity}
                     onChange={(e) => setFormData({ ...formData, maxCapacity: Number(e.target.value) })}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-800 font-mono focus:border-red-600 focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-slate-800 font-mono focus:border-[#5842F6] focus:outline-none"
                   />
                 </div>
 
@@ -372,7 +371,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                     type="number"
                     value={formData.minCapacity}
                     onChange={(e) => setFormData({ ...formData, minCapacity: Number(e.target.value) })}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-800 font-mono focus:border-red-600 focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-slate-800 font-mono focus:border-[#5842F6] focus:outline-none"
                   />
                 </div>
 
@@ -383,7 +382,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                     step="any"
                     value={formData.eValue}
                     onChange={(e) => setFormData({ ...formData, eValue: Number(e.target.value) })}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-800 font-mono focus:border-red-600 focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-slate-800 font-mono focus:border-[#5842F6] focus:outline-none"
                   />
                 </div>
 
@@ -392,7 +391,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                   <select
                     value={formData.unit}
                     onChange={(e) => setFormData({ ...formData, unit: e.target.value })}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-800 font-mono focus:border-red-600 focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-slate-800 font-mono focus:border-[#5842F6] focus:outline-none"
                   >
                     <option value="kg">kg</option>
                     <option value="g">g</option>
@@ -407,11 +406,11 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
           {/* STEP 2: Lab & Environment */}
           {currentStep === 2 && (
             <div className="space-y-5">
-              <div className="border-b border-slate-300 pb-3">
-                <h4 className="text-sm font-bold text-[#004741] uppercase tracking-wider">
+              <div className="border-b border-slate-200 pb-3">
+                <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider">
                   2. Laboratory Setup & Environmental Conditions
                 </h4>
-                <p className="text-xs text-slate-600">
+                <p className="text-xs text-slate-500">
                   Recorded at the start of evaluation under NABL / DoCA guidelines.
                 </p>
               </div>
@@ -423,7 +422,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                     type="text"
                     value={formData.labName}
                     onChange={(e) => setFormData({ ...formData, labName: e.target.value })}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-800 font-medium focus:border-red-600 focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-slate-800 font-medium focus:border-[#5842F6] focus:outline-none"
                   />
                 </div>
 
@@ -433,7 +432,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                     type="text"
                     value={formData.accreditationRef}
                     onChange={(e) => setFormData({ ...formData, accreditationRef: e.target.value })}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-800 font-medium focus:border-red-600 focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-slate-800 font-medium focus:border-[#5842F6] focus:outline-none"
                   />
                 </div>
 
@@ -443,7 +442,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                     type="text"
                     value={formData.testingOfficer}
                     onChange={(e) => setFormData({ ...formData, testingOfficer: e.target.value })}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-800 font-medium focus:border-red-600 focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-slate-800 font-medium focus:border-[#5842F6] focus:outline-none"
                   />
                 </div>
 
@@ -453,7 +452,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                     type="text"
                     value={formData.approvingAuthority}
                     onChange={(e) => setFormData({ ...formData, approvingAuthority: e.target.value })}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-800 font-medium focus:border-red-600 focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-slate-800 font-medium focus:border-[#5842F6] focus:outline-none"
                   />
                 </div>
 
@@ -463,7 +462,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                     type="text"
                     value={formData.referenceStandardsRef}
                     onChange={(e) => setFormData({ ...formData, referenceStandardsRef: e.target.value })}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-800 font-medium focus:border-red-600 focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-slate-800 font-medium focus:border-[#5842F6] focus:outline-none"
                   />
                 </div>
 
@@ -474,7 +473,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                     step="0.1"
                     value={formData.ambientTemp}
                     onChange={(e) => setFormData({ ...formData, ambientTemp: Number(e.target.value) })}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-800 font-mono focus:border-red-600 focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-slate-800 font-mono focus:border-[#5842F6] focus:outline-none"
                   />
                 </div>
 
@@ -484,7 +483,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                     type="number"
                     value={formData.relativeHumidity}
                     onChange={(e) => setFormData({ ...formData, relativeHumidity: Number(e.target.value) })}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-800 font-mono focus:border-red-600 focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-slate-800 font-mono focus:border-[#5842F6] focus:outline-none"
                   />
                 </div>
 
@@ -495,7 +494,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                     step="0.1"
                     value={formData.atmosphericPressure}
                     onChange={(e) => setFormData({ ...formData, atmosphericPressure: Number(e.target.value) })}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-800 font-mono focus:border-red-600 focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-slate-800 font-mono focus:border-[#5842F6] focus:outline-none"
                   />
                 </div>
 
@@ -506,7 +505,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                     step="0.1"
                     value={formData.mainsVoltage}
                     onChange={(e) => setFormData({ ...formData, mainsVoltage: Number(e.target.value) })}
-                    className="w-full bg-white border border-slate-300 rounded-lg p-2.5 text-slate-800 font-mono focus:border-red-600 focus:outline-none"
+                    className="w-full bg-white border border-slate-200 rounded-xl p-2.5 text-slate-800 font-mono focus:border-[#5842F6] focus:outline-none"
                   />
                 </div>
               </div>
@@ -516,19 +515,19 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
           {/* STEP 3: Test Observations & Automated Math */}
           {currentStep === 3 && (
             <div className="space-y-6">
-              <div className="flex items-center justify-between border-b border-slate-300 pb-3">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-3">
                 <div>
-                  <h4 className="text-sm font-bold text-[#004741] uppercase tracking-wider">
+                  <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider">
                     3. Metrological Observations & Turning Point Engine
                   </h4>
-                  <p className="text-xs text-slate-600">
+                  <p className="text-xs text-slate-500">
                     OIML R-76-1: P = I + 0.5d - &Delta;L, Ec = E - E0. Evaluates against MPE in real time.
                   </p>
                 </div>
 
                 <button
                   onClick={addWeighingRow}
-                  className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#004741] hover:bg-[#003833] text-white flex items-center gap-1 cursor-pointer shadow-sm"
+                  className="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-[#5842F6] hover:bg-[#4338CA] text-white flex items-center gap-1 cursor-pointer shadow-xs"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   <span>Add Load Point</span>
@@ -536,18 +535,18 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
               </div>
 
               {/* Weighing Performance Table */}
-              <div className="overflow-x-auto border border-slate-300 rounded-xl bg-white shadow-sm">
+              <div className="overflow-x-auto border border-slate-200 rounded-2xl bg-white shadow-2xs">
                 <table className="w-full text-left text-xs border-collapse">
-                  <thead className="bg-[#F0EDE4] text-[#004741] font-bold border-b border-slate-300">
+                  <thead className="bg-[#EEF2FF] text-[#5842F6] font-bold border-b border-slate-200">
                     <tr>
-                      <th className="p-2.5">Load L ({formData.unit})</th>
-                      <th className="p-2.5">Indication I ({formData.unit})</th>
-                      <th className="p-2.5">&Delta;L Sub-weight ({formData.unit})</th>
-                      <th className="p-2.5 text-[#004741]">Corrected P</th>
-                      <th className="p-2.5 text-slate-900">Error Ec</th>
-                      <th className="p-2.5 text-amber-800">mpe Limit</th>
-                      <th className="p-2.5 text-center">Status</th>
-                      <th className="p-2.5 text-center">Action</th>
+                      <th className="p-3">Load L ({formData.unit})</th>
+                      <th className="p-3">Indication I ({formData.unit})</th>
+                      <th className="p-3">&Delta;L Sub-weight ({formData.unit})</th>
+                      <th className="p-3 text-[#5842F6]">Corrected P</th>
+                      <th className="p-3 text-slate-900">Error Ec</th>
+                      <th className="p-3 text-amber-700">mpe Limit</th>
+                      <th className="p-3 text-center">Status</th>
+                      <th className="p-3 text-center">Action</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-200 font-mono text-slate-800">
@@ -559,7 +558,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                             step="any"
                             value={row.load}
                             onChange={(e) => updateWeighingRow(idx, 'load', e.target.value)}
-                            className="w-24 bg-white border border-slate-300 rounded px-2 py-1 text-slate-800 text-xs font-mono"
+                            className="w-24 bg-white border border-slate-200 rounded-lg px-2 py-1 text-slate-800 text-xs font-mono"
                           />
                         </td>
                         <td className="p-2">
@@ -568,7 +567,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                             step="any"
                             value={row.indication}
                             onChange={(e) => updateWeighingRow(idx, 'indication', e.target.value)}
-                            className="w-24 bg-white border border-slate-300 rounded px-2 py-1 text-slate-800 text-xs font-mono"
+                            className="w-24 bg-white border border-slate-200 rounded-lg px-2 py-1 text-slate-800 text-xs font-mono"
                           />
                         </td>
                         <td className="p-2">
@@ -577,14 +576,14 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                             step="any"
                             value={row.deltaL}
                             onChange={(e) => updateWeighingRow(idx, 'deltaL', e.target.value)}
-                            className="w-24 bg-white border border-slate-300 rounded px-2 py-1 text-slate-800 text-xs font-mono"
+                            className="w-24 bg-white border border-slate-200 rounded-lg px-2 py-1 text-slate-800 text-xs font-mono"
                           />
                         </td>
-                        <td className="p-2 text-[#004741] font-bold">{row.correctedIndicationP}</td>
+                        <td className="p-2 text-[#5842F6] font-bold">{row.correctedIndicationP}</td>
                         <td className="p-2 font-bold text-slate-900">{row.correctedErrorEc > 0 ? `+${row.correctedErrorEc}` : row.correctedErrorEc}</td>
-                        <td className="p-2 text-amber-800 font-semibold">&plusmn;{row.mpeLimit}</td>
+                        <td className="p-2 text-amber-700 font-semibold">&plusmn;{row.mpeLimit}</td>
                         <td className="p-2 text-center">
-                          <span className={`px-2 py-0.5 rounded text-[10px] font-bold ${row.isPass ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-rose-100 text-rose-800 border border-rose-300'}`}>
+                          <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold ${row.isPass ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-rose-100 text-rose-800 border border-rose-300'}`}>
                             {row.isPass ? 'PASS' : 'FAIL'}
                           </span>
                         </td>
@@ -605,31 +604,31 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
               {/* Summary Status of Tests */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
                 
-                <div className="p-3.5 rounded-xl bg-white border border-slate-300 shadow-sm space-y-1">
-                  <div className="font-bold text-[#004741]">Eccentricity Test (A.4.7)</div>
-                  <div className="text-slate-600">Corner loads at 1/3 Max: {formData.eccentricityLoad} {formData.unit}</div>
+                <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-1">
+                  <div className="font-bold text-slate-900">Eccentricity Test (A.4.7)</div>
+                  <div className="text-slate-500">Corner loads at 1/3 Max: {formData.eccentricityLoad} {formData.unit}</div>
                   <div className="pt-1">
-                    <span className="text-emerald-700 font-bold flex items-center gap-1">
+                    <span className="text-emerald-600 font-bold flex items-center gap-1">
                       <CheckCircle className="w-3.5 h-3.5" /> {evaluatedEccentricity.isOverallPass ? 'All 5 Positions Passed' : 'Failed'}
                     </span>
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-white border border-slate-300 shadow-sm space-y-1">
-                  <div className="font-bold text-[#004741]">Repeatability Test (A.4.10)</div>
-                  <div className="text-slate-600">3 series range: {evaluatedRepeatability.range} {formData.unit}</div>
+                <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-1">
+                  <div className="font-bold text-slate-900">Repeatability Test (A.4.10)</div>
+                  <div className="text-slate-500">3 series range: {evaluatedRepeatability.range} {formData.unit}</div>
                   <div className="pt-1">
-                    <span className="text-emerald-700 font-bold flex items-center gap-1">
+                    <span className="text-emerald-600 font-bold flex items-center gap-1">
                       <CheckCircle className="w-3.5 h-3.5" /> Range &le; |mpe| Passed
                     </span>
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-white border border-slate-300 shadow-sm space-y-1">
-                  <div className="font-bold text-[#004741]">Zero Setting (A.4.2)</div>
-                  <div className="text-slate-600">Zero error: {evaluatedZero.E0} {formData.unit} (&le; {evaluatedZero.zeroTolerance})</div>
+                <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-1">
+                  <div className="font-bold text-slate-900">Zero Setting (A.4.2)</div>
+                  <div className="text-slate-500">Zero error: {evaluatedZero.E0} {formData.unit} (&le; {evaluatedZero.zeroTolerance})</div>
                   <div className="pt-1">
-                    <span className="text-emerald-700 font-bold flex items-center gap-1">
+                    <span className="text-emerald-600 font-bold flex items-center gap-1">
                       <CheckCircle className="w-3.5 h-3.5" /> Zero Setting Passed
                     </span>
                   </div>
@@ -642,11 +641,11 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
           {/* STEP 4: Review & Final Report */}
           {currentStep === 4 && (
             <div className="space-y-6">
-              <div className="border-b border-slate-300 pb-3">
-                <h4 className="text-sm font-bold text-[#004741] uppercase tracking-wider">
+              <div className="border-b border-slate-200 pb-3">
+                <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider">
                   4. Evaluation Review & Cryptographic Signing
                 </h4>
-                <p className="text-xs text-slate-600">
+                <p className="text-xs text-slate-500">
                   Verify the compiled test results and generate the certified tamper-proof test report.
                 </p>
               </div>
@@ -677,29 +676,29 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
                   </p>
                 </div>
 
-                <div className="p-3 bg-white rounded-xl border border-slate-300 text-center shrink-0 shadow-sm">
+                <div className="p-3 bg-white rounded-xl border border-slate-200 text-center shrink-0 shadow-2xs">
                   <div className="text-[10px] text-slate-500 font-bold uppercase">Security Standard</div>
-                  <div className="text-xs font-mono font-bold text-[#004741] mt-0.5">SHA-256 + PKI Signature</div>
+                  <div className="text-xs font-mono font-bold text-[#5842F6] mt-0.5">SHA-256 + PKI Signature</div>
                 </div>
               </div>
 
               {/* Summary of Data */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs bg-[#F0EDE4] p-4 rounded-xl border border-slate-300">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs bg-[#EEF2FF] p-4 rounded-2xl border border-indigo-100">
                 <div>
                   <span className="text-slate-500 font-medium">Manufacturer:</span>
-                  <div className="font-bold text-[#004741] mt-0.5">{formData.manufacturerName}</div>
+                  <div className="font-bold text-slate-900 mt-0.5">{formData.manufacturerName}</div>
                 </div>
                 <div>
                   <span className="text-slate-500 font-medium">Model:</span>
-                  <div className="font-bold text-[#004741] mt-0.5">{formData.modelName}</div>
+                  <div className="font-bold text-slate-900 mt-0.5">{formData.modelName}</div>
                 </div>
                 <div>
                   <span className="text-slate-500 font-medium">Accuracy Class:</span>
-                  <div className="font-bold text-[#004741] mt-0.5">{formData.accuracyClass.replace('_', ' ')}</div>
+                  <div className="font-bold text-[#5842F6] mt-0.5">{formData.accuracyClass.replace('_', ' ')}</div>
                 </div>
                 <div>
                   <span className="text-slate-500 font-medium">Testing Officer:</span>
-                  <div className="font-bold text-[#004741] mt-0.5">{formData.testingOfficer}</div>
+                  <div className="font-bold text-slate-900 mt-0.5">{formData.testingOfficer}</div>
                 </div>
               </div>
 
@@ -709,14 +708,14 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
         </div>
 
         {/* Wizard Bottom Navigation Bar */}
-        <div className="bg-[#F0EDE4] px-6 py-4 border-t border-slate-300 flex items-center justify-between">
+        <div className="bg-[#EEF2FF] px-6 py-4 border-t border-indigo-100 flex items-center justify-between">
           <button
             onClick={() => setCurrentStep(prev => Math.max(1, prev - 1))}
             disabled={currentStep === 1}
             className={`px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer ${
               currentStep === 1 
                 ? 'text-slate-400 bg-white cursor-not-allowed border border-slate-200' 
-                : 'text-slate-700 hover:text-[#004741] bg-white hover:bg-slate-100 border border-slate-300 shadow-sm'
+                : 'text-slate-700 hover:text-[#5842F6] bg-white hover:bg-slate-100 border border-slate-300 shadow-2xs'
             }`}
           >
             <ArrowLeft className="w-3.5 h-3.5" />
@@ -727,7 +726,7 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
             {currentStep < 4 ? (
               <button
                 onClick={() => setCurrentStep(prev => Math.min(4, prev + 1))}
-                className="px-5 py-2.5 rounded-full text-xs font-bold text-white bg-red-600 hover:bg-red-700 shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
+                className="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-[#5842F6] hover:bg-[#4338CA] shadow-md shadow-[#5842F6]/30 transition-all flex items-center gap-1.5 cursor-pointer"
               >
                 <span>Continue</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -735,9 +734,9 @@ export function LiveSandboxModal({ isOpen, onClose, onReportGenerated }) {
             ) : (
               <button
                 onClick={handleFinalizeReport}
-                className="px-6 py-2.5 rounded-full text-xs font-bold text-white bg-emerald-700 hover:bg-emerald-800 shadow-lg transition-all flex items-center gap-2 cursor-pointer"
+                className="px-6 py-2.5 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-lg transition-all flex items-center gap-2 cursor-pointer"
               >
-                <Sparkles className="w-4 h-4" />
+                <Sparkles className="w-4 h-4 text-amber-300" />
                 <span>Generate Certified OIML Report</span>
               </button>
             )}

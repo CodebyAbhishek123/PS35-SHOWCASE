@@ -41,20 +41,23 @@ export function TeamSection() {
   ];
 
   return (
-    <section id="team" className="py-20 md:py-28 relative border-t border-slate-200 bg-white text-slate-900">
+    <section id="team" className="py-20 md:py-28 relative border-t border-slate-200 bg-[#F8FAFC] text-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header with Red Line Accent matching reference design */}
+        {/* Section Header with Purple Accent matching Tarazu theme */}
         <div className="text-left mb-16 space-y-2">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 inline-block relative pb-3">
             Meet the <span className="relative">
               Innovators
-              <span className="absolute bottom-0 left-0 w-full h-[3px] bg-[#FF1E27] rounded-full"></span>
+              <span className="absolute bottom-0 left-0 w-full h-[4px] bg-[#5842F6] rounded-full"></span>
             </span>
           </h2>
+          <p className="text-slate-500 text-sm font-medium">
+            The engineering team behind TARAZU for Smart India Hackathon PS 26035
+          </p>
         </div>
 
-        {/* Team Members Grid - 6 Column Flex/Grid matching exact reference layout */}
+        {/* Team Members Grid - 6 Column Flex/Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8 mb-16">
           {teamMembers.map((member, idx) => (
             <div 
@@ -62,7 +65,7 @@ export function TeamSection() {
               className="flex flex-col items-center text-center group transition-all duration-300 hover:-translate-y-1.5"
             >
               {/* Circular Avatar Container with Drop Shadow & Ring */}
-              <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden mb-4 p-1 bg-slate-100 ring-2 ring-slate-200 group-hover:ring-[#004741] group-hover:shadow-xl group-hover:shadow-[#004741]/20 transition-all duration-300">
+              <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden mb-4 p-1 bg-white ring-2 ring-slate-200 group-hover:ring-[#5842F6] group-hover:shadow-xl group-hover:shadow-[#5842F6]/20 transition-all duration-300">
                 <img 
                   src={member.photo} 
                   alt={member.name}
@@ -70,18 +73,18 @@ export function TeamSection() {
                   onError={(e) => {
                     // Fallback avatar if image fails to load
                     e.target.onerror = null;
-                    e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=004741&color=F0EDE4&size=128&bold=true`;
+                    e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=5842F6&color=FFFFFF&size=128&bold=true`;
                   }}
                 />
               </div>
 
               {/* Member Name */}
-              <h3 className="text-base sm:text-lg font-black text-slate-900 group-hover:text-[#004741] transition-colors">
+              <h3 className="text-base sm:text-lg font-black text-slate-900 group-hover:text-[#5842F6] transition-colors">
                 {member.name}
               </h3>
 
-              {/* Tag - Green font matching screenshot */}
-              <div className="text-xs font-bold text-emerald-600 mt-0.5 tracking-wide">
+              {/* Tag - Green/Indigo font matching theme */}
+              <div className="text-xs font-bold text-[#5842F6] mt-0.5 tracking-wide">
                 {member.tag}
               </div>
 

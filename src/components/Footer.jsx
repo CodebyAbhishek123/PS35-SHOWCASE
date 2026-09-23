@@ -1,100 +1,73 @@
 import React from 'react';
-import { Scale, Landmark, ExternalLink, ShieldCheck, Heart, Award } from 'lucide-react';
+import { Scale, Heart, Shield, Award } from 'lucide-react';
 
 export function Footer({ onNavigate }) {
   return (
-    <footer className="bg-[#F0EDE4] border-t border-slate-200 text-slate-600 text-xs py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <footer className="bg-slate-900 text-slate-300 border-t border-slate-800 pt-16 pb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-slate-800">
           
-          {/* Brand & Mandate */}
-          <div className="space-y-3 md:col-span-2">
-            <div className="flex items-center space-x-2">
-              <svg className="w-6 h-6 text-red-600" viewBox="0 0 40 40" fill="none">
-                <path d="M12 8L4 20L12 32H18L10 20L18 8H12Z" fill="#FF1E27" />
-                <path d="M28 8L36 20L28 32H22L30 20L22 8H28Z" fill="#FF1E27" />
-              </svg>
-              <span className="font-extrabold text-base text-[#004741] tracking-wider uppercase">
-                METRON<span className="text-red-600">AI</span>
+          {/* Brand Info */}
+          <div className="space-y-4 md:col-span-2">
+            <div className="flex items-center space-x-3 cursor-pointer" onClick={() => onNavigate('home')}>
+              <div className="w-8 h-8 rounded-xl bg-[#5842F6] flex items-center justify-center text-white font-bold">
+                <Scale className="w-4 h-4" />
+              </div>
+              <span className="font-black text-xl tracking-tight text-white uppercase font-sans">
+                TARAZU<span className="text-[#5842F6]">.</span>
               </span>
-              <span className="px-1.5 py-0.5 rounded text-[9px] font-bold bg-red-600/10 text-red-600 border border-red-600/20">
-                SIH 26035
+              <span className="text-[10px] font-bold text-slate-400 bg-slate-800 border border-slate-700 px-2 py-0.5 rounded-full">
+                OIML R 76-1 MVP
               </span>
             </div>
 
-            <p className="text-slate-600 text-xs leading-relaxed max-w-md">
-              Automated Type Evaluation and Standardized Test Report Generation Platform for Non-Automatic Weighing Instruments (NAWI) compliant with OIML Recommendation R 76 and the Legal Metrology Act, 2009.
+            <p className="text-xs text-slate-400 max-w-md leading-relaxed">
+              An intelligent metrology engine built for Smart India Hackathon (SIH) Problem Statement 26035. Automating OIML R-76 type evaluation calculations, turning-point resolution, and statutory report generation for the Department of Consumer Affairs.
             </p>
 
-            <div className="text-[11px] text-slate-500 pt-1">
-              Developed for the <strong className="text-slate-700">Ministry of Consumer Affairs, Food & Public Distribution</strong> (Department of Consumer Affairs - DoCA).
+            <div className="flex items-center gap-3 text-xs font-bold text-slate-400 pt-2">
+              <span className="flex items-center gap-1 text-emerald-400">
+                <Shield className="w-3.5 h-3.5" />
+                <span>Legal Metrology Act 2009 Compliant</span>
+              </span>
             </div>
           </div>
 
-          {/* Quick Navigation */}
-          <div className="space-y-2">
-            <h4 className="text-[#004741] font-bold text-xs uppercase tracking-wider">Quick Links</h4>
-            <ul className="space-y-1.5 text-slate-600">
-              <li><button onClick={() => onNavigate('home')} className="hover:text-red-600 transition-colors">Home</button></li>
-              <li><button onClick={() => onNavigate('problem')} className="hover:text-red-600 transition-colors">The Problem</button></li>
-              <li><button onClick={() => onNavigate('about')} className="hover:text-red-600 transition-colors">Statutory Mandate</button></li>
-              <li><button onClick={() => onNavigate('solution')} className="hover:text-red-600 transition-colors">Automated Solution</button></li>
-              <li><button onClick={() => onNavigate('features')} className="hover:text-red-600 transition-colors">Enterprise Features</button></li>
-              <li><button onClick={() => onNavigate('content')} className="hover:text-red-600 transition-colors">Video Demonstrations</button></li>
+          {/* Quick Links */}
+          <div className="space-y-3">
+            <h4 className="text-white font-bold text-xs uppercase tracking-wider">Quick Navigation</h4>
+            <ul className="space-y-2 text-xs">
+              <li><button onClick={() => onNavigate('home')} className="hover:text-[#5842F6] transition-colors cursor-pointer">Dashboard</button></li>
+              <li><button onClick={() => onNavigate('problem')} className="hover:text-[#5842F6] transition-colors cursor-pointer">Problem Statement</button></li>
+              <li><button onClick={() => onNavigate('about')} className="hover:text-[#5842F6] transition-colors cursor-pointer">About OIML R-76</button></li>
+              <li><button onClick={() => onNavigate('solution')} className="hover:text-[#5842F6] transition-colors cursor-pointer">Proposed Solution</button></li>
+              <li><button onClick={() => onNavigate('features')} className="hover:text-[#5842F6] transition-colors cursor-pointer">System Features</button></li>
+              <li><button onClick={() => onNavigate('team')} className="hover:text-[#5842F6] transition-colors cursor-pointer">SIH Innovators Team</button></li>
             </ul>
           </div>
 
-          {/* Standards & Links */}
-          <div className="space-y-2">
-            <h4 className="text-[#004741] font-bold text-xs uppercase tracking-wider">Official References</h4>
-            <ul className="space-y-1.5 text-slate-600">
-              <li>
-                <a 
-                  href="https://consumeraffairs.gov.in/pages/legal-metrology-act" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="hover:text-teal-700 flex items-center gap-1"
-                >
-                  <span>DoCA Legal Metrology Portal</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://www.oiml.org/en/publications/recommendations/en/files/pdf_r/r076-1-e06.pdf" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="hover:text-teal-700 flex items-center gap-1"
-                >
-                  <span>OIML R 76-1:2006 Standard (PDF)</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://www.sih.gov.in" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="hover:text-teal-700 flex items-center gap-1"
-                >
-                  <span>Smart India Hackathon 2026</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-              </li>
+          {/* References */}
+          <div className="space-y-3">
+            <h4 className="text-white font-bold text-xs uppercase tracking-wider">Official References</h4>
+            <ul className="space-y-2 text-xs">
+              <li><a href="https://www.oiml.org" target="_blank" rel="noreferrer" className="hover:text-[#5842F6] transition-colors">OIML Recommendation R 76-1</a></li>
+              <li><a href="https://consumeraffairs.nic.in" target="_blank" rel="noreferrer" className="hover:text-[#5842F6] transition-colors">Dept. of Consumer Affairs (DoCA)</a></li>
+              <li><a href="https://sih.gov.in" target="_blank" rel="noreferrer" className="hover:text-[#5842F6] transition-colors">Smart India Hackathon Portal</a></li>
+              <li><span className="text-slate-500">Problem ID: 26035</span></li>
             </ul>
           </div>
 
         </div>
 
-        {/* Bottom copyright */}
-        <div className="pt-6 border-t border-slate-300 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-[11px]">
+        {/* Bottom Copyright Strip */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
           <div>
-            © 2026 MetronAI • Smart India Hackathon (Problem Statement ID: 26035). All Rights Reserved.
+            © 2026 <strong className="text-white font-bold">TARAZU.</strong> Developed for Smart India Hackathon. All rights reserved.
           </div>
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-            <span className="font-medium text-slate-600">Cryptographically Verified Metrological Engine</span>
+          <div className="flex items-center gap-1.5">
+            <span>Engineered with precision for Legal Metrology Laboratories</span>
           </div>
         </div>
 
@@ -102,3 +75,5 @@ export function Footer({ onNavigate }) {
     </footer>
   );
 }
+
+export default Footer;

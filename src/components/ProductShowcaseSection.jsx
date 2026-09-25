@@ -1,142 +1,52 @@
 import React, { useState } from 'react';
 import { 
   LayoutDashboard, 
-  Scale, 
-  Play, 
-  FileSpreadsheet, 
-  ShieldCheck, 
-  CheckSquare, 
-  FileText, 
-  History,
-  ExternalLink
+  Edit3, 
+  Calculator, 
+  UserCheck, 
+  FileText,
+  ExternalLink,
+  CheckCircle2,
+  Sparkles,
+  Scale,
+  ShieldCheck,
+  QrCode,
+  ArrowRight,
+  TrendingUp,
+  AlertCircle
 } from 'lucide-react';
 
-export function ProductShowcaseSection({ onOpenSandbox }) {
+export function ProductShowcaseSection({ onOpenSandbox, onOpenDemo }) {
   const [activeTab, setActiveTab] = useState('dashboard');
 
   const tabs = [
-    { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-    { id: 'instruments', label: 'Instruments', icon: Scale },
-    { id: 'session', label: 'Test Session', icon: Play },
-    { id: 'workspace', label: 'Test Workspace', icon: FileSpreadsheet },
-    { id: 'validation', label: 'Validation', icon: ShieldCheck },
-    { id: 'review', label: 'Review', icon: CheckSquare },
-    { id: 'report', label: 'Report Preview', icon: FileText },
-    { id: 'audit', label: 'Audit Trail', icon: History },
+    { id: 'dashboard', label: '1. Operations Dashboard', icon: LayoutDashboard },
+    { id: 'observation', label: '2. Guided Observations', icon: Edit3 },
+    { id: 'calculation', label: '3. Calculation & MPE Trace', icon: Calculator },
+    { id: 'reviewer', label: '4. Reviewer Approval', icon: UserCheck },
+    { id: 'report', label: '5. Audit-Sealed Report', icon: FileText },
   ];
-
-  const showcaseData = {
-    dashboard: {
-      title: "Central Laboratory Operational Dashboard",
-      desc: "Real-time metrics tracking total evaluated weighing instruments, OIML R-76 compliance pass rates, pending technical reviews, and SHA-256 security seals.",
-      badges: ["Multi-Lab Overview", "Live Analytics", "Real-Time Telemetry"],
-      metrics: [
-        { label: "Instruments Tested", val: "1,254", change: "+148 this month", highlight: "text-[#007A8C]" },
-        { label: "OIML Pass Rate", val: "96.4%", change: "1,181 Approved", highlight: "text-emerald-600" },
-        { label: "Pending Sign-offs", val: "21", change: "36 Active in testing", highlight: "text-amber-600" },
-        { label: "Cryptographic Seal", val: "SHA-256", change: "Tamper-Proof Audit", highlight: "text-[#007A8C]" }
-      ]
-    },
-    instruments: {
-      title: "Instrument Registry & NAWI Specifications",
-      desc: "Centralized database of all client and internal weighing instruments, classified into OIML R-76 Class I, II, III & IV with complete scale parameter records.",
-      badges: ["Class I - IV NAWI", "Serial Tracking", "Calibrated Standard Links"],
-      metrics: [
-        { label: "Class I Fine Precision", val: "142", change: "Max 500g • e=1mg", highlight: "text-[#007A8C]" },
-        { label: "Class II High Precision", val: "489", change: "Max 5000g • e=0.01g", highlight: "text-[#007A8C]" },
-        { label: "Class III Medium Industrial", val: "598", change: "Max 30kg • e=1g", highlight: "text-amber-600" },
-        { label: "Class IV Ordinary Commercial", val: "25", change: "Max 150kg • e=50g", highlight: "text-slate-700" }
-      ]
-    },
-    session: {
-      title: "Digital Test Session Launcher",
-      desc: "Configure test runs with automated selection of ambient sensors, standard weight sets, tester assignments, and standard operating procedures.",
-      badges: ["Environment Sensor Link", "Weight Set Calibration", "SOP Enforcement"],
-      metrics: [
-        { label: "Active Test Run", val: "TS-2026-8891", change: "Lab #2 • Bench 4", highlight: "text-[#007A8C]" },
-        { label: "Ambient Temp", val: "21.4 °C", change: "Permissible: 20-22°C", highlight: "text-emerald-600" },
-        { label: "Relative Humidity", val: "52 %", change: "Permissible: 45-60%", highlight: "text-emerald-600" },
-        { label: "Reference Mass Set", val: "M1-CAL-992", change: "Cert Valid to Dec 2026", highlight: "text-[#007A8C]" }
-      ]
-    },
-    workspace: {
-      title: "Interactive Metrological Test Workspace",
-      desc: "Structured observation entry for Turning Point calculations, Delta-L corrections, indication error E = I + 0.5e - ΔL - L, and zero tracking.",
-      badges: ["Turning Point Engine", "Delta-L Correction", "Zero-Tracking Check"],
-      metrics: [
-        { label: "Nominal Load (L)", val: "2000.00 g", change: "Applied Test Standard", highlight: "text-slate-800" },
-        { label: "Indicated Load (I)", val: "2000.01 g", change: "Instrument Display", highlight: "text-[#007A8C]" },
-        { label: "Additional Load (ΔL)", val: "0.004 g", change: "Change Point Weight", highlight: "text-amber-600" },
-        { label: "Corrected Error (Ec)", val: "+0.006 g", change: "MPE Tolerance: ±0.015g", highlight: "text-[#007A8C]" }
-      ]
-    },
-    validation: {
-      title: "Intelligent Rule-Based Validation Engine",
-      desc: "Automated step-by-step verification against non-linear OIML R-76 MPE thresholds (500e, 2000e, 10000e) with real-time pass/fail badges.",
-      badges: ["OIML R-76 Stepped MPE", "500e / 2000e / 10000e", "Instant Pass/Fail"],
-      metrics: [
-        { label: "0 to 500e Step", val: "PASS", change: "MPE: ±0.5e (Ec = +0.2e)", highlight: "text-[#007A8C]" },
-        { label: "501e to 2000e Step", val: "PASS", change: "MPE: ±1.0e (Ec = +0.4e)", highlight: "text-[#007A8C]" },
-        { label: "2001e to 10000e Step", val: "PASS", change: "MPE: ±1.5e (Ec = +0.8e)", highlight: "text-[#007A8C]" },
-        { label: "Overload Check", val: "COMPLIANT", change: "Trips at Max + 9e", highlight: "text-[#007A8C]" }
-      ]
-    },
-    review: {
-      title: "Multi-Tier Review & Sign-Off Workspace",
-      desc: "Technical Reviewer inspection panel for verification of raw readings, environmental stability logs, and compliance calculations before authorization.",
-      badges: ["Technical Review", "Sign-Off Pipeline", "Audit Verification"],
-      metrics: [
-        { label: "Tester Submission", val: "R. Sharma", change: "Submitted 14:22 UTC", highlight: "text-[#007A8C]" },
-        { label: "Technical Reviewer", val: "Dr. A. Verma", change: "Approved 15:10 UTC", highlight: "text-emerald-600" },
-        { label: "Authorized Signatory", val: "Lab Director", change: "Pending Seal", highlight: "text-amber-600" },
-        { label: "Revision Status", val: "V1.0 FINAL", change: "Zero Rejections", highlight: "text-[#007A8C]" }
-      ]
-    },
-    report: {
-      title: "Automated Type Evaluation Report Generator",
-      desc: "Standardized multi-format export generating publication-ready A4 test reports in PDF, editable Word (.docx), and JSON data structures.",
-      badges: ["Printable A4 PDF", "Editable DOCX", "JSON Interchange"],
-      metrics: [
-        { label: "Report Document", val: "OIML-R76-2026-901", change: "Full Type Evaluation", highlight: "text-slate-900" },
-        { label: "Cryptographic Seal", val: "SHA-256 Match", change: "e3b0c44298fc1c149af...", highlight: "text-emerald-600" },
-        { label: "QR Code Seal", val: "Active QR", change: "Public Verification Link", highlight: "text-[#007A8C]" },
-        { label: "Export Status", val: "Ready", change: "PDF, DOCX, JSON Available", highlight: "text-amber-600" }
-      ]
-    },
-    audit: {
-      title: "Immutable SHA-256 Audit Trail",
-      desc: "Complete event history capturing every timestamp, user identity, value modification, and calculation result in a tamper-proof ledger.",
-      badges: ["Immutable Ledger", "Timestamped Events", "User Action Tracking"],
-      metrics: [
-        { label: "Total Audit Events", val: "48 Entries", change: "100% Sequence Intact", highlight: "text-[#007A8C]" },
-        { label: "Security Status", val: "SECURE", change: "Zero Tamper Flag", highlight: "text-emerald-600" },
-        { label: "Latest Hash", val: "0x8f9a2c...", change: "Generated 2m ago", highlight: "text-amber-600" },
-        { label: "Compliance Standard", val: "ISO/IEC 17025", change: "Full Audit Readiness", highlight: "text-[#007A8C]" }
-      ]
-    }
-  };
-
-  const current = showcaseData[activeTab];
 
   return (
     <section id="showcase" className="py-24 bg-[#F8FAFC] text-slate-800 relative border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#E6F4F6] border border-[#007A8C]/20 text-xs font-bold text-[#007A8C]">
-            <span>PRODUCT SHOWCASE</span>
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>INTERACTIVE PRODUCT WALKTHROUGH</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-            Explore the <span className="text-[#007A8C]">TARAZU Workspace</span>
+            Explore the <span className="text-[#007A8C]">NAWI TestPro</span> Workspace
           </h2>
           <p className="text-slate-600 text-base sm:text-lg">
-            Interactive preview of the 8 core modules driving digital legal metrology evaluations.
+            High-fidelity interactive previews of the 5 core modules driving digital legal metrology evaluations.
           </p>
         </div>
 
-        {/* Tab Navigation Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+        {/* 5 Screen Tab Navigation */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -146,7 +56,7 @@ export function ProductShowcaseSection({ onOpenSandbox }) {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                   isActive
-                    ? 'bg-[#007A8C] text-white shadow-md shadow-[#007A8C]/30'
+                    ? 'bg-[#007A8C] text-white shadow-md shadow-[#007A8C]/20 scale-102'
                     : 'bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-50 border border-slate-200'
                 }`}
               >
@@ -157,60 +67,245 @@ export function ProductShowcaseSection({ onOpenSandbox }) {
           })}
         </div>
 
-        {/* Active Tab Screen Showcase Display */}
-        <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
+        {/* Main Showcase Window */}
+        <div className="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden">
           
-          {/* Header Info */}
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-6">
-            <div>
-              <div className="flex items-center gap-2 mb-2">
-                {current.badges.map((b, i) => (
-                  <span key={i} className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#007A8C] bg-[#E6F4F6] px-2.5 py-0.5 rounded-md border border-[#007A8C]/20">
-                    {b}
-                  </span>
-                ))}
+          {/* Top Window Chrome */}
+          <div className="bg-slate-900 px-6 py-4 flex flex-wrap items-center justify-between gap-4 border-b border-slate-800">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-full bg-rose-500 inline-block" />
+                <span className="w-3 h-3 rounded-full bg-amber-500 inline-block" />
+                <span className="w-3 h-3 rounded-full bg-emerald-500 inline-block" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-black text-slate-900">{current.title}</h3>
-              <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-3xl">{current.desc}</p>
-            </div>
-
-            <button
-              onClick={onOpenSandbox}
-              className="px-4 py-2 rounded-xl bg-[#E6F4F6] hover:bg-[#007A8C] text-[#007A8C] hover:text-white text-xs font-bold border border-[#007A8C]/30 flex items-center gap-2 transition-all cursor-pointer"
-            >
-              <span>Launch Module in Sandbox</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </button>
-          </div>
-
-          {/* Metrics Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {current.metrics.map((m, idx) => (
-              <div key={idx} className="bg-[#F8FAFC] p-5 rounded-2xl border border-slate-200 space-y-1">
-                <span className="text-xs font-mono uppercase text-slate-400 font-bold">{m.label}</span>
-                <div className={`text-2xl font-black font-mono ${m.highlight}`}>{m.val}</div>
-                <div className="text-[11px] text-slate-500 font-medium">{m.change}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* UI Screen Workspace Preview */}
-          <div className="bg-[#F8FAFC] rounded-2xl border border-slate-200 p-4 sm:p-6 space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-200 pb-3 text-xs font-mono text-slate-500">
-              <span className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#C0D725]" />
-                <span>TARAZU HIGH-PRECISION METROLOGY WORKSPACE</span>
+              <span className="text-xs font-mono text-slate-400">
+                app.nawitestpro.com/workspace/{activeTab}
               </span>
-              <span>SCREEN ID: {activeTab.toUpperCase()}-MODULE</span>
             </div>
 
-            <div className="p-4 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs text-slate-200 space-y-2">
-              <div className="text-[#C0D725] font-bold">// Active OIML R-76 Module Calculation Stream</div>
-              <div>[00.01s] Instrument Profile loaded: Class II Precision NAWI (Max: 5000g, e: 0.01g)</div>
-              <div>[00.04s] Environmental sensor calibration confirmed: Temp 21.4°C | RH 52%</div>
-              <div>[00.09s] Turning Point calculation: P = I + 0.5e - ΔL =&gt; P = 2000.01 + 0.005 - 0.004 = 2000.011g</div>
-              <div className="text-[#C0D725] font-bold">[00.12s] RESULT: Permissible Error Ec (+0.006g) WITHIN MPE LIMIT (±0.015g) -&gt; PASS</div>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={onOpenDemo}
+                className="px-3.5 py-1.5 rounded-lg bg-[#C0D725] hover:bg-[#B3C91F] text-slate-900 text-xs font-black transition cursor-pointer"
+              >
+                Request Live Walkthrough
+              </button>
+              <button
+                onClick={onOpenSandbox}
+                className="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
+              >
+                <span>Launch in Sandbox</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </button>
             </div>
+          </div>
+
+          {/* Module Content Preview */}
+          <div className="p-6 sm:p-8">
+            
+            {/* 1. DASHBOARD TAB */}
+            {activeTab === 'dashboard' && (
+              <div className="space-y-6 animate-fade-in">
+                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100">
+                  <div>
+                    <span className="text-xs font-mono font-bold text-[#007A8C] uppercase">MODULE 01 • REAL-TIME TELEMETRY</span>
+                    <h3 className="text-2xl font-black text-slate-900">Laboratory Operations Dashboard</h3>
+                    <p className="text-xs sm:text-sm text-slate-500 mt-1">Outcome: Complete operational visibility over active test runs, turnaround bottlenecks, and pass rates.</p>
+                  </div>
+                  <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">
+                    ● ALL SYSTEMS OPERATIONAL
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className="bg-[#F8FAFC] p-4 rounded-2xl border border-slate-200">
+                    <span className="text-xs text-slate-400 font-mono font-bold">ACTIVE TEST RUNS</span>
+                    <div className="text-2xl font-black text-slate-900 font-mono mt-1">36 Sessions</div>
+                    <div className="text-xs text-teal-600 font-bold mt-1">Across 4 Lab Benches</div>
+                  </div>
+                  <div className="bg-[#F8FAFC] p-4 rounded-2xl border border-slate-200">
+                    <span className="text-xs text-slate-400 font-mono font-bold">OIML R-76 PASS RATE</span>
+                    <div className="text-2xl font-black text-emerald-600 font-mono mt-1">96.4%</div>
+                    <div className="text-xs text-slate-500 mt-1">1,181 Approved</div>
+                  </div>
+                  <div className="bg-[#F8FAFC] p-4 rounded-2xl border border-slate-200">
+                    <span className="text-xs text-slate-400 font-mono font-bold">PENDING REVIEW SIGN-OFF</span>
+                    <div className="text-2xl font-black text-amber-600 font-mono mt-1">21 Reports</div>
+                    <div className="text-xs text-slate-500 mt-1">Avg 12m Review Time</div>
+                  </div>
+                  <div className="bg-[#F8FAFC] p-4 rounded-2xl border border-slate-200">
+                    <span className="text-xs text-slate-400 font-mono font-bold">TAMPER-PROOF AUDIT SEAL</span>
+                    <div className="text-2xl font-black text-[#007A8C] font-mono mt-1">SHA-256</div>
+                    <div className="text-xs text-teal-700 font-bold mt-1">100% Immutable Vault</div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* 2. OBSERVATION FORM TAB */}
+            {activeTab === 'observation' && (
+              <div className="space-y-6 animate-fade-in">
+                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100">
+                  <div>
+                    <span className="text-xs font-mono font-bold text-[#007A8C] uppercase">MODULE 02 • GUIDED INGESTION</span>
+                    <h3 className="text-2xl font-black text-slate-900">Guided Digital Observation Form</h3>
+                    <p className="text-xs sm:text-sm text-slate-500 mt-1">Outcome: Eliminates manual transcription mistakes with automated turning-point ΔL balance checks.</p>
+                  </div>
+                  <span className="px-3 py-1 rounded-full bg-[#E6F4F6] text-[#007A8C] text-xs font-mono font-bold">
+                    MODEL W500 • CLASS III
+                  </span>
+                </div>
+
+                <div className="bg-[#F8FAFC] p-4 sm:p-6 rounded-2xl border border-slate-200 space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div className="bg-white p-3.5 rounded-xl border border-slate-200">
+                      <label className="text-[11px] font-mono font-bold text-slate-500">APPLIED LOAD (L)</label>
+                      <div className="text-lg font-mono font-black text-slate-900 mt-1">100.00 kg</div>
+                    </div>
+                    <div className="bg-white p-3.5 rounded-xl border border-slate-200">
+                      <label className="text-[11px] font-mono font-bold text-slate-500">INDICATED VALUE (I)</label>
+                      <div className="text-lg font-mono font-black text-[#007A8C] mt-1">100.20 kg</div>
+                    </div>
+                    <div className="bg-white p-3.5 rounded-xl border border-slate-200">
+                      <label className="text-[11px] font-mono font-bold text-slate-500">ADDITIONAL LOAD (ΔL)</label>
+                      <div className="text-lg font-mono font-black text-amber-600 mt-1">0.04 kg</div>
+                    </div>
+                  </div>
+
+                  <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-200 flex items-center justify-between text-xs text-emerald-800 font-medium">
+                    <span className="flex items-center gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                      <span>Input validation passed: Indication matches Class III verification scale interval (e=100g).</span>
+                    </span>
+                    <span className="font-mono font-bold">LOCKED &amp; READY</span>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* 3. CALCULATION TRACE TAB */}
+            {activeTab === 'calculation' && (
+              <div className="space-y-6 animate-fade-in">
+                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100">
+                  <div>
+                    <span className="text-xs font-mono font-bold text-[#007A8C] uppercase">MODULE 03 • DETERMINISTIC METROLOGY ENGINE</span>
+                    <h3 className="text-2xl font-black text-slate-900">Calculation Trace &amp; MPE Step Limit Check</h3>
+                    <p className="text-xs sm:text-sm text-slate-500 mt-1">Outcome: Transparent mathematical breakdown proves compliance against stepped MPE thresholds.</p>
+                  </div>
+                  <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">
+                    OIML R-76-1 CLAUSE A.4.4.1
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-slate-950 p-5 rounded-2xl border border-slate-800 text-white font-mono text-xs space-y-3">
+                    <div className="text-[#C0D725] font-bold">// Turning Point Mathematical Proof</div>
+                    <div className="text-slate-300">P = I + 0.5e - ΔL</div>
+                    <div className="text-slate-300">P = 100.20 + (0.5 * 0.10) - 0.04 = 100.21 kg</div>
+                    <div className="text-slate-300">Error E = P - L = 100.21 - 100.00 = +0.21 kg</div>
+                    <div className="text-slate-300">Zero Error Correction (Ec) = E - E0 = +0.21 kg</div>
+                  </div>
+
+                  <div className="bg-[#F8FAFC] p-5 rounded-2xl border border-slate-200 space-y-3">
+                    <span className="text-xs font-mono font-bold text-slate-500 uppercase">MPE STEP BOUNDARY EVALUATION</span>
+                    <div className="flex justify-between items-center bg-white p-3 rounded-xl border border-slate-200 text-xs">
+                      <span className="font-bold">0 to 500e Step (m &lt;= 50kg):</span>
+                      <span className="font-mono text-slate-600">MPE: ±0.5e (±0.05kg)</span>
+                    </div>
+                    <div className="flex justify-between items-center bg-emerald-50 p-3 rounded-xl border border-emerald-200 text-xs text-emerald-800 font-bold">
+                      <span>501e to 2000e Step (50kg &lt; m &lt;= 200kg):</span>
+                      <span className="font-mono">Ec = +0.21kg &lt;= ±0.50kg -&gt; PASS ✓</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* 4. REVIEWER TAB */}
+            {activeTab === 'reviewer' && (
+              <div className="space-y-6 animate-fade-in">
+                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100">
+                  <div>
+                    <span className="text-xs font-mono font-bold text-[#007A8C] uppercase">MODULE 04 • HUMAN SIGN-OFF PIPELINE</span>
+                    <h3 className="text-2xl font-black text-slate-900">Authorised Reviewer Verification</h3>
+                    <p className="text-xs sm:text-sm text-slate-500 mt-1">Outcome: Structured human governance retaining qualified technical authority before report release.</p>
+                  </div>
+                  <span className="px-3 py-1 rounded-full bg-[#F6FAAE] text-slate-900 border border-[#C0D725] text-xs font-bold">
+                    HUMAN APPROVAL REQUIRED
+                  </span>
+                </div>
+
+                <div className="bg-[#F8FAFC] p-6 rounded-2xl border border-slate-200 space-y-4 text-xs sm:text-sm">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-2">
+                      <div className="font-bold text-slate-900">1. Environmental Stability Check</div>
+                      <p className="text-xs text-slate-500">Ambient Temp: 20.4°C (Permissible: 20-22°C) • RH: 52% (Permissible: 45-60%)</p>
+                      <span className="inline-block px-2 py-0.5 rounded bg-emerald-100 text-emerald-700 text-[10px] font-bold">VERIFIED STABLE</span>
+                    </div>
+
+                    <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-2">
+                      <div className="font-bold text-slate-900">2. Reference Standard Mass Traceability</div>
+                      <p className="text-xs text-slate-500">Weight Set: Class F1 #CAL-2026-991 • Valid to Dec 2026</p>
+                      <span className="inline-block px-2 py-0.5 rounded bg-emerald-100 text-emerald-700 text-[10px] font-bold">CALIBRATION ACTIVE</span>
+                    </div>
+                  </div>
+
+                  <div className="bg-white p-4 rounded-xl border border-[#007A8C]/30 flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                      <div className="font-bold text-slate-900">Authorised Signatory: Dr. Rajesh Sharma</div>
+                      <div className="text-xs text-slate-500">Remarks: Type evaluation meets all OIML R-76-1 criteria. Approved for issue.</div>
+                    </div>
+                    <span className="px-4 py-2 rounded-xl bg-[#007A8C] text-white text-xs font-bold">
+                      Signed &amp; Approved ✓
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* 5. REPORT TAB */}
+            {activeTab === 'report' && (
+              <div className="space-y-6 animate-fade-in">
+                <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-100">
+                  <div>
+                    <span className="text-xs font-mono font-bold text-[#007A8C] uppercase">MODULE 05 • STANDARDIZED DELIVERABLE</span>
+                    <h3 className="text-2xl font-black text-slate-900">Audit-Sealed OIML R-76 Report Output</h3>
+                    <p className="text-xs sm:text-sm text-slate-500 mt-1">Outcome: One-click generation of publication-ready PDF, editable DOCX, and JSON LIMS payloads.</p>
+                  </div>
+                  <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-mono font-bold">
+                    SHA-256 SEALED
+                  </span>
+                </div>
+
+                <div className="bg-[#F8FAFC] p-6 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 bg-[#007A8C] text-white rounded-2xl flex items-center justify-center font-bold shadow-md">
+                      <FileText className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-base font-bold text-slate-900">TARAZU-TR-2026-8942-W500.pdf</h4>
+                      <p className="text-xs text-slate-500 font-mono mt-0.5">SHA-256: 8f3c2b9a7d1e4f605219ba4328c0e192...</p>
+                      <div className="flex items-center gap-2 mt-2">
+                        <span className="px-2 py-0.5 rounded bg-slate-200 text-slate-700 text-[10px] font-bold">PDF Format</span>
+                        <span className="px-2 py-0.5 rounded bg-slate-200 text-slate-700 text-[10px] font-bold">Editable DOCX</span>
+                        <span className="px-2 py-0.5 rounded bg-slate-200 text-slate-700 text-[10px] font-bold">JSON Payload</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <QrCode className="w-12 h-12 text-[#007A8C] p-1.5 bg-white rounded-xl border border-slate-200" />
+                    <button
+                      onClick={onOpenSandbox}
+                      className="px-5 py-3 rounded-xl bg-[#007A8C] hover:bg-[#006372] text-white text-xs font-bold shadow-md transition cursor-pointer"
+                    >
+                      View in Live Sandbox →
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+
           </div>
 
         </div>

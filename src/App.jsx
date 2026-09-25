@@ -5,31 +5,25 @@ import { ProblemSolutionSection } from './components/ProblemSolutionSection';
 import { CoreFeaturesSection } from './components/CoreFeaturesSection';
 import { HowItWorksSection } from './components/HowItWorksSection';
 import { ProductShowcaseSection } from './components/ProductShowcaseSection';
-import { FeatureDeepDiveSection } from './components/FeatureDeepDiveSection';
 import { ForLaboratoriesSection } from './components/ForLaboratoriesSection';
-import { MultiLabSaaSSection } from './components/MultiLabSaaSSection';
-import { RolesWorkflowSection } from './components/RolesWorkflowSection';
-import { OIMLR76WorkflowSection } from './components/OIMLR76WorkflowSection';
-import { ReportShowcaseSection } from './components/ReportShowcaseSection';
 import { SecurityGovernanceSection } from './components/SecurityGovernanceSection';
-import { BeforeAfterSection } from './components/BeforeAfterSection';
 import { PricingSection } from './components/PricingSection';
 import { ResourcesSection } from './components/ResourcesSection';
 import { FAQSection } from './components/FAQSection';
 import { FinalCTASection } from './components/FinalCTASection';
 import { Footer } from './components/Footer';
 
-// Interactive App Modals (Preserving actual TARAZU SaaS workflow)
+// Marketing Conversion & App Walkthrough Modals
+import { BookDemoModal } from './components/BookDemoModal';
 import { LiveSandboxModal } from './components/LiveSandboxModal';
-import { SIHPitchDeckModal } from './components/SIHPitchDeckModal';
 import { TestReportModal } from './components/TestReportModal';
 
 import { INITIAL_REPORTS } from './utils/sampleReportsData';
 
 export function App() {
   const [activeSection, setActiveSection] = useState('home');
+  const [demoOpen, setDemoOpen] = useState(false);
   const [sandboxOpen, setSandboxOpen] = useState(false);
-  const [pitchDeckOpen, setPitchDeckOpen] = useState(false);
   const [activeReport, setActiveReport] = useState(null);
 
   // Reports state with local persistence
@@ -56,7 +50,7 @@ export function App() {
     setActiveSection(sectionId);
     const element = document.getElementById(sectionId);
     if (element) {
-      const yOffset = -80; // offset for fixed navbar
+      const yOffset = -75; // offset for fixed navbar
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
@@ -73,12 +67,11 @@ export function App() {
         'showcase',
         'for-laboratories',
         'governance',
-        'reports',
         'pricing',
         'resources',
         'faq'
       ];
-      const scrollPosition = window.scrollY + 120;
+      const scrollPosition = window.scrollY + 130;
 
       for (const section of sections) {
         const el = document.getElementById(section);
@@ -110,84 +103,84 @@ export function App() {
   return (
     <div className="min-h-screen bg-white text-slate-800 flex flex-col selection:bg-[#007A8C] selection:text-white font-sans antialiased">
 
-      {/* 1. NAVBAR */}
+      {/* 1. NAVBAR WITH TOP ANNOUNCEMENT BAR & BOOK DEMO CTA */}
       <Navbar
         activeSection={activeSection}
         onNavigate={handleNavigate}
         onOpenSandbox={() => setSandboxOpen(true)}
+        onOpenDemo={() => setDemoOpen(true)}
       />
 
-      {/* 2 - 18. MARKETING WEBSITE SECTIONS */}
+      {/* 2 - 12. STREAMLINED MARKETING WEBSITE SECTIONS */}
       <main className="flex-grow">
-        {/* 2. HERO */}
-        <HeroSection onOpenSandbox={() => setSandboxOpen(true)} />
+        {/* 2. HERO (With interactive 3D glassmorphic dashboard image) */}
+        <HeroSection 
+          onOpenSandbox={() => setSandboxOpen(true)} 
+          onOpenDemo={() => setDemoOpen(true)}
+        />
 
-        {/* 3. PROBLEM → SOLUTION */}
+        {/* 3. PROBLEM → SOLUTION (Compact 4-column SaaS comparison) */}
         <ProblemSolutionSection />
 
-        {/* 4. CORE FEATURES */}
-        <CoreFeaturesSection onOpenSandbox={() => setSandboxOpen(true)} />
+        {/* 4. CORE FEATURES (8 Core Cards + Human Control Statement) */}
+        <CoreFeaturesSection 
+          onOpenSandbox={() => setSandboxOpen(true)} 
+          onOpenDemo={() => setDemoOpen(true)}
+        />
 
-        {/* 5. HOW TARAZU WORKS */}
-        <HowItWorksSection />
+        {/* 5. HOW IT WORKS (5-Step Visual Pipeline) */}
+        <HowItWorksSection 
+          onOpenSandbox={() => setSandboxOpen(true)} 
+          onOpenDemo={() => setDemoOpen(true)}
+        />
 
-        {/* 6. PRODUCT SHOWCASE */}
-        <ProductShowcaseSection onOpenSandbox={() => setSandboxOpen(true)} />
+        {/* 6. PRODUCT SCREENSHOT GALLERY (5 Core Screens) */}
+        <ProductShowcaseSection 
+          onOpenSandbox={() => setSandboxOpen(true)} 
+          onOpenDemo={() => setDemoOpen(true)}
+        />
 
-        {/* 7. FEATURE DEEP-DIVE */}
-        <FeatureDeepDiveSection />
+        {/* 7. WHO IT IS FOR (4 Target Audience Cards) */}
+        <ForLaboratoriesSection 
+          onOpenSandbox={() => setSandboxOpen(true)} 
+          onOpenDemo={() => setDemoOpen(true)}
+        />
 
-        {/* 8. FOR LABORATORIES */}
-        <ForLaboratoriesSection onOpenSandbox={() => setSandboxOpen(true)} />
-
-        {/* 9. MULTI-LAB SaaS */}
-        <MultiLabSaaSSection />
-
-        {/* 10. ROLES & WORKFLOW */}
-        <RolesWorkflowSection />
-
-        {/* 11. OIML R76 WORKFLOW */}
-        <OIMLR76WorkflowSection />
-
-        {/* 12. REPORT SHOWCASE */}
-        <ReportShowcaseSection onOpenSampleReport={handleOpenSampleReport} />
-
-        {/* 13. SECURITY & GOVERNANCE */}
+        {/* 8. SECURITY, ROLES & INTEGRATIONS */}
         <SecurityGovernanceSection />
 
-        {/* 14. BEFORE vs AFTER */}
-        <BeforeAfterSection onOpenSandbox={() => setSandboxOpen(true)} />
+        {/* 9. PRICING & PILOT PLANS */}
+        <PricingSection 
+          onOpenSandbox={() => setSandboxOpen(true)} 
+          onOpenDemo={() => setDemoOpen(true)}
+        />
 
-        {/* 15. PRICING */}
-        <PricingSection onOpenSandbox={() => setSandboxOpen(true)} />
-
-        {/* 16. RESOURCES */}
+        {/* 10. RESOURCES & TECHNICAL GUIDES */}
         <ResourcesSection onOpenSampleReport={handleOpenSampleReport} />
 
-        {/* 17. FAQ */}
+        {/* 11. FAQ (8 Blueprint Starter Questions) */}
         <FAQSection />
 
-        {/* 18. FINAL CTA */}
-        <FinalCTASection onOpenSandbox={() => setSandboxOpen(true)} />
+        {/* 12. FINAL CTA */}
+        <FinalCTASection 
+          onOpenSandbox={() => setSandboxOpen(true)} 
+          onOpenDemo={() => setDemoOpen(true)}
+        />
       </main>
 
-      {/* 19. FOOTER */}
+      {/* 13. FOOTER */}
       <Footer onNavigate={handleNavigate} />
 
-      {/* ACTUAL TARAZU SAAS APPLICATION / WORKFLOW MODALS */}
+      {/* MODALS */}
+      <BookDemoModal
+        isOpen={demoOpen}
+        onClose={() => setDemoOpen(false)}
+      />
+
       <LiveSandboxModal
         isOpen={sandboxOpen}
         onClose={() => setSandboxOpen(false)}
         onReportGenerated={handleReportGenerated}
-      />
-
-      <SIHPitchDeckModal
-        isOpen={pitchDeckOpen}
-        onClose={() => setPitchDeckOpen(false)}
-        onOpenSandbox={() => {
-          setPitchDeckOpen(false);
-          setSandboxOpen(true);
-        }}
       />
 
       {activeReport && (

@@ -1,135 +1,170 @@
 import React from 'react';
-import { Lock, KeyRound, History, GitBranch, Database, FileLock, Clock, UserCheck, ShieldCheck } from 'lucide-react';
+import { 
+  ShieldCheck, 
+  Lock, 
+  UserCheck, 
+  History, 
+  FileSpreadsheet, 
+  QrCode, 
+  Cpu, 
+  Database, 
+  FileDown, 
+  Sparkles,
+  Network
+} from 'lucide-react';
 
 export function SecurityGovernanceSection() {
-  const timelineEvents = [
-    { title: "Instrument Created", desc: "Model W500 Class III metadata registered" },
-    { title: "Test Session Started", desc: "Session #TS-8942 ambient logs active" },
-    { title: "Observation Entered", desc: "Ref 100.0 kg vs Ind 100.2 kg logged" },
-    { title: "Calculation Completed", desc: "Error +0.2 kg (PASS) evaluated" },
-    { title: "Submitted for Review", desc: "Session locked for peer audit" },
-    { title: "Reviewed", desc: "Dr. Aris Thorne verified math proof" },
-    { title: "Finalized", desc: "Cryptographic SHA-256 seal applied" },
+  const roleBadges = [
+    {
+      role: "Technician / Tester",
+      desc: "Digital test creation, guided observation entry, reference weight binding, and preliminary validation checks.",
+      icon: UserCheck,
+      badge: "DATA CAPTURE"
+    },
+    {
+      role: "Reviewer / Metrologist",
+      desc: "Traceability verification, calculation proof inspection, technical remarks, and stage approval sign-off.",
+      icon: ShieldCheck,
+      badge: "TECHNICAL SIGN-OFF"
+    },
+    {
+      role: "Laboratory Admin",
+      desc: "Laboratory workspace configuration, user access management, test bench provisioning, and reference weight certs.",
+      icon: Database,
+      badge: "LAB GOVERNANCE"
+    },
+    {
+      role: "Auditor / Quality Head",
+      desc: "Read-only access to immutable SHA-256 audit trails, historical report revisions, and ISO/IEC 17025 logs.",
+      icon: History,
+      badge: "AUDIT READINESS"
+    }
   ];
 
-  const securityItems = [
+  const integrations = [
     {
-      title: "Role-Based Access Control (RBAC)",
-      desc: "Granular permissions for Testers, Reviewers, Approvers, Lab Admins, and Super Admins.",
-      icon: KeyRound
+      title: "CSV & Excel Import / Export",
+      desc: "Import instrument fleets and historical records seamlessly; export clean data tables for external analysis.",
+      icon: FileSpreadsheet
     },
     {
-      title: "Immutable Audit Logs",
-      desc: "Cryptographic SHA-256 event recording capturing every user action, edit, and state change.",
-      icon: History
+      title: "Cryptographic QR Verification",
+      desc: "Every generated report contains a verifiable QR code linking to the tamper-evident certificate seal.",
+      icon: QrCode
     },
     {
-      title: "Tenant-Level Data Isolation",
-      desc: "Logical workspace boundaries ensuring organization and laboratory data is never mixed.",
-      icon: Database
+      title: "Future Device Capture APIs",
+      desc: "Designed to ingest live digital balance readouts (RS232/USB/Bluetooth) directly into observation forms.",
+      icon: Cpu
     },
     {
-      title: "Cryptographic Report Locking",
-      desc: "Finalized evaluation reports are sealed with digital hashes preventing post-sign-off edits.",
-      icon: FileLock
-    },
-    {
-      title: "Full Revision History",
-      desc: "Complete version tracking of draft reports, observations, and technical reviewer comments.",
-      icon: Lock
-    },
-    {
-      title: "Controlled Rule Versions",
-      desc: "Metrological formulas and evaluation algorithms locked under strict semantic version control.",
-      icon: GitBranch
+      title: "eMaap-Ready Architecture",
+      desc: "Engineered for future secure workflow integration with national Legal Metrology systems, subject to official API access and approval.",
+      icon: Network
     }
   ];
 
   return (
     <section id="governance" className="py-24 bg-white text-slate-800 relative border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header */}
+
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#E6F4F6] border border-[#007A8C]/20 text-xs font-bold text-[#007A8C]">
-            <span>ENTERPRISE SECURITY &amp; TRACEABILITY</span>
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>SECURITY, ROLES &amp; INTEGRATIONS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-            Security &amp; <span className="text-[#007A8C]">Governance</span>
+            Security &amp; <span className="text-[#007A8C]">Governance Controls</span>
           </h2>
           <p className="text-slate-600 text-base sm:text-lg">
-            Bank-grade data security and immutable audit trails designed for regulated laboratory environments.
+            Role-based access control, tenant isolation, immutable audit logs, and integration-ready pathways.
           </p>
         </div>
 
-        {/* Compact Audit Timeline Visual (Requirement 7) */}
-        <div className="mb-16 bg-slate-900 text-white rounded-3xl p-6 sm:p-8 border-2 border-[#007A8C] shadow-xl">
-          <div className="flex flex-wrap items-center justify-between border-b border-slate-800 pb-4 mb-6">
-            <div className="flex items-center space-x-2">
-              <Clock className="w-5 h-5 text-[#007A8C]" />
-              <h3 className="text-base font-bold text-white font-mono">TRACEABILITY AUDIT TIMELINE (W500)</h3>
-            </div>
-            <span className="text-xs font-mono text-[#C0D725] font-bold">SESSION #TS-8942</span>
+        {/* 4 Role Badges Grid */}
+        <div className="mb-14">
+          <div className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider mb-4 text-center sm:text-left">
+            ROLE-BASED ACCESS CONTROL (RBAC)
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            {/* Timeline Flow */}
-            <div className="lg:col-span-8 overflow-x-auto pb-2">
-              <div className="flex items-start space-x-4 min-w-[700px]">
-                {timelineEvents.map((evt, idx) => (
-                  <div key={idx} className="flex-1 bg-slate-950 p-3 rounded-xl border border-slate-800 font-mono text-xs relative group">
-                    <div className="text-[10px] text-[#007A8C] font-bold">STEP 0{idx + 1}</div>
-                    <div className="font-bold text-white mt-0.5">{evt.title}</div>
-                    <div className="text-[10px] text-slate-400 mt-1">{evt.desc}</div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {roleBadges.map((r, idx) => {
+              const Icon = r.icon;
+              return (
+                <div key={idx} className="bg-[#F8FAFC] p-6 rounded-3xl border border-slate-200 hover:border-[#007A8C]/40 transition-all space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="w-10 h-10 rounded-xl bg-[#E6F4F6] text-[#007A8C] flex items-center justify-center font-bold">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <span className="text-[10px] font-mono font-bold text-[#007A8C] bg-white px-2 py-0.5 rounded border border-slate-200">
+                      {r.badge}
+                    </span>
                   </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Metadata Box */}
-            <div className="lg:col-span-4 bg-slate-950 p-4 rounded-2xl border border-slate-800 font-mono text-xs space-y-2">
-              <div className="text-[10px] text-[#C0D725] font-bold uppercase tracking-wider mb-2">AUDIT METADATA</div>
-              <div className="flex justify-between border-b border-slate-800 pb-1">
-                <span className="text-slate-400">Rule Version:</span>
-                <span className="text-white font-bold">OIML R-76 v2.4</span>
-              </div>
-              <div className="flex justify-between border-b border-slate-800 pb-1">
-                <span className="text-slate-400">Revision:</span>
-                <span className="text-white font-bold">Rev 1.0 (Final)</span>
-              </div>
-              <div className="flex justify-between border-b border-slate-800 pb-1">
-                <span className="text-slate-400">Reviewer:</span>
-                <span className="text-white font-bold">Dr. Aris Thorne</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-400">Approver:</span>
-                <span className="text-emerald-400 font-bold">Lab Director ✓</span>
-              </div>
-            </div>
-
+                  <h3 className="text-base font-bold text-slate-900">{r.role}</h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">{r.desc}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* 6 Grid Items */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {securityItems.map((sec, idx) => {
-            const Icon = sec.icon;
-            const isLime = idx % 2 === 1;
-            return (
-              <div key={idx} className={`p-6 rounded-2xl border space-y-3 transition-all shadow-2xs ${
-                isLime ? 'bg-white border-[#C0D725]/60 hover:border-[#C0D725]' : 'bg-[#F8FAFC] border-slate-200 hover:border-[#007A8C]/40'
-              }`}>
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                  isLime ? 'bg-[#F6FAAE] text-slate-900 border border-[#C0D725]' : 'bg-[#E6F4F6] text-[#007A8C] border border-[#007A8C]/20'
-                }`}>
-                  <Icon className="w-5 h-5" />
-                </div>
-                <h3 className="text-lg font-bold text-slate-900">{sec.title}</h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{sec.desc}</p>
-              </div>
-            );
-          })}
+        {/* Security Pillars & Integrations Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          {/* Security & Traceability Features */}
+          <div className="bg-[#F8FAFC] p-6 sm:p-8 rounded-3xl border border-slate-200 space-y-4">
+            <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#007A8C] uppercase">
+              <Lock className="w-4 h-4" />
+              <span>Data Protection &amp; Traceability</span>
+            </div>
+            <h3 className="text-xl font-black text-slate-900">
+              Enterprise Tenant Security
+            </h3>
+
+            <ul className="space-y-3 text-xs sm:text-sm text-slate-600 pt-2">
+              <li className="flex items-start gap-2.5">
+                <ShieldCheck className="w-4 h-4 text-[#007A8C] shrink-0 mt-0.5" />
+                <span><strong>Multi-Tenant Data Isolation:</strong> Laboratory records, instruments, and reports operate in isolated, encrypted partitions.</span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <ShieldCheck className="w-4 h-4 text-[#007A8C] shrink-0 mt-0.5" />
+                <span><strong>Immutable SHA-256 Audit Logs:</strong> Every test entry, edit, remark, and sign-off is logged with timestamp and user ID.</span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <ShieldCheck className="w-4 h-4 text-[#007A8C] shrink-0 mt-0.5" />
+                <span><strong>Controlled Downloads &amp; Storage:</strong> Secure storage with revision tracking, preventing unauthorized alterations of approved reports.</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Integration-Ready Section */}
+          <div className="bg-[#F8FAFC] p-6 sm:p-8 rounded-3xl border border-slate-200 space-y-4">
+            <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#007A8C] uppercase">
+              <Network className="w-4 h-4" />
+              <span>Integrations &amp; Interoperability</span>
+            </div>
+            <h3 className="text-xl font-black text-slate-900">
+              Integration-Ready Architecture
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              {integrations.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div key={idx} className="p-3.5 bg-white rounded-2xl border border-slate-200 space-y-1.5">
+                    <div className="flex items-center gap-2 text-slate-900 font-bold text-xs">
+                      <Icon className="w-4 h-4 text-[#007A8C]" />
+                      <span>{item.title}</span>
+                    </div>
+                    <p className="text-[11px] text-slate-500 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
         </div>
 
       </div>

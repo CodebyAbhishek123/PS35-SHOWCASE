@@ -1,205 +1,117 @@
 import React from 'react';
 import { 
-  Play, 
-  Calculator, 
+  Edit3, 
   ShieldCheck, 
-  Layers, 
-  Scale, 
+  GitBranch, 
+  FileText, 
   UserCheck, 
-  FileCheck, 
   Database, 
-  History, 
-  GitBranch,
+  BarChart3, 
+  Network,
   ArrowRight,
-  Cpu,
-  Sliders,
-  CheckCircle2
+  Sparkles
 } from 'lucide-react';
 
-export function CoreFeaturesSection({ onOpenSandbox }) {
-  const coreEngines = [
+export function CoreFeaturesSection({ onOpenSandbox, onOpenDemo }) {
+  const features = [
     {
-      title: "Applicability Engine",
-      desc: "Analyzes Model W500, Class III, Max 500 kg to auto-bind mandatory OIML R-76 test clauses.",
-      icon: Sliders,
-      tag: "Engine 01"
+      title: "Digital Test Forms",
+      desc: "Capture instrument details, laboratory conditions, observations, photos, and calibration documents in guided digital forms.",
+      icon: Edit3,
+      tag: "Data Capture"
     },
     {
-      title: "Rule Configuration",
-      desc: "Houses legal metrology tolerance algorithms, MPE step limits, and regional standard rule sets.",
-      icon: Cpu,
-      tag: "Engine 02"
-    },
-    {
-      title: "Calculation Engine",
-      desc: "Computes Error E = 100.2 kg − 100.0 kg = +0.2 kg with zero human calculation error.",
-      icon: Calculator,
-      tag: "Engine 03"
-    },
-    {
-      title: "Validation & Compliance",
-      desc: "Evaluates calculated error (+0.2 kg) against MPE limit (±0.5 kg) to generate binary PASS/FAIL result.",
+      title: "Explainable Pass/Fail",
+      desc: "Shows the exact rule, mathematical calculation, permissible limit, and result behind every test observation.",
       icon: ShieldCheck,
-      tag: "Engine 04"
-    }
-  ];
-
-  const coreFeatures = [
-    {
-      title: "Digital Test Sessions",
-      desc: "Create structured digital test runs linked to specific instruments, environmental conditions, and test standards.",
-      icon: Play,
-      tag: "Workflow"
+      tag: "Deterministic Engine"
     },
     {
-      title: "Automated Calculations",
-      desc: "Instant turning-point computation, delta-L corrections, and rounding calculations executed without manual formulas.",
-      icon: Calculator,
-      tag: "Engine"
-    },
-    {
-      title: "Rule-Based Validation",
-      desc: "Automatic evaluation of maximum permissible error (MPE) limits across Class I, II, III & IV NAWI categories.",
-      icon: ShieldCheck,
-      tag: "Compliance"
-    },
-    {
-      title: "Applicability Engine",
-      desc: "Intelligent selection of mandatory vs optional test modules based on instrument classification and capacity.",
-      icon: Layers,
-      tag: "Intelligence"
-    },
-    {
-      title: "Test Equipment Tracking",
-      desc: "Track reference standard weights, calibration certificate expiry dates, and uncertainty values per test.",
-      icon: Scale,
-      tag: "Traceability"
-    },
-    {
-      title: "Review & Approval Workflow",
-      desc: "Multi-tier approval pipeline separating Tester entry, Technical Reviewer sign-off, and Approver authorization.",
-      icon: UserCheck,
-      tag: "Governance"
-    },
-    {
-      title: "Automated PDF/DOCX Reports",
-      desc: "Generate standardized, print-ready OIML R-76 evaluation reports in PDF, DOCX, and JSON interchange formats.",
-      icon: FileCheck,
-      tag: "Reporting"
-    },
-    {
-      title: "Central Report Repository",
-      desc: "Searchable, filterable cloud database storing all historical test sessions, draft reports, and finalized seals.",
-      icon: Database,
-      tag: "Storage"
-    },
-    {
-      title: "Immutable Audit Trail",
-      desc: "Cryptographic event logging tracking every data entry, value change, timestamp, and user action.",
-      icon: History,
-      tag: "Security"
-    },
-    {
-      title: "Version-Controlled Rules",
-      desc: "Maintain strict version control over metrological evaluation algorithms, formulas, and tolerance tables.",
+      title: "Versioned Rules Engine",
+      desc: "Keeps OIML rules and templates strictly controlled so every generated report uses the applicable version.",
       icon: GitBranch,
-      tag: "Versioning"
+      tag: "Rule Control"
+    },
+    {
+      title: "Few-Click Reports",
+      desc: "Generate standardized, publication-ready PDF and editable DOCX report outputs from approved test data.",
+      icon: FileText,
+      tag: "Multi-Format Export"
+    },
+    {
+      title: "Review Workflow",
+      desc: "Route reports from technician to reviewer with controlled technical remarks, status, and approval history.",
+      icon: UserCheck,
+      tag: "Human-In-The-Loop"
+    },
+    {
+      title: "Secure Repository",
+      desc: "Find reports instantly by model, serial number, manufacturer, test date, accuracy class, or approval status.",
+      icon: Database,
+      tag: "Searchable Archive"
+    },
+    {
+      title: "Dashboard Analytics",
+      desc: "Real-time visibility into laboratory workload, pass rates, pending sign-offs, and compliance telemetry.",
+      icon: BarChart3,
+      tag: "Operational Visibility"
+    },
+    {
+      title: "eMaap-Ready Integration",
+      desc: "Designed for future secure workflow integration with Legal Metrology systems, subject to official API access and approval.",
+      icon: Network,
+      tag: "Integration Ready"
     }
   ];
 
   return (
-    <section id="features" className="py-24 bg-[#F8FAFC] text-slate-800 relative border-b border-slate-200">
+    <section id="features" className="py-24 bg-white text-slate-800 relative border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#E6F4F6] border border-[#007A8C]/20 text-xs font-bold text-[#007A8C]">
-            <span>ARCHITECTURE &amp; CAPABILITIES</span>
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>CORE METROLOGY PLATFORM</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900">
-            The Central <span className="text-[#007A8C]">TARAZU CORE</span> &amp; Engines
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+            Engineered for <span className="text-[#007A8C]">OIML R-76 Rigor</span>
           </h2>
           <p className="text-slate-600 text-base sm:text-lg">
-            Four connected deterministic engines powering every NAWI type evaluation.
+            Eight connected capabilities powering precision testing, strict compliance, and fast report turnaround.
           </p>
         </div>
 
-        {/* Central TARAZU CORE Visual Diagram */}
-        <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 mb-16 border-2 border-[#007A8C] shadow-2xl relative">
-          <div className="text-center mb-8">
-            <span className="text-xs font-mono text-[#C0D725] uppercase tracking-wider font-bold block mb-1">
-              CENTRAL SYSTEM ARCHITECTURE
-            </span>
-            <div className="inline-flex items-center space-x-2 px-6 py-2 rounded-2xl bg-[#007A8C] text-white font-black text-xl font-display shadow-lg shadow-[#007A8C]/30 border border-[#C0D725]/40">
-              <Cpu className="w-6 h-6 text-[#C0D725]" />
-              <span>TARAZU CORE</span>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {coreEngines.map((eng, idx) => {
-              const Icon = eng.icon;
-              return (
-                <div key={idx} className="bg-slate-950 p-5 rounded-2xl border border-slate-800 hover:border-[#007A8C] transition group">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="w-10 h-10 rounded-xl bg-[#007A8C]/20 text-[#C0D725] flex items-center justify-center font-bold border border-[#007A8C]/40">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <span className="text-[10px] font-mono text-[#007A8C] font-bold">{eng.tag}</span>
-                  </div>
-                  <h4 className="text-base font-bold text-white mb-1.5">{eng.title}</h4>
-                  <p className="text-xs text-slate-400 leading-relaxed font-mono">{eng.desc}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* 10 Core Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {coreFeatures.map((feat, idx) => {
+        {/* 8 Core Feature Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((feat, idx) => {
             const Icon = feat.icon;
-            const isLimeHighlight = idx % 2 === 1;
             return (
               <div 
                 key={idx} 
-                className={`p-6 rounded-2xl border shadow-md transition-all duration-300 group flex flex-col justify-between ${
-                  isLimeHighlight 
-                    ? 'bg-[#C0D725] border-[#B3C91F] text-slate-900 hover:shadow-lg'
-                    : 'bg-[#007A8C] border-[#006372] text-white hover:shadow-lg'
-                }`}
+                className="bg-[#F8FAFC] p-6 rounded-3xl border border-slate-200 hover:border-[#007A8C]/50 hover:shadow-md transition-all group flex flex-col justify-between"
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-bold shadow-xs ${
-                      isLimeHighlight 
-                        ? 'bg-slate-900 text-[#C0D725]'
-                        : 'bg-white text-[#007A8C]'
-                    }`}>
+                    <div className="w-12 h-12 rounded-2xl bg-[#E6F4F6] text-[#007A8C] group-hover:bg-[#007A8C] group-hover:text-white flex items-center justify-center font-bold transition-colors">
                       <Icon className="w-6 h-6" />
                     </div>
-                    <span className={`text-[10px] font-mono font-black uppercase tracking-wider px-2.5 py-1 rounded-md ${
-                      isLimeHighlight
-                        ? 'bg-slate-900/15 text-slate-900 border border-slate-900/20'
-                        : 'bg-white/20 text-white border border-white/30'
-                    }`}>
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#007A8C] bg-white px-2.5 py-1 rounded-md border border-slate-200">
                       {feat.tag}
                     </span>
                   </div>
 
-                  <h3 className={`text-xl font-black ${isLimeHighlight ? 'text-slate-900' : 'text-white'}`}>
+                  <h3 className="text-lg font-black text-slate-900">
                     {feat.title}
                   </h3>
 
-                  <p className={`text-xs sm:text-sm font-medium leading-relaxed ${isLimeHighlight ? 'text-slate-800' : 'text-teal-50'}`}>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                     {feat.desc}
                   </p>
                 </div>
 
-                <div className={`pt-4 mt-4 border-t flex items-center justify-between text-xs font-black group-hover:translate-x-1 transition-transform ${
-                  isLimeHighlight ? 'border-slate-900/20 text-slate-900' : 'border-white/20 text-[#C0D725]'
-                }`}>
-                  <span>Explore Feature</span>
+                <div className="pt-4 mt-4 border-t border-slate-200/80 flex items-center justify-between text-xs font-bold text-[#007A8C] group-hover:translate-x-1 transition-transform">
+                  <span>Learn more</span>
                   <ArrowRight className="w-4 h-4" />
                 </div>
               </div>
@@ -207,14 +119,25 @@ export function CoreFeaturesSection({ onOpenSandbox }) {
           })}
         </div>
 
-        {/* Action Callout */}
-        <div className="mt-14 text-center">
+        {/* Human-Control Banner from Blueprint */}
+        <div className="mt-14 bg-[#007A8C] text-white p-6 sm:p-8 rounded-3xl shadow-lg flex flex-col md:flex-row items-center justify-between gap-6 border-b-4 border-[#C0D725]">
+          <div className="space-y-1 text-center md:text-left">
+            <span className="text-xs font-mono uppercase tracking-wider text-[#C0D725] font-bold">
+              HUMAN-CONTROL PRINCIPLE
+            </span>
+            <h3 className="text-xl sm:text-2xl font-black">
+              NAWI TestPro automates calculations, validation, and reporting.
+            </h3>
+            <p className="text-xs sm:text-sm text-teal-100 max-w-2xl">
+              Physical testing and final report approval remain under the authority of qualified laboratory personnel.
+            </p>
+          </div>
+
           <button
-            onClick={onOpenSandbox}
-            className="inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-[#007A8C] hover:bg-[#006372] text-white text-base font-extrabold shadow-lg shadow-[#007A8C]/30 transition-all cursor-pointer active:scale-95 border-b-2 border-[#C0D725]"
+            onClick={onOpenDemo}
+            className="px-6 py-3.5 rounded-2xl bg-[#C0D725] hover:bg-[#B3C91F] text-slate-900 text-xs sm:text-sm font-black shadow-md transition-all cursor-pointer whitespace-nowrap active:scale-95 shrink-0"
           >
-            <span>Launch Live Sandbox &amp; Experience All Features</span>
-            <ArrowRight className="w-5 h-5 text-[#C0D725]" />
+            Book a Laboratory Walkthrough →
           </button>
         </div>
 

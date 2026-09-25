@@ -13,7 +13,6 @@ export function HeroSection({ onOpenSandbox, onOpenPitchDeck, onNavigate }) {
         {/* Top Badges */}
         <div className="flex flex-wrap items-center justify-center gap-2.5 mb-6">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EEF2FF] border border-[#5842F6]/20 text-xs font-bold text-[#5842F6] shadow-2xs">
-            <span className="w-2 h-2 rounded-full bg-[#00C853] animate-ping" />
             <span>TARAZU. OIML R 76-1 MVP</span>
           </div>
 
@@ -39,24 +38,7 @@ export function HeroSection({ onOpenSandbox, onOpenPitchDeck, onNavigate }) {
             permissible error compliance, and standardized multi-format reporting for Class I, II, III & IV NAWIs.
           </p>
 
-          {/* Action CTAs */}
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-4">
-            <button
-              onClick={onOpenPitchDeck}
-              className="px-7 py-3.5 rounded-xl font-bold text-sm sm:text-base text-white bg-[#5842F6] hover:bg-[#4338CA] shadow-lg shadow-[#5842F6]/30 hover:shadow-[#5842F6]/50 transition-all duration-200 transform hover:-translate-y-0.5 flex items-center gap-2 group cursor-pointer"
-            >
-              <Sparkles className="w-4 h-4 text-amber-300" />
-              <span>+ New Test Session</span>
-            </button>
 
-            <button
-              onClick={onOpenSandbox}
-              className="px-7 py-3.5 rounded-xl font-bold text-sm sm:text-base text-[#5842F6] bg-[#EEF2FF] hover:bg-indigo-100 border border-[#5842F6]/30 shadow-2xs transition-all duration-200 flex items-center gap-2 cursor-pointer"
-            >
-              <Scale className="w-4 h-4 text-[#5842F6]" />
-              <span>Launch Test Sandbox</span>
-            </button>
-          </div>
         </div>
 
         {/* Live Metric Dashboard Stats Cards matching TARAZU Screenshot layout */}

@@ -35,11 +35,11 @@ export function ProblemSection() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-rose-50 border border-rose-200 text-xs font-bold text-rose-600">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EEF2FF] border border-[#5842F6]/20 text-xs font-bold text-[#5842F6]">
             <span>THE CHALLENGE</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
-            Why Manual NAWI Testing <span className="text-rose-600">Falls Short</span>
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            Why Manual NAWI Testing <span className="text-[#5842F6]">Falls Short</span>
           </h2>
           <p className="text-slate-600 text-sm sm:text-base">
             Type evaluation for model approval under OIML Recommendation R-76 is rigorous, demanding dozens of precise mathematical validations per instrument.
@@ -51,13 +51,16 @@ export function ProblemSection() {
           {painPoints.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div key={idx} className="bg-[#F8FAFC] p-6 rounded-2xl border border-slate-200 relative overflow-hidden group hover:border-rose-300 transition-all shadow-xs">
+              <div 
+                key={idx} 
+                className="bg-[#F8FAFC] p-6 rounded-2xl border border-slate-200 relative overflow-hidden group hover:border-[#5842F6]/40 hover:shadow-md transition-all duration-300 shadow-2xs"
+              >
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-600 shrink-0">
+                  <div className="p-3 rounded-xl bg-[#EEF2FF] border border-[#5842F6]/20 text-[#5842F6] group-hover:bg-[#5842F6] group-hover:text-white transition-all duration-200 shrink-0">
                     <Icon className="w-6 h-6" />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-lg font-bold text-slate-900 group-hover:text-rose-600 transition-colors">
+                    <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#5842F6] transition-colors">
                       {item.title}
                     </h3>
                     <p className="text-sm text-slate-600 leading-relaxed">
@@ -85,25 +88,25 @@ export function ProblemSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             {/* Legacy Column */}
-            <div className="bg-rose-50/70 border border-rose-200 rounded-2xl p-5 space-y-4">
-              <div className="flex items-center gap-2 text-rose-600 font-extrabold pb-2 border-b border-rose-200">
-                <XCircle className="w-5 h-5" />
+            <div className="bg-slate-50/80 border border-slate-200 rounded-2xl p-5 sm:p-6 space-y-4">
+              <div className="flex items-center gap-2 text-rose-600 font-extrabold pb-3 border-b border-slate-200">
+                <XCircle className="w-5 h-5 text-rose-500" />
                 <span>Legacy Manual Workflow</span>
               </div>
-              <ul className="space-y-3 text-xs sm:text-sm text-slate-700">
-                <li className="flex items-start gap-2">
+              <ul className="space-y-3.5 text-xs sm:text-sm text-slate-700">
+                <li className="flex items-start gap-2.5">
                   <XCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
                   <span>Manual entry of I and delta-L with spreadsheet formulas prone to cell corruption.</span>
                 </li>
-                <li className="flex items-start gap-2">
+                <li className="flex items-start gap-2.5">
                   <XCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
                   <span>Human cross-referencing against OIML R-76 MPE tables; high risk of misclassification.</span>
                 </li>
-                <li className="flex items-start gap-2">
+                <li className="flex items-start gap-2.5">
                   <XCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
                   <span>Report generation takes 3 to 7 days per instrument with manual Word formatting.</span>
                 </li>
-                <li className="flex items-start gap-2">
+                <li className="flex items-start gap-2.5">
                   <XCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
                   <span>Reports stored in local hard drives with no centralized search or cryptographic traceability.</span>
                 </li>
@@ -111,25 +114,25 @@ export function ProblemSection() {
             </div>
 
             {/* TARAZU Column */}
-            <div className="bg-[#EEF2FF]/80 border border-indigo-200 rounded-2xl p-5 space-y-4">
-              <div className="flex items-center gap-2 text-[#5842F6] font-extrabold pb-2 border-b border-indigo-200">
-                <CheckCircle2 className="w-5 h-5" />
+            <div className="bg-[#EEF2FF]/70 border border-[#5842F6]/30 rounded-2xl p-5 sm:p-6 space-y-4 shadow-2xs">
+              <div className="flex items-center gap-2 text-[#5842F6] font-extrabold pb-3 border-b border-indigo-200/80">
+                <CheckCircle2 className="w-5 h-5 text-[#5842F6]" />
                 <span>TARAZU Automated Engine</span>
               </div>
-              <ul className="space-y-3 text-xs sm:text-sm text-slate-700">
-                <li className="flex items-start gap-2">
+              <ul className="space-y-3.5 text-xs sm:text-sm text-slate-700">
+                <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-[#5842F6] shrink-0 mt-0.5" />
                   <span>Real-time turning-point correction engine: P = I + 0.5e - deltaL, Ec = E - E0 with 100% precision.</span>
                 </li>
-                <li className="flex items-start gap-2">
+                <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-[#5842F6] shrink-0 mt-0.5" />
                   <span>Automated MPE boundary verification for Classes I, II, III & IV with instant pass/fail badges.</span>
                 </li>
-                <li className="flex items-start gap-2">
+                <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-[#5842F6] shrink-0 mt-0.5" />
                   <span>Instant multi-format export: Printable A4, PDF, Editable Word (.doc), and JSON data interchange.</span>
                 </li>
-                <li className="flex items-start gap-2">
+                <li className="flex items-start gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-[#5842F6] shrink-0 mt-0.5" />
                   <span>SHA-256 cryptographic hash & tamper-evident QR verification compliant with Legal Metrology 2009.</span>
                 </li>
@@ -145,3 +148,4 @@ export function ProblemSection() {
 }
 
 export default ProblemSection;
+

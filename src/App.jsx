@@ -94,17 +94,11 @@ export function App() {
       <Navbar
         activeSection={activeSection}
         onNavigate={handleNavigate}
-        onOpenSandbox={() => setSandboxOpen(true)}
-        onOpenPitchDeck={() => setPitchDeckOpen(true)}
       />
 
       {/* Main Showcase Page Content */}
       <main className="flex-grow">
-        <HeroSection
-          onOpenSandbox={() => setSandboxOpen(true)}
-          onOpenPitchDeck={() => setPitchDeckOpen(true)}
-          onNavigate={handleNavigate}
-        />
+        <HeroSection />
 
         <ProblemSection />
 

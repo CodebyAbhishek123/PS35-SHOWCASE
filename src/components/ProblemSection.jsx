@@ -35,11 +35,11 @@ export function ProblemSection() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EEF2FF] border border-[#5842F6]/20 text-xs font-bold text-[#5842F6]">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EEF2FF] border border-[#007A8C]/20 text-xs font-bold text-[#007A8C]">
             <span>THE CHALLENGE</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Why Manual NAWI Testing <span className="text-[#5842F6]">Falls Short</span>
+            Why Manual NAWI Testing <span className="text-[#007A8C]">Falls Short</span>
           </h2>
           <p className="text-slate-600 text-sm sm:text-base">
             Type evaluation for model approval under OIML Recommendation R-76 is rigorous, demanding dozens of precise mathematical validations per instrument.
@@ -53,14 +53,14 @@ export function ProblemSection() {
             return (
               <div 
                 key={idx} 
-                className="bg-[#F8FAFC] p-6 rounded-2xl border border-slate-200 relative overflow-hidden group hover:border-[#5842F6]/40 hover:shadow-md transition-all duration-300 shadow-2xs"
+                className="bg-[#F8FAFC] p-6 rounded-2xl border border-slate-200 relative overflow-hidden group hover:border-[#007A8C]/40 hover:shadow-md transition-all duration-300 shadow-2xs"
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-[#EEF2FF] border border-[#5842F6]/20 text-[#5842F6] group-hover:bg-[#5842F6] group-hover:text-white transition-all duration-200 shrink-0">
+                  <div className="p-3 rounded-xl bg-[#EEF2FF] border border-[#007A8C]/20 text-[#007A8C] group-hover:bg-[#007A8C] group-hover:text-white transition-all duration-200 shrink-0">
                     <Icon className="w-6 h-6" />
                   </div>
                   <div className="space-y-2">
-                    <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#5842F6] transition-colors">
+                    <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#007A8C] transition-colors">
                       {item.title}
                     </h3>
                     <p className="text-sm text-slate-600 leading-relaxed">
@@ -81,7 +81,7 @@ export function ProblemSection() {
         <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
           <div className="text-center max-w-2xl mx-auto mb-8">
             <h3 className="text-xl sm:text-2xl font-black text-slate-900">
-              Traditional Spreadsheets vs. <span className="text-[#5842F6]">TARAZU Platform</span>
+              Traditional Spreadsheets vs. <span className="text-[#007A8C]">TARAZU Platform</span>
             </h3>
           </div>
 
@@ -114,26 +114,26 @@ export function ProblemSection() {
             </div>
 
             {/* TARAZU Column */}
-            <div className="bg-[#EEF2FF]/70 border border-[#5842F6]/30 rounded-2xl p-5 sm:p-6 space-y-4 shadow-2xs">
-              <div className="flex items-center gap-2 text-[#5842F6] font-extrabold pb-3 border-b border-indigo-200/80">
-                <CheckCircle2 className="w-5 h-5 text-[#5842F6]" />
+            <div className="bg-[#EEF2FF]/70 border border-[#007A8C]/30 rounded-2xl p-5 sm:p-6 space-y-4 shadow-2xs">
+              <div className="flex items-center gap-2 text-[#007A8C] font-extrabold pb-3 border-b border-indigo-200/80">
+                <CheckCircle2 className="w-5 h-5 text-[#007A8C]" />
                 <span>TARAZU Automated Engine</span>
               </div>
               <ul className="space-y-3.5 text-xs sm:text-sm text-slate-700">
                 <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#5842F6] shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#007A8C] shrink-0 mt-0.5" />
                   <span>Real-time turning-point correction engine: P = I + 0.5e - deltaL, Ec = E - E0 with 100% precision.</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#5842F6] shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#007A8C] shrink-0 mt-0.5" />
                   <span>Automated MPE boundary verification for Classes I, II, III & IV with instant pass/fail badges.</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#5842F6] shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#007A8C] shrink-0 mt-0.5" />
                   <span>Instant multi-format export: Printable A4, PDF, Editable Word (.doc), and JSON data interchange.</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#5842F6] shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[#007A8C] shrink-0 mt-0.5" />
                   <span>SHA-256 cryptographic hash & tamper-evident QR verification compliant with Legal Metrology 2009.</span>
                 </li>
               </ul>

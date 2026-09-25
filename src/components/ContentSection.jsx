@@ -29,11 +29,11 @@ export function ContentSection() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EEF2FF] border border-[#5842F6]/20 text-xs font-bold text-[#5842F6]">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EEF2FF] border border-[#007A8C]/20 text-xs font-bold text-[#007A8C]">
             <span>KNOWLEDGE & RESOURCES</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Technical <span className="text-[#5842F6]">Repository & Modules</span>
+            Technical <span className="text-[#007A8C]">Repository & Modules</span>
           </h2>
           <p className="text-slate-600 text-sm sm:text-base">
             Explore standard specifications, legal mandates, and algorithm documentation powering TARAZU.
@@ -45,14 +45,14 @@ export function ContentSection() {
           {contentModules.map((item, idx) => (
             <div 
               key={idx}
-              className="bg-[#F8FAFC] rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all hover:shadow-md hover:border-[#5842F6]/40 flex flex-col justify-between"
+              className="bg-[#F8FAFC] rounded-2xl border border-slate-200 shadow-sm overflow-hidden transition-all hover:shadow-md hover:border-[#007A8C]/40 flex flex-col justify-between"
             >
               <div className="p-6 space-y-4">
-                <div className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-[#EEF2FF] text-[#5842F6] border border-[#5842F6]/20">
+                <div className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-[#EEF2FF] text-[#007A8C] border border-[#007A8C]/20">
                   {item.category}
                 </div>
 
-                <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#5842F6] transition-colors">
+                <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#007A8C] transition-colors">
                   {item.title}
                 </h3>
 
@@ -71,8 +71,8 @@ export function ContentSection() {
                 </div>
 
                 <div className="pt-3 border-t border-slate-200 flex items-center justify-between">
-                  <span className="text-xs font-bold text-[#5842F6]">Read Specification</span>
-                  <ArrowRight className="w-4 h-4 text-[#5842F6]" />
+                  <span className="text-xs font-bold text-[#007A8C]">Read Specification</span>
+                  <ArrowRight className="w-4 h-4 text-[#007A8C]" />
                 </div>
               </div>
             </div>

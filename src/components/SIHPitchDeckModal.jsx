@@ -21,7 +21,7 @@ export function SIHPitchDeckModal({ isOpen, onClose, onOpenSandbox }) {
 
           <div className="grid grid-cols-3 gap-3 pt-4">
             <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs">
-              <div className="text-xl sm:text-2xl font-black text-[#5842F6] font-mono">100%</div>
+              <div className="text-xl sm:text-2xl font-black text-[#007A8C] font-mono">100%</div>
               <div className="text-xs text-slate-500 mt-1">OIML R-76 Compliant</div>
             </div>
             <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs">
@@ -90,7 +90,7 @@ export function SIHPitchDeckModal({ isOpen, onClose, onOpenSandbox }) {
         <div className="space-y-4 text-xs sm:text-sm">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-2">
-              <div className="font-bold text-[#5842F6]">1. Data Capture</div>
+              <div className="font-bold text-[#007A8C]">1. Data Capture</div>
               <p className="text-slate-600 text-xs">
                 Intuitive lab entry forms capturing manufacturer metadata, class parameters, and calibrated weights certificates.
               </p>
@@ -111,7 +111,7 @@ export function SIHPitchDeckModal({ isOpen, onClose, onOpenSandbox }) {
             </div>
           </div>
 
-          <div className="p-4 rounded-xl bg-[#EEF2FF] border border-indigo-200 text-[#5842F6] text-xs text-center font-medium">
+          <div className="p-4 rounded-xl bg-[#EEF2FF] border border-indigo-200 text-[#007A8C] text-xs text-center font-medium">
             🔒 Every report is sealed with a <strong>SHA-256 Cryptographic Fingerprint</strong> and a tamper-evident <strong>QR Verification Code</strong>.
           </div>
         </div>
@@ -126,7 +126,7 @@ export function SIHPitchDeckModal({ isOpen, onClose, onOpenSandbox }) {
         <div className="space-y-3 font-mono text-xs text-slate-800">
           <div className="p-3 bg-[#EEF2FF] rounded-xl border border-indigo-200 flex justify-between items-center">
             <span>Turning-Point Indication (Clause A.4.4.3):</span>
-            <span className="text-[#5842F6] font-bold">P = I + 0.5d - &Delta;L</span>
+            <span className="text-[#007A8C] font-bold">P = I + 0.5d - &Delta;L</span>
           </div>
 
           <div className="p-3 bg-[#EEF2FF] rounded-xl border border-indigo-200 flex justify-between items-center">
@@ -159,28 +159,28 @@ export function SIHPitchDeckModal({ isOpen, onClose, onOpenSandbox }) {
       content: (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
           <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-2">
-            <h4 className="font-bold text-[#5842F6] text-sm">Seventh Schedule Alignment</h4>
+            <h4 className="font-bold text-[#007A8C] text-sm">Seventh Schedule Alignment</h4>
             <p className="text-slate-600 leading-relaxed">
               Maps the Seventh Schedule provisions for Non-Automatic Weighing Instruments directly to digital test fields and tolerances.
             </p>
           </div>
 
           <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-2">
-            <h4 className="font-bold text-[#5842F6] text-sm">Section 19 Model Approval</h4>
+            <h4 className="font-bold text-[#007A8C] text-sm">Section 19 Model Approval</h4>
             <p className="text-slate-600 leading-relaxed">
               Provides standardized, tamper-evident evaluation certificates required before granting national model approval certificates.
             </p>
           </div>
 
           <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-2">
-            <h4 className="font-bold text-[#5842F6] text-sm">NABL & RRSL Interoperability</h4>
+            <h4 className="font-bold text-[#007A8C] text-sm">NABL & RRSL Interoperability</h4>
             <p className="text-slate-600 leading-relaxed">
               Enables seamless data interchange between Regional Reference Standards Laboratories and central DoCA registries.
             </p>
           </div>
 
           <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-2xs space-y-2">
-            <h4 className="font-bold text-[#5842F6] text-sm">Consumer Protection</h4>
+            <h4 className="font-bold text-[#007A8C] text-sm">Consumer Protection</h4>
             <p className="text-slate-600 leading-relaxed">
               Guarantees commercial scale accuracy in retail mandis, supermarkets, weighbridges, and precious metal shops.
             </p>
@@ -196,7 +196,7 @@ export function SIHPitchDeckModal({ isOpen, onClose, onOpenSandbox }) {
       content: (
         <div className="grid grid-cols-3 gap-3 text-center">
           <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs space-y-2">
-            <div className="text-2xl sm:text-4xl font-black text-[#5842F6] font-mono">95%</div>
+            <div className="text-2xl sm:text-4xl font-black text-[#007A8C] font-mono">95%</div>
             <div className="text-xs font-bold text-slate-800">Faster Approval Cycle</div>
             <p className="text-[11px] text-slate-500">From 7 days to instant report generation</p>
           </div>
@@ -252,8 +252,8 @@ export function SIHPitchDeckModal({ isOpen, onClose, onOpenSandbox }) {
         
         {/* Top Header */}
         <div className="p-6 bg-[#EEF2FF] border-b border-indigo-100 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-xs font-bold text-[#5842F6] bg-white px-3 py-1 rounded-full border border-indigo-200 shadow-2xs">
-            <Award className="w-3.5 h-3.5 text-[#5842F6]" />
+          <div className="flex items-center gap-2 text-xs font-bold text-[#007A8C] bg-white px-3 py-1 rounded-full border border-indigo-200 shadow-2xs">
+            <Award className="w-3.5 h-3.5 text-[#007A8C]" />
             <span>{current.badge}</span>
           </div>
 
@@ -294,7 +294,7 @@ export function SIHPitchDeckModal({ isOpen, onClose, onOpenSandbox }) {
             onClick={() => setCurrentSlide(prev => Math.max(0, prev - 1))}
             disabled={currentSlide === 0}
             className={`px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer ${
-              currentSlide === 0 ? 'text-slate-400 cursor-not-allowed' : 'text-slate-700 hover:text-[#5842F6] bg-white hover:bg-slate-100 border border-slate-300 shadow-2xs'
+              currentSlide === 0 ? 'text-slate-400 cursor-not-allowed' : 'text-slate-700 hover:text-[#007A8C] bg-white hover:bg-slate-100 border border-slate-300 shadow-2xs'
             }`}
           >
             <ChevronLeft className="w-4 h-4" />
@@ -308,7 +308,7 @@ export function SIHPitchDeckModal({ isOpen, onClose, onOpenSandbox }) {
                 key={i}
                 onClick={() => setCurrentSlide(i)}
                 className={`w-2 h-2 rounded-full transition-all cursor-pointer ${
-                  currentSlide === i ? 'w-6 bg-[#5842F6]' : 'bg-slate-300 hover:bg-slate-400'
+                  currentSlide === i ? 'w-6 bg-[#007A8C]' : 'bg-slate-300 hover:bg-slate-400'
                 }`}
               />
             ))}
@@ -318,7 +318,7 @@ export function SIHPitchDeckModal({ isOpen, onClose, onOpenSandbox }) {
             onClick={() => setCurrentSlide(prev => Math.min(slides.length - 1, prev + 1))}
             disabled={currentSlide === slides.length - 1}
             className={`px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer ${
-              currentSlide === slides.length - 1 ? 'text-slate-400 cursor-not-allowed' : 'text-slate-700 hover:text-[#5842F6] bg-white hover:bg-slate-100 border border-slate-300 shadow-2xs'
+              currentSlide === slides.length - 1 ? 'text-slate-400 cursor-not-allowed' : 'text-slate-700 hover:text-[#007A8C] bg-white hover:bg-slate-100 border border-slate-300 shadow-2xs'
             }`}
           >
             <span>Next</span>

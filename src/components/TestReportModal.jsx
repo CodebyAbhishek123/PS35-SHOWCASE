@@ -26,14 +26,14 @@ export function TestReportModal({ report, onClose }) {
         {/* Top Action Bar (No Print) */}
         <div className="no-print bg-[#EEF2FF] px-6 py-4 border-b border-indigo-100 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2.5">
-            <span className="p-2 rounded-xl bg-[#5842F6] text-white shadow-md shadow-[#5842F6]/30">
+            <span className="p-2 rounded-xl bg-[#007A8C] text-white shadow-md shadow-[#007A8C]/30">
               <FileText className="w-5 h-5" />
             </span>
             <div>
               <h3 className="text-base font-bold text-slate-900">
                 OIML R-76 Standardized Test Report
               </h3>
-              <p className="text-xs text-[#5842F6] font-mono font-bold">
+              <p className="text-xs text-[#007A8C] font-mono font-bold">
                 {report.reportNumber}
               </p>
             </div>
@@ -45,14 +45,14 @@ export function TestReportModal({ report, onClose }) {
               className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-700 bg-white hover:bg-slate-100 border border-slate-200 flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
               title="Print Document"
             >
-              <Printer className="w-3.5 h-3.5 text-[#5842F6]" />
+              <Printer className="w-3.5 h-3.5 text-[#007A8C]" />
               <span className="hidden sm:inline">Print</span>
             </button>
 
             <button
               onClick={handleDownloadPDF}
               disabled={isExportingPDF}
-              className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-white bg-[#5842F6] hover:bg-[#4338CA] flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
+              className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-white bg-[#007A8C] hover:bg-[#4338CA] flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
               title="Download PDF"
             >
               <Download className="w-3.5 h-3.5 text-white" />
@@ -91,7 +91,7 @@ export function TestReportModal({ report, onClose }) {
           
           {/* Government of India Header */}
           <div className="text-center pb-6 border-b-2 border-slate-900 mb-6 space-y-1">
-            <div className="text-xs font-bold uppercase tracking-widest text-[#5842F6]">
+            <div className="text-xs font-bold uppercase tracking-widest text-[#007A8C]">
               GOVERNMENT OF INDIA
             </div>
             <div className="text-base sm:text-lg font-black uppercase text-slate-900 tracking-wide">
@@ -112,7 +112,7 @@ export function TestReportModal({ report, onClose }) {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 bg-[#EEF2FF]/60 border border-indigo-100 rounded-2xl mb-6 text-xs">
             <div>
               <span className="text-slate-500 font-medium">Report Number:</span>
-              <div className="font-mono font-bold text-[#5842F6] mt-0.5">{report.reportNumber}</div>
+              <div className="font-mono font-bold text-[#007A8C] mt-0.5">{report.reportNumber}</div>
             </div>
             <div>
               <span className="text-slate-500 font-medium">Date of Evaluation:</span>
@@ -187,7 +187,7 @@ export function TestReportModal({ report, onClose }) {
               </div>
               <div>
                 <span className="text-slate-500">Accuracy Class:</span>
-                <div className="font-bold text-[#5842F6]">{report.instrument?.accuracyClass?.replace('_', ' ')}</div>
+                <div className="font-bold text-[#007A8C]">{report.instrument?.accuracyClass?.replace('_', ' ')}</div>
               </div>
 
               <div>
@@ -258,7 +258,7 @@ export function TestReportModal({ report, onClose }) {
               </div>
               <div className="overflow-x-auto border border-slate-300 rounded-xl">
                 <table className="w-full text-left text-xs border-collapse">
-                  <thead className="bg-[#EEF2FF] text-[#5842F6] font-bold border-b border-slate-300">
+                  <thead className="bg-[#EEF2FF] text-[#007A8C] font-bold border-b border-slate-300">
                     <tr>
                       <th className="p-2.5 border-r border-slate-300">Load L ({report.instrument?.unit})</th>
                       <th className="p-2.5 border-r border-slate-300">Indication I ({report.instrument?.unit})</th>
@@ -276,7 +276,7 @@ export function TestReportModal({ report, onClose }) {
                         <td className="p-2 font-mono font-medium border-r border-slate-200">{row.load}</td>
                         <td className="p-2 font-mono border-r border-slate-200">{row.indication}</td>
                         <td className="p-2 font-mono border-r border-slate-200">{row.deltaL}</td>
-                        <td className="p-2 font-mono font-semibold text-[#5842F6] border-r border-slate-200">{row.correctedIndicationP}</td>
+                        <td className="p-2 font-mono font-semibold text-[#007A8C] border-r border-slate-200">{row.correctedIndicationP}</td>
                         <td className="p-2 font-mono border-r border-slate-200">{row.errorE}</td>
                         <td className="p-2 font-mono font-bold text-slate-900 border-r border-slate-200">{row.correctedErrorEc}</td>
                         <td className="p-2 font-mono text-amber-700 font-semibold border-r border-slate-200">&plusmn;{row.mpeLimit}</td>
@@ -333,8 +333,8 @@ export function TestReportModal({ report, onClose }) {
           </div>
 
           {/* Section 5: Conclusion & Recommendation */}
-          <div className="mb-8 p-4 bg-[#EEF2FF] border-l-4 border-[#5842F6] rounded-r-2xl text-xs space-y-1">
-            <h3 className="font-bold text-[#5842F6] uppercase">5. Metrological Conclusion & Recommendation</h3>
+          <div className="mb-8 p-4 bg-[#EEF2FF] border-l-4 border-[#007A8C] rounded-r-2xl text-xs space-y-1">
+            <h3 className="font-bold text-[#007A8C] uppercase">5. Metrological Conclusion & Recommendation</h3>
             <p className="text-slate-800 leading-relaxed">
               {report.conclusion}
             </p>
@@ -354,7 +354,7 @@ export function TestReportModal({ report, onClose }) {
             {/* Tamper-Proof Cryptographic QR & Hash */}
             <div className="p-3 bg-slate-50 border border-slate-200 rounded-2xl text-center space-y-1">
               <div className="flex justify-center">
-                <QrCode className="w-10 h-10 text-[#5842F6]" />
+                <QrCode className="w-10 h-10 text-[#007A8C]" />
               </div>
               <div className="text-[10px] font-bold text-slate-700 uppercase">SHA-256 Digital Verification Hash</div>
               <div className="font-mono text-[9px] text-slate-600 break-all bg-white p-1 rounded-lg border border-slate-200">

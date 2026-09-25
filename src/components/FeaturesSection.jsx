@@ -86,11 +86,11 @@ export function FeaturesSection({ onOpenSandbox, onOpenSampleReport }) {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EEF2FF] border border-[#5842F6]/20 text-xs font-bold text-[#5842F6]">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EEF2FF] border border-[#007A8C]/20 text-xs font-bold text-[#007A8C]">
             <span>ENTERPRISE CAPABILITIES</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
-            Comprehensive <span className="text-[#5842F6]">Feature Architecture</span>
+            Comprehensive <span className="text-[#007A8C]">Feature Architecture</span>
           </h2>
           <p className="text-slate-600 text-sm sm:text-base">
             Designed specifically to meet all key functional requirements of SIH Problem Statement 26035.
@@ -108,8 +108,8 @@ export function FeaturesSection({ onOpenSandbox, onOpenSampleReport }) {
                 onClick={() => setActiveTab(idx)}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
                   isSelected
-                    ? 'bg-[#5842F6] text-white shadow-md shadow-[#5842F6]/30'
-                    : 'bg-white text-slate-700 hover:text-[#5842F6] hover:bg-indigo-50 border border-slate-200'
+                    ? 'bg-[#007A8C] text-white shadow-md shadow-[#007A8C]/30'
+                    : 'bg-white text-slate-700 hover:text-[#007A8C] hover:bg-indigo-50 border border-slate-200'
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -125,7 +125,7 @@ export function FeaturesSection({ onOpenSandbox, onOpenSampleReport }) {
             
             {/* Left Column: Summary */}
             <div className="lg:col-span-5 space-y-5">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EEF2FF] border border-[#5842F6]/30 text-xs font-bold text-[#5842F6]">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EEF2FF] border border-[#007A8C]/30 text-xs font-bold text-[#007A8C]">
                 <span>{currentTab.badge}</span>
               </div>
 
@@ -140,7 +140,7 @@ export function FeaturesSection({ onOpenSandbox, onOpenSampleReport }) {
               <div className="pt-2 flex flex-wrap gap-3">
                 <button
                   onClick={() => onOpenSampleReport('REP-2026-001')}
-                  className="px-6 py-2.5 rounded-xl text-xs font-bold text-white bg-[#5842F6] hover:bg-[#4338CA] shadow-md shadow-[#5842F6]/30 transition-colors flex items-center gap-1.5 cursor-pointer"
+                  className="px-6 py-2.5 rounded-xl text-xs font-bold text-white bg-[#007A8C] hover:bg-[#4338CA] shadow-md shadow-[#007A8C]/30 transition-colors flex items-center gap-1.5 cursor-pointer"
                 >
                   <Eye className="w-3.5 h-3.5" />
                   <span>View Sample Report</span>
@@ -151,7 +151,7 @@ export function FeaturesSection({ onOpenSandbox, onOpenSampleReport }) {
             {/* Right Column: Detailed Clauses */}
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3">
               {currentTab.details.map((item, i) => (
-                <div key={i} className="p-4 rounded-xl bg-[#F8FAFC] border border-slate-200 space-y-1 hover:border-[#5842F6] transition-colors shadow-2xs">
+                <div key={i} className="p-4 rounded-xl bg-[#F8FAFC] border border-slate-200 space-y-1 hover:border-[#007A8C] transition-colors shadow-2xs">
                   <div className="flex items-start gap-2">
                     <Check className="w-4 h-4 text-[#00C853] shrink-0 mt-0.5" />
                     <span className="text-xs sm:text-sm font-bold text-slate-900">{item.label}</span>

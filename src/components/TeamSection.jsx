@@ -49,7 +49,7 @@ export function TeamSection() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 inline-block relative pb-3">
             Meet the <span className="relative">
               Innovators
-              <span className="absolute bottom-0 left-0 w-full h-[4px] bg-[#5842F6] rounded-full"></span>
+              <span className="absolute bottom-0 left-0 w-full h-[4px] bg-[#007A8C] rounded-full"></span>
             </span>
           </h2>
           <p className="text-slate-500 text-sm font-medium">
@@ -65,7 +65,7 @@ export function TeamSection() {
               className="flex flex-col items-center text-center group transition-all duration-300 hover:-translate-y-1.5"
             >
               {/* Circular Avatar Container with Drop Shadow & Ring */}
-              <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden mb-4 p-1 bg-white ring-2 ring-slate-200 group-hover:ring-[#5842F6] group-hover:shadow-xl group-hover:shadow-[#5842F6]/20 transition-all duration-300">
+              <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden mb-4 p-1 bg-white ring-2 ring-slate-200 group-hover:ring-[#007A8C] group-hover:shadow-xl group-hover:shadow-[#007A8C]/20 transition-all duration-300">
                 <img 
                   src={member.photo} 
                   alt={member.name}
@@ -79,12 +79,12 @@ export function TeamSection() {
               </div>
 
               {/* Member Name */}
-              <h3 className="text-base sm:text-lg font-black text-slate-900 group-hover:text-[#5842F6] transition-colors">
+              <h3 className="text-base sm:text-lg font-black text-slate-900 group-hover:text-[#007A8C] transition-colors">
                 {member.name}
               </h3>
 
               {/* Tag - Green/Indigo font matching theme */}
-              <div className="text-xs font-bold text-[#5842F6] mt-0.5 tracking-wide">
+              <div className="text-xs font-bold text-[#007A8C] mt-0.5 tracking-wide">
                 {member.tag}
               </div>
 

@@ -26,21 +26,21 @@ export function ResourcesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10">
         
         {/* Section Heading */}
-        <div className="text-center max-w-5xl mx-auto space-y-3">
+        <div className="text-center max-w-7xl mx-auto space-y-3">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight whitespace-nowrap">
             TARAZU Video Content & Platform Walkthroughs
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto">
+          <p className="text-slate-600 text-xs sm:text-sm lg:text-base font-medium whitespace-nowrap">
             Watch live demonstrations of raw bench observation testing, turning-point calculation automation, and eMaap API integration.
           </p>
         </div>
         
-        {/* 2 Clean Embedded Video Players Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {/* 2 Clean Embedded Video Players Grid (Larger Page Fit) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
           {videos.map((vid) => (
             <div 
               key={vid.id} 
-              className="bg-slate-950 rounded-3xl border border-slate-300 shadow-xl overflow-hidden aspect-video relative group transition-transform duration-300 hover:scale-[1.01]"
+              className="bg-slate-950 rounded-3xl border border-slate-300 shadow-2xl overflow-hidden aspect-video relative group transition-all duration-300 hover:scale-[1.01] hover:shadow-cyan-900/20"
             >
               <video 
                 controls 

@@ -4,13 +4,17 @@ export function ResourcesSection() {
   const videos = [
     {
       id: "demo",
-      title: "TARAZU Laboratory Workflow Demonstration",
-      poster: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
-      videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      title: "TARAZU Digital Calibration & Legal Metrology Platform",
+      subtitle: "Few Clicks. One Report. Verified Compliance.",
+      badge: "FEATURED WALKTHROUGH",
+      poster: "/tarazu-video-thumbnail.jpg",
+      videoUrl: "/video/tarazu-demo.mp4"
     },
     {
       id: "emaap",
       title: "Government eMaap Ecosystem Integration Overview",
+      subtitle: "Seamless statutory compliance API & multi-lab workflow sync",
+      badge: "GOVT INTEGRATION",
       poster: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
       videoUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
     }
@@ -40,16 +44,35 @@ export function ResourcesSection() {
           {videos.map((vid) => (
             <div 
               key={vid.id} 
-              className="bg-slate-950 rounded-3xl border border-slate-300 shadow-2xl overflow-hidden aspect-video relative group transition-all duration-300 hover:scale-[1.01] hover:shadow-cyan-900/20"
+              className="bg-slate-900 rounded-3xl border border-slate-200/80 shadow-2xl overflow-hidden flex flex-col group transition-all duration-300 hover:scale-[1.01] hover:shadow-cyan-900/20"
             >
-              <video 
-                controls 
-                poster={vid.poster}
-                className="w-full h-full object-cover"
-              >
-                <source src={vid.videoUrl} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              <div className="aspect-video relative bg-slate-950 overflow-hidden">
+                <video 
+                  controls 
+                  poster={vid.poster}
+                  className="w-full h-full object-cover"
+                  preload="metadata"
+                >
+                  <source src={vid.videoUrl} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <div className="p-5 bg-gradient-to-b from-slate-900 to-slate-950 text-white flex flex-col justify-between space-y-2 border-t border-slate-800">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-mono font-black uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-[#007A8C]/30 text-[#C0D725] border border-teal-500/30">
+                    {vid.badge}
+                  </span>
+                </div>
+                <div>
+                  <h3 className="text-base sm:text-lg font-black text-white leading-snug">
+                    {vid.title}
+                  </h3>
+                  <p className="text-xs text-slate-400 mt-1">
+                    {vid.subtitle}
+                  </p>
+                </div>
+              </div>
             </div>
           ))}
         </div>

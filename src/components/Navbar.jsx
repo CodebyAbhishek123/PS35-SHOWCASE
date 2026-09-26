@@ -21,7 +21,7 @@ export function Navbar({ activeSection, onNavigate, onOpenSandbox, onOpenDemo })
     { id: 'documentation', label: 'Documentation' },
     { id: 'for-laboratories', label: 'Who It Is For' },
     { id: 'pricing', label: 'Pricing' },
-    { id: 'resources', label: 'Resources' },
+    { id: 'resources', label: 'Content' },
     { id: 'faq', label: 'FAQ' },
     { id: 'team', label: 'Team' },
   ];

@@ -7,7 +7,6 @@ import { CoreFeaturesSection } from './components/CoreFeaturesSection';
 import { HowItWorksSection } from './components/HowItWorksSection';
 import { DocumentationSection } from './components/DocumentationSection';
 import { ForLaboratoriesSection } from './components/ForLaboratoriesSection';
-import { SecurityGovernanceSection } from './components/SecurityGovernanceSection';
 import { PricingSection } from './components/PricingSection';
 import { ResourcesSection } from './components/ResourcesSection';
 import { FAQSection } from './components/FAQSection';
@@ -149,9 +148,6 @@ export function App() {
           onOpenSandbox={() => setSandboxOpen(true)} 
           onOpenDemo={() => setDemoOpen(true)}
         />
-
-        {/* 8. SECURITY, ROLES & INTEGRATIONS */}
-        <SecurityGovernanceSection />
 
         {/* 9. PRICING & PILOT PLANS */}
         <PricingSection 

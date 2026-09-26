@@ -1,5 +1,4 @@
 import React from 'react';
-import { Play } from 'lucide-react';
 
 export function ResourcesSection() {
   const videos = [
@@ -28,10 +27,6 @@ export function ResourcesSection() {
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E6F4F6] border border-[#007A8C]/20 text-[#007A8C] text-xs font-bold uppercase tracking-wider">
-            <Play className="w-3.5 h-3.5 text-[#007A8C] fill-[#007A8C]" />
-            <span>Video Demonstrations</span>
-          </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             TARAZU Video Content & Platform Walkthroughs
           </h2>

@@ -22,7 +22,7 @@ export function BookDemoModal({ isOpen, onClose }) {
     setIsSubmitting(true);
     setSubmitError(null);
 
-    const recipientEmail = import.meta.env.VITE_DEMO_RECIPIENT_EMAIL || 'abhisheksharma.work@gmail.com';
+    const recipientEmail = import.meta.env.VITE_DEMO_RECIPIENT_EMAIL || 'coderithum1@gmail.com';
 
     try {
       // Dispatch email payload using FormSubmit API endpoint

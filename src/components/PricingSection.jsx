@@ -17,11 +17,12 @@ import {
   ChevronDown,
   ChevronUp,
   RotateCw,
-  ExternalLink
+  ExternalLink,
+  Landmark
 } from 'lucide-react';
 
 export function PricingSection({ onOpenSandbox, onOpenDemo }) {
-  const [billingCycle, setBillingCycle] = useState('annual');
+  const [billingCycle, setBillingCycle] = useState('monthly');
   const [flippedCards, setFlippedCards] = useState({});
   const [showComparison, setShowComparison] = useState(false);
 
@@ -32,143 +33,176 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
   const plans = [
     {
       id: "starter",
-      name: "Starter / Pilot Lab",
-      badge: "SINGLE BENCH",
-      audience: "Single calibration benches & small labs",
-      desc: "Eliminate error-prone Excel sheets with automated OIML R-76-1 turning point math and tamper-sealed PDF exports.",
-      priceMonthly: "$299",
-      priceAnnual: "$249",
-      period: "per month",
-      billedAnnualTotal: "$2,988 / yr",
-      savings: "Save $600 / yr",
+      name: "Starter",
+      badge: "1-2 TECHNICIANS",
+      audience: "Small private labs (1-2 technicians)",
+      desc: "Essential digital calibration tools tailored for small private calibration labs.",
+      priceMonthly: "₹2,999",
+      priceAnnual: "₹29,999",
+      periodMonthly: "/month",
+      periodAnnual: "/year",
+      billedAnnualTotal: "billed annually",
+      savings: "Save ₹5,989 / yr",
       icon: Scale,
       featured: false,
-      buttonText: "Request Pilot Access",
+      buttonText: "Start 14-Day Free Trial",
       highlights: [
-        { label: "Seats", value: "2 Techs" },
-        { label: "Benches", value: "1 Lab" },
-        { label: "Reports", value: "100 / mo" },
+        { label: "Reports", value: "50 / mo" },
+        { label: "Users", value: "1 Account" },
+        { label: "Export", value: "PDF Only" },
       ],
       frontFeatures: [
-        "Automated Turning Point Math (P = I + 0.5e − ΔL)",
-        "Stepped MPE Pass/Fail Class I-IV Checks",
-        "Standard Formal PDF Export with QR verification",
-        "SHA-256 Digital Tamper-Proof Hash Seal",
-        "Email Support with 24h SLA Response",
+        "50 test reports/month",
+        "1 user account",
+        "PDF export only",
+        "Email support",
       ],
       backFeatures: [
-        "Full OIML R-76 Stepped MPE Engine",
-        "Official PDF Export with Verification QR",
-        "Tamper-Proof SHA-256 Hash Verification",
-        "Multi-Device Web Cloud Access"
+        "50 Test Reports / Month",
+        "1 User Account",
+        "PDF Export Only",
+        "Email Support",
+        "Target: Small private labs (1-2 techs)"
       ]
     },
     {
       id: "professional",
-      name: "Professional Lab",
-      badge: "⭐ MOST POPULAR",
-      audience: "Commercial testing & ISO 17025 facilities",
-      desc: "Full-scale OIML R-76 metrology workspace with unlimited test reports, multi-tier sign-off, and mass set tracking.",
-      priceMonthly: "$699",
-      priceAnnual: "$599",
-      period: "per month",
-      billedAnnualTotal: "$7,188 / yr",
-      savings: "Save $1,200 / yr",
+      name: "Professional",
+      badge: "3-5 TECHNICIANS",
+      audience: "Medium labs (3-5 technicians)",
+      desc: "Complete metrology suite for growing medium labs needing multi-format exports & priority support.",
+      priceMonthly: "₹7,999",
+      priceAnnual: "₹79,999",
+      periodMonthly: "/month",
+      periodAnnual: "/year",
+      billedAnnualTotal: "billed annually",
+      savings: "Save ₹15,989 / yr",
       icon: ShieldCheck,
       featured: true,
-      buttonText: "Book a 15-Min Live Demo",
+      buttonText: "Start 14-Day Free Trial",
       highlights: [
-        { label: "Seats", value: "10 Seats" },
-        { label: "Workspaces", value: "3 Labs" },
-        { label: "Reports", value: "Unlimited" },
+        { label: "Reports", value: "200 / mo" },
+        { label: "Users", value: "5 Accounts" },
+        { label: "Export", value: "PDF + Word" },
       ],
       frontFeatures: [
-        "Unlimited Evaluated Test Reports",
-        "Multi-Tier Review & Sign-Off Pipeline",
-        "Automated PDF, DOCX & JSON Raw Export",
-        "Reference Standard Mass Tracking & Due Alerts",
-        "Priority 24/7 Dedicated Metrology Support SLA",
+        "200 test reports/month",
+        "5 user accounts",
+        "PDF + Word export",
+        "Digital repository",
+        "Priority support",
       ],
       backFeatures: [
-        "Unlimited OIML R-76 Evaluations & Exports",
-        "Multi-Tier Signatory Review & Approval Pipeline",
-        "Custom Laboratory Branding & Dynamic QR Portal",
-        "Reference Standard Mass Calibration Tracking",
-        "24/7 Priority Metrology SLA"
+        "200 Test Reports / Month",
+        "5 User Accounts",
+        "PDF + Word Export",
+        "Digital Repository",
+        "Priority Support",
+        "Target: Medium labs (3-5 techs)"
       ]
     },
     {
       id: "enterprise",
-      name: "Enterprise & Govt",
-      badge: "STATUTORY & SCALE MFRS",
-      audience: "Scale manufacturers & Metrology authorities",
-      desc: "Custom deployment with tailored local regulations, private cloud / on-premise hosting, and direct eMaap API hooks.",
-      priceMonthly: "Custom",
-      priceAnnual: "Custom",
-      period: "volume tailored",
-      billedAnnualTotal: "Custom SLA roadmap",
-      savings: "Pilot & Volume Discounts",
-      icon: Building2,
+      name: "Enterprise",
+      badge: "10+ TECHNICIANS",
+      audience: "Large labs + RRSLs (10+ technicians)",
+      desc: "Unlimited scale infrastructure with API access, custom branding, and on-premise deployment options.",
+      priceMonthly: "₹14,999",
+      priceAnnual: "₹1,49,999",
+      periodMonthly: "/month",
+      periodAnnual: "/year",
+      billedAnnualTotal: "billed annually",
+      savings: "Save ₹29,989 / yr",
+      icon: Cpu,
       featured: false,
-      buttonText: "Request Enterprise Consultation",
+      buttonText: "Start 14-Day Free Trial",
       highlights: [
-        { label: "Seats", value: "Unlimited" },
-        { label: "Benches", value: "Enterprise" },
-        { label: "Hosting", value: "Cloud / On-Prem" },
+        { label: "Reports", value: "Unlimited" },
+        { label: "Users", value: "Unlimited" },
+        { label: "Deployment", value: "On-Premise" },
       ],
       frontFeatures: [
-        "Unlimited Users, Signatories & Benches",
-        "Dedicated Private Cloud or On-Premise Air-Gapped",
-        "Custom Rule Engine & Local MPE Adaptations",
-        "eMaap-Ready Architecture & Direct LIMS APIs",
-        "ISO/IEC 17025 Metrologist Audit Assistance",
+        "Unlimited reports & users",
+        "API access",
+        "Custom branding",
+        "On-premise deployment option",
+        "Dedicated support",
       ],
       backFeatures: [
-        "Air-Gapped On-Premise or Dedicated VPC",
-        "Custom Metrology Rules & National Regulations",
-        "Direct LIMS & ERP Automated REST/JSON API Sync",
-        "Dedicated Metrology Technical Account Lead",
-        "99.99% Enterprise Uptime SLA"
+        "Unlimited Reports & Users",
+        "REST API Access",
+        "Custom Branding",
+        "On-Premise Deployment Option",
+        "Dedicated Support",
+        "Target: Large labs + RRSLs (10+ techs)"
+      ]
+    },
+    {
+      id: "government",
+      name: "Government",
+      badge: "STATE DEPARTMENTS",
+      audience: "State Legal Metrology Depts",
+      desc: "Custom statutory platform for state legal metrology departments with eMaap integration.",
+      priceMonthly: "Custom pricing",
+      priceAnnual: "Custom pricing",
+      periodMonthly: "",
+      periodAnnual: "",
+      billedAnnualTotal: "Tailored Govt SLA",
+      savings: "State Metrology SLA",
+      icon: Landmark,
+      featured: false,
+      buttonText: "Request Consultation",
+      highlights: [
+        { label: "Dashboard", value: "Multi-Lab" },
+        { label: "Reporting", value: "Centralized" },
+        { label: "Govt API", value: "eMaap Sync" },
+      ],
+      frontFeatures: [
+        "Multi-lab dashboard",
+        "Centralized reporting",
+        "eMaap integration",
+        "SLA-based support",
+      ],
+      backFeatures: [
+        "Multi-Lab Dashboard",
+        "Centralized Reporting",
+        "Direct eMaap Integration",
+        "SLA-Based Support",
+        "Target: State Legal Metrology Depts"
       ]
     }
   ];
 
   const comparisonCategories = [
     {
-      category: "Metrology Calculations & Evaluation",
+      category: "Plan Details & Target Audience",
       rows: [
-        { name: "OIML R-76-1 Turning Point Engine (P = I + 0.5e − ΔL)", starter: "Included", pro: "Included", ent: "Included (Customizable)" },
-        { name: "Stepped MPE Table Evaluation (Class I, II, III, IIII)", starter: "Standard", pro: "Standard + Custom", ent: "Standard + Custom Rules" },
-        { name: "Tare & Zero Setting Tests", starter: "Yes", pro: "Yes", ent: "Yes" },
-        { name: "Eccentricity (Corner Load) Evaluation", starter: "Yes", pro: "Yes", ent: "Yes" },
-        { name: "Repeatability (Run 1 / Run 2 ΔE Max)", starter: "Yes", pro: "Yes", ent: "Yes" },
-        { name: "Reference Mass Set Tracking & Calibration Due Alerts", starter: "Basic", pro: "Advanced", ent: "Enterprise LIMS Sync" },
+        { name: "Target Audience", starter: "Small private labs (1-2 techs)", pro: "Medium labs (3-5 techs)", ent: "Large labs + RRSLs (10+ techs)", govt: "State Legal Metrology Depts" },
+        { name: "Monthly Test Reports", starter: "50 / month", pro: "200 / month", ent: "Unlimited", govt: "Centralized Unlimited" },
+        { name: "User Accounts", starter: "1 user account", pro: "5 user accounts", ent: "Unlimited users", govt: "Multi-lab users" },
       ]
     },
     {
-      category: "Workspaces & User Management",
+      category: "Export & Compliance Capabilities",
       rows: [
-        { name: "Included Laboratory Technicians", starter: "2 Seats", pro: "10 Seats", ent: "Unlimited" },
-        { name: "Active Laboratory Workspaces / Benches", starter: "1 Workspace", pro: "3 Workspaces", ent: "Unlimited Regional Benches" },
-        { name: "Role-Based Access Control (Technician, Signatory, Admin)", starter: "Standard", pro: "Granular Multi-Tier", ent: "Custom SSO & RBAC" },
-        { name: "Single Sign-On (SAML / Okta / Azure AD)", starter: "—", pro: "Optional Add-on", ent: "Included" },
+        { name: "Export Formats", starter: "PDF export only", pro: "PDF + Word export", ent: "PDF, Word, JSON, API", govt: "PDF, Word, XML, eMaap API" },
+        { name: "Digital Repository", starter: "Standard", pro: "Included", ent: "Enterprise Repository", govt: "Centralized Repository" },
+        { name: "Custom Branding", starter: "—", pro: "—", ent: "Custom Branding", govt: "Government Seal & Custom Branding" },
+        { name: "API Access", starter: "—", pro: "—", ent: "Included", govt: "Direct eMaap Integration" },
+        { name: "On-Premise Deployment", starter: "—", pro: "—", ent: "On-premise option", govt: "On-premise / Govt Cloud" },
       ]
     },
     {
-      category: "Reporting, Verification & Compliance",
+      category: "Support & SLA",
       rows: [
-        { name: "Monthly Evaluated Reports", starter: "100 / month", pro: "Unlimited", ent: "Unlimited" },
-        { name: "Report Formats", starter: "PDF", pro: "PDF, DOCX, JSON", ent: "PDF, DOCX, JSON, XML, API" },
-        { name: "SHA-256 Digital Tamper Hash", starter: "Yes", pro: "Yes", ent: "Yes" },
-        { name: "Dynamic QR Code Verification Portal", starter: "Standard", pro: "Custom Branded", ent: "White-Label & Custom Domain" },
-        { name: "eMaap-Ready Architecture & Legal Metrology API Hooks", starter: "—", pro: "Standard API", ent: "Full API + Custom Adapters" },
-        { name: "ISO/IEC 17025 Audit Assistance", starter: "Self-serve Docs", pro: "Priority Support", ent: "Dedicated Metrologist Lead" },
+        { name: "Support Model", starter: "Email support", pro: "Priority support", ent: "Dedicated support", govt: "SLA-based support" },
+        { name: "Free Trial Access", starter: "14 days (No CC)", pro: "14 days (No CC)", ent: "14 days (No CC)", govt: "Govt Pilot Walkthrough" },
       ]
     }
   ];
 
   return (
-    <section id="pricing" className="py-14 sm:py-18 bg-gradient-to-b from-white via-[#F8FAFC] to-white text-slate-800 relative border-b border-slate-200 overflow-hidden">
+    <section id="pricing" className="py-8 sm:py-12 bg-gradient-to-b from-white via-[#F8FAFC] to-white text-slate-800 relative border-b border-slate-200 overflow-hidden">
       
       {/* Background Soft Glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-[#007A8C]/8 via-[#C0D725]/10 to-[#2563EB]/8 blur-[130px] rounded-full pointer-events-none" />
@@ -177,23 +211,21 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Compact Header Section */}
-        <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
+        <div className="text-center max-w-5xl mx-auto mb-7 space-y-2.5">
 
-
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-950 tracking-tight leading-tight">
-            Predictable Plans for <br className="hidden sm:inline" />
+          <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-black tracking-tight leading-tight whitespace-nowrap">
             <span className="bg-gradient-to-r from-[#0F2747] via-[#007A8C] to-[#0F9D8A] bg-clip-text text-transparent">
-              Every Laboratory Scale.
+              Transparent Pricing Plans for Every Metrology Laboratory.
             </span>
           </h2>
 
           <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-xl mx-auto">
-            Hover or tap any card to reveal dynamic pricing, annual savings, and instant lab access.
+            Hover or tap any card to view detailed price breakdowns, target lab sizes, and core features.
           </p>
 
-          {/* Compact Billing Toggle Pill */}
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-2.5">
-            <div className="inline-flex items-center p-1 rounded-xl bg-white border border-slate-200/90 shadow-sm">
+          {/* Billing Cycle Toggle & Free Trial Callout */}
+          <div className="pt-1 flex flex-wrap items-center justify-center gap-3">
+            <div className="inline-flex items-center p-1 rounded-xl bg-white border border-slate-200/90 shadow-xs">
               <button
                 onClick={() => setBillingCycle('monthly')}
                 className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer ${
@@ -215,30 +247,34 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
               >
                 <span>Annual</span>
                 <span className="text-[9px] font-mono font-black uppercase px-1.5 py-0.5 rounded bg-[#C0D725] text-slate-950 shadow-2xs">
-                  SAVE 20%
+                  SAVE 17%
                 </span>
               </button>
             </div>
 
-            <span className="text-[11px] font-mono text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200 font-semibold inline-flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-              2 Months Free Included
+            {/* Free Trial Banner Pill */}
+            <span className="text-[11px] font-mono text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200 font-bold inline-flex items-center gap-1.5 shadow-2xs">
+              <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+              <span><strong>Free Trial:</strong> 14 days (no credit card required)</span>
             </span>
           </div>
         </div>
 
-        {/* 3 Interactive 3D Flip Pricing Cards (Screen-fit Height) */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
+        {/* 4 Interactive 3D Flip Pricing Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto items-stretch">
           {plans.map((p) => {
             const PlanIcon = p.icon;
             const isFeatured = p.featured;
-            const isEnterprise = p.id === 'enterprise';
+            const isGovt = p.id === 'government';
             const isFlippedManual = flippedCards[p.id];
+
+            const currentPrice = billingCycle === 'annual' ? p.priceAnnual : p.priceMonthly;
+            const currentPeriod = billingCycle === 'annual' ? p.periodAnnual : p.periodMonthly;
 
             return (
               <div 
                 key={p.id} 
-                className="perspective-1000 w-full h-[450px] relative group"
+                className="perspective-1000 w-full h-[470px] relative group"
                 onClick={() => toggleFlip(p.id)}
               >
                 {/* 3D Flip Card Container */}
@@ -250,71 +286,76 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
                   
                   {/* ================= FRONT SIDE OF CARD ================= */}
                   <div 
-                    className={`absolute inset-0 w-full h-full backface-hidden rounded-3xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 ${
+                    className={`absolute inset-0 w-full h-full backface-hidden rounded-3xl p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 ${
                       isFeatured
                         ? 'bg-gradient-to-b from-[#0F2747] via-[#0B1E37] to-[#071322] text-white border-2 border-[#007A8C] shadow-[0_15px_45px_-10px_rgba(0,122,140,0.4)]'
-                        : isEnterprise
-                        ? 'bg-gradient-to-b from-slate-900 via-[#131F33] to-slate-950 text-white border border-slate-700 shadow-xl'
+                        : isGovt
+                        ? 'bg-gradient-to-b from-slate-900 via-[#191924] to-slate-950 text-white border border-amber-500/30 shadow-xl'
                         : 'bg-gradient-to-b from-slate-900 via-[#111C2D] to-slate-950 text-white border border-slate-800 shadow-xl'
                     }`}
                   >
-                    {/* Top Floating Badge for Featured */}
-                    {isFeatured && (
-                      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full bg-gradient-to-r from-[#007A8C] to-[#C0D725] text-slate-950 text-[10px] font-mono font-black uppercase tracking-wider shadow-md border border-white/30 flex items-center gap-1.5 whitespace-nowrap z-20">
-                        <span className="w-1.5 h-1.5 rounded-full bg-slate-950" />
-                        <span>MOST POPULAR</span>
-                      </div>
-                    )}
-
                     {/* Front Header */}
-                    <div className="space-y-4">
-                      <div className="flex items-start justify-between gap-3">
+                    <div className="space-y-3">
+                      <div className="flex items-start justify-between gap-2">
                         <div>
-                          <span className={`text-[9px] font-mono font-black tracking-widest uppercase px-2.5 py-0.5 rounded-md inline-block ${
+                          <span className={`text-[9px] font-mono font-black tracking-widest uppercase px-2 py-0.5 rounded-md inline-block ${
                             isFeatured
                               ? 'bg-white/10 text-[#C0D725] border border-white/15'
-                              : isEnterprise
-                              ? 'bg-teal-950 text-teal-300 border border-teal-700/40'
+                              : isGovt
+                              ? 'bg-amber-950/80 text-amber-300 border border-amber-700/40'
                               : 'bg-teal-950/80 text-teal-300 border border-teal-700/40'
                           }`}>
                             {p.badge}
                           </span>
-                          <h3 className="text-xl sm:text-2xl font-black mt-1 text-white">
+                          <h3 className="text-xl font-black mt-1 text-white">
                             {p.name}
                           </h3>
                         </div>
 
-                        <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 shadow-sm ${
+                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-xs ${
                           isFeatured
                             ? 'bg-[#007A8C]/30 text-[#C0D725] border border-teal-400/30'
-                            : isEnterprise
-                            ? 'bg-slate-800 text-teal-300 border border-slate-700'
+                            : isGovt
+                            ? 'bg-amber-950/60 text-amber-400 border border-amber-700/40'
                             : 'bg-slate-800 text-teal-300 border border-slate-700'
                         }`}>
                           <PlanIcon className="w-5 h-5" />
                         </div>
                       </div>
 
-                      <p className={`text-xs line-clamp-2 ${isFeatured ? 'text-slate-300' : 'text-slate-400'}`}>
-                        {p.desc}
-                      </p>
+                      {/* Price Display on Front */}
+                      <div className="pt-1 pb-1 border-y border-white/10">
+                        <div className="flex items-baseline flex-wrap gap-1">
+                          <span className="text-2xl sm:text-3xl font-black font-mono tracking-tight text-white">
+                            {currentPrice}
+                          </span>
+                          {currentPeriod && (
+                            <span className="text-xs font-mono font-medium text-slate-300">
+                              {currentPeriod}
+                            </span>
+                          )}
+                        </div>
+                        <div className="text-[10px] font-mono text-slate-400 mt-0.5 truncate">
+                          Target: {p.audience}
+                        </div>
+                      </div>
 
-                      {/* 3 Metric Pills */}
-                      <div className="grid grid-cols-3 gap-1.5 pt-1">
+                      {/* Front Metric Pills */}
+                      <div className="grid grid-cols-3 gap-1 pt-1">
                         {p.highlights.map((h, idx) => (
                           <div
                             key={idx}
-                            className={`p-1.5 rounded-lg text-center border ${
+                            className={`p-1 rounded-lg text-center border ${
                               isFeatured
                                 ? 'bg-white/5 border-white/10'
                                 : 'bg-slate-800/40 border-slate-700/50'
                             }`}
                           >
-                            <div className="text-[8px] font-mono uppercase text-slate-400">
+                            <div className="text-[7.5px] font-mono uppercase text-slate-400">
                               {h.label}
                             </div>
-                            <div className={`text-[11px] font-mono font-bold truncate ${
-                              isFeatured ? 'text-[#C0D725]' : 'text-teal-300'
+                            <div className={`text-[10px] font-mono font-bold truncate ${
+                              isFeatured ? 'text-[#C0D725]' : isGovt ? 'text-amber-300' : 'text-teal-300'
                             }`}>
                               {h.value}
                             </div>
@@ -323,21 +364,23 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
                       </div>
 
                       {/* Front Features List */}
-                      <div className="space-y-2 pt-1">
+                      <div className="space-y-1.5 pt-1">
                         <span className="text-[9px] font-mono font-extrabold uppercase tracking-wider block text-slate-400">
-                          INCLUDED CAPABILITIES:
+                          INCLUDED FEATURES:
                         </span>
                         <ul className="space-y-1.5">
-                          {p.frontFeatures.slice(0, 4).map((f, fIdx) => (
+                          {p.frontFeatures.map((f, fIdx) => (
                             <li key={fIdx} className="flex items-center gap-2 text-xs">
                               <div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center shrink-0 ${
                                 isFeatured
                                   ? 'bg-[#007A8C] text-[#C0D725]'
+                                  : isGovt
+                                  ? 'bg-amber-900 text-amber-300'
                                   : 'bg-teal-900 text-teal-300'
                               }`}>
                                 <Check className="w-2.5 h-2.5 stroke-[3]" />
                               </div>
-                              <span className="truncate text-slate-300">
+                              <span className="truncate text-[11px] text-slate-300">
                                 {f}
                               </span>
                             </li>
@@ -347,15 +390,17 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
                     </div>
 
                     {/* Front Bottom Flip Prompt Pill */}
-                    <div className="pt-3 border-t border-slate-200/15">
-                      <div className={`py-2 px-3 rounded-xl border flex items-center justify-between text-xs font-medium transition-all ${
+                    <div className="pt-2 border-t border-slate-200/15">
+                      <div className={`py-1.5 px-2.5 rounded-xl border flex items-center justify-between text-xs font-medium transition-all ${
                         isFeatured
                           ? 'bg-[#C0D725]/15 border-[#C0D725]/40 text-[#C0D725]'
+                          : isGovt
+                          ? 'bg-amber-950/60 border-amber-700/40 text-amber-300'
                           : 'bg-teal-950/60 border-teal-700/40 text-teal-300'
                       }`}>
-                        <div className="flex items-center gap-2 font-mono text-[11px] font-bold">
-                          <RotateCw className="w-3.5 h-3.5 animate-spin" style={{ animationDuration: '6s' }} />
-                          <span>Hover to see Price &amp; SLAs</span>
+                        <div className="flex items-center gap-1.5 font-mono text-[10px] font-bold">
+                          <RotateCw className="w-3 h-3 animate-spin" style={{ animationDuration: '6s' }} />
+                          <span>Hover to flip card</span>
                         </div>
                         <span className="text-xs font-bold">↻</span>
                       </div>
@@ -364,77 +409,72 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
 
                   {/* ================= BACK SIDE OF CARD (REVEALED ON FLIP) ================= */}
                   <div 
-                    className={`absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-3xl p-6 sm:p-7 flex flex-col justify-between shadow-2xl transition-all duration-300 ${
+                    className={`absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-3xl p-5 sm:p-6 flex flex-col justify-between shadow-2xl transition-all duration-300 ${
                       isFeatured
                         ? 'bg-gradient-to-b from-[#0F2747] via-[#0B1E37] to-[#071322] text-white border-2 border-[#007A8C] shadow-[0_20px_50px_-10px_rgba(0,122,140,0.5)]'
-                        : isEnterprise
-                        ? 'bg-gradient-to-b from-slate-900 via-[#131F33] to-slate-950 text-white border border-slate-700 shadow-2xl'
+                        : isGovt
+                        ? 'bg-gradient-to-b from-slate-900 via-[#191924] to-slate-950 text-white border border-amber-500/40 shadow-2xl'
                         : 'bg-gradient-to-b from-slate-900 via-[#111C2D] to-slate-950 text-white border border-slate-800 shadow-2xl'
                     }`}
                   >
                     {/* Back Header */}
-                    <div className="space-y-3">
+                    <div className="space-y-2.5">
                       <div className="flex items-center justify-between">
-                        <span className={`text-[9px] font-mono font-bold tracking-widest uppercase px-2.5 py-0.5 rounded-md ${
+                        <span className={`text-[9px] font-mono font-bold tracking-widest uppercase px-2 py-0.5 rounded-md ${
                           isFeatured
                             ? 'bg-white/10 text-[#C0D725]'
+                            : isGovt
+                            ? 'bg-amber-950 text-amber-300'
                             : 'bg-teal-950 text-teal-300'
                         }`}>
-                          {p.name}
+                          {p.name} PLAN
                         </span>
-                        <span className="text-[10px] font-mono text-slate-400 flex items-center gap-1">
+                        <span className="text-[9px] font-mono text-slate-400 flex items-center gap-1">
                           <RotateCw className="w-3 h-3" /> Flipped
                         </span>
                       </div>
 
                       {/* Main Big Price Display */}
-                      <div className={`p-4 rounded-2xl border ${
+                      <div className={`p-3 rounded-2xl border ${
                         isFeatured
                           ? 'bg-white/6 border-teal-500/30'
+                          : isGovt
+                          ? 'bg-amber-950/40 border-amber-700/50'
                           : 'bg-slate-800/60 border-slate-700/80'
                       }`}>
-                        <div className="flex items-baseline gap-1.5">
-                          <span className="text-4xl sm:text-5xl font-black font-mono tracking-tight text-white">
-                            {billingCycle === 'annual' ? p.priceAnnual : p.priceMonthly}
+                        <div className="flex items-baseline gap-1">
+                          <span className="text-3xl font-black font-mono tracking-tight text-white">
+                            {currentPrice}
                           </span>
-                          {p.priceAnnual !== 'Custom' ? (
-                            <div className="flex flex-col">
-                              <span className="text-xs font-mono font-bold text-slate-300">
-                                / mo
-                              </span>
-                              <span className="text-[10px] font-mono text-slate-400">
-                                {billingCycle === 'annual' ? p.billedAnnualTotal : 'monthly'}
-                              </span>
-                            </div>
-                          ) : (
-                            <span className="text-xs font-mono text-teal-300">
-                              / deployment
+                          {currentPeriod && (
+                            <span className="text-xs font-mono font-bold text-slate-300">
+                              {currentPeriod}
                             </span>
                           )}
                         </div>
 
-                        <div className="mt-2 pt-2 border-t border-slate-200/15 flex items-center justify-between text-[11px]">
-                          <span className={isFeatured ? 'text-[#C0D725] font-bold' : 'text-teal-300 font-bold'}>
-                            {billingCycle === 'annual' ? p.savings : 'Flexible monthly'}
+                        <div className="mt-1.5 pt-1.5 border-t border-slate-200/15 flex items-center justify-between text-[10px]">
+                          <span className={isFeatured ? 'text-[#C0D725] font-bold' : isGovt ? 'text-amber-300 font-bold' : 'text-teal-300 font-bold'}>
+                            {billingCycle === 'annual' ? p.savings : 'Monthly billing'}
                           </span>
-                          <span className="text-[10px] font-mono text-slate-400">
-                            {p.audience}
+                          <span className="font-mono text-slate-400 truncate max-w-[120px]">
+                            {p.billedAnnualTotal}
                           </span>
                         </div>
                       </div>
 
-                      {/* Back Feature Summary Pills */}
-                      <div className="space-y-1.5 pt-1">
+                      {/* Back Feature Summary List */}
+                      <div className="space-y-1 pt-1">
                         <span className="text-[9px] font-mono font-extrabold uppercase tracking-wider block text-slate-400">
-                          CORE VALUE DELIVERABLES:
+                          SPECIFICATION SUMMARY:
                         </span>
                         <ul className="space-y-1 text-xs">
                           {p.backFeatures.map((bf, bIdx) => (
                             <li key={bIdx} className="flex items-center gap-1.5">
                               <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 ${
-                                isFeatured ? 'text-[#C0D725]' : 'text-teal-300'
+                                isFeatured ? 'text-[#C0D725]' : isGovt ? 'text-amber-400' : 'text-teal-300'
                               }`} />
-                              <span className="truncate text-[11px] text-slate-200 font-medium">
+                              <span className="truncate text-[10.5px] text-slate-200 font-medium">
                                 {bf}
                               </span>
                             </li>
@@ -444,15 +484,17 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
                     </div>
 
                     {/* Back Action Buttons */}
-                    <div className="pt-3 border-t border-slate-200/15 space-y-2">
+                    <div className="pt-2 border-t border-slate-200/15 space-y-2">
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
                           onOpenDemo();
                         }}
-                        className={`w-full py-3 px-4 rounded-xl font-bold text-xs transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-md ${
+                        className={`w-full py-2.5 px-3 rounded-xl font-bold text-xs transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer shadow-md ${
                           isFeatured
                             ? 'bg-gradient-to-r from-[#C0D725] to-[#AEC41F] hover:from-[#C9E026] hover:to-[#B6CC22] text-slate-950 font-black shadow-[#C0D725]/30'
+                            : isGovt
+                            ? 'bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black shadow-amber-500/20'
                             : 'bg-gradient-to-r from-[#007A8C] to-[#0B5E6B] hover:from-[#008DA2] hover:to-[#0C6D7C] text-white font-black shadow-[#007A8C]/25 border border-teal-400/30'
                         }`}
                       >
@@ -467,7 +509,7 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
                           onOpenSandbox();
                         }}
                         className={`w-full text-center text-[10px] font-mono transition-colors hover:underline cursor-pointer ${
-                          isFeatured ? 'text-teal-300 hover:text-white' : isEnterprise ? 'text-teal-400 hover:text-white' : 'text-slate-500 hover:text-[#007A8C]'
+                          isFeatured ? 'text-teal-300 hover:text-white' : isGovt ? 'text-amber-300 hover:text-white' : 'text-slate-400 hover:text-[#007A8C]'
                         }`}
                       >
                         Launch Interactive Sandbox →
@@ -482,15 +524,42 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
           })}
         </div>
 
+        {/* Free Trial Banner Box */}
+        <div className="mt-8 max-w-5xl mx-auto bg-emerald-950/80 border border-emerald-500/30 rounded-2xl p-4 sm:p-5 text-emerald-100 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center shrink-0">
+              <Sparkles className="w-5 h-5 text-emerald-400" />
+            </div>
+            <div>
+              <h4 className="text-sm font-bold text-white flex items-center gap-2">
+                <span>Free Trial: 14 Days</span>
+                <span className="text-[10px] font-mono uppercase bg-emerald-400/20 text-emerald-300 px-2 py-0.5 rounded border border-emerald-400/30">
+                  No Credit Card Required
+                </span>
+              </h4>
+              <p className="text-xs text-emerald-200/90 mt-0.5">
+                Full access to test report generation, OIML R-76 calculations, and tamper-sealed PDF exports.
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={onOpenSandbox}
+            className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs transition-colors shrink-0 cursor-pointer shadow-md flex items-center gap-1.5"
+          >
+            <span>Start 14-Day Free Trial</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
         {/* Feature Comparison Accordion Toggle */}
         <div className="mt-10 max-w-5xl mx-auto">
           <div className="text-center">
             <button
               onClick={() => setShowComparison(!showComparison)}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-slate-200 text-slate-800 hover:text-[#007A8C] hover:border-[#007A8C]/40 font-bold text-xs shadow-sm transition-all cursor-pointer group"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-slate-200 text-slate-800 hover:text-[#007A8C] hover:border-[#007A8C]/40 font-bold text-xs shadow-xs transition-all cursor-pointer group"
             >
               <Layers className="w-3.5 h-3.5 text-[#007A8C]" />
-              <span>{showComparison ? "Hide Detailed Feature Specifications" : "Compare All Plan Specifications"}</span>
+              <span>{showComparison ? "Hide Detailed Feature Matrix" : "Compare All 4 Plans Side-by-Side"}</span>
               {showComparison ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />}
             </button>
           </div>
@@ -500,8 +569,8 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
             <div className="mt-6 bg-white rounded-2xl border border-slate-200 shadow-lg overflow-hidden animate-fadeIn">
               <div className="p-4 bg-gradient-to-r from-[#0F2747] to-[#007A8C] text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div>
-                  <h3 className="text-base font-black tracking-tight">Granular Metrology Feature Matrix</h3>
-                  <p className="text-[11px] text-teal-100">Full technical breakdown aligned with OIML R-76-1 &amp; ISO/IEC 17025.</p>
+                  <h3 className="text-base font-black tracking-tight">Indian LIMS Market Research Comparison Matrix</h3>
+                  <p className="text-[11px] text-teal-100">Full technical breakdown aligned with OIML R-76-1 &amp; Legal Metrology guidelines.</p>
                 </div>
                 <button 
                   onClick={onOpenDemo}
@@ -515,26 +584,28 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
                 <table className="w-full text-left text-xs border-collapse">
                   <thead>
                     <tr className="border-b border-slate-200 bg-slate-50/80">
-                      <th className="py-3 px-5 font-bold text-slate-900 w-2/5">Specification</th>
-                      <th className="py-3 px-3 font-black text-slate-900 text-center w-1/5">Starter Lab</th>
-                      <th className="py-3 px-3 font-black text-[#007A8C] text-center w-1/5 bg-[#E6F4F6]/50">Professional</th>
-                      <th className="py-3 px-3 font-black text-slate-900 text-center w-1/5">Enterprise</th>
+                      <th className="py-3 px-4 font-bold text-slate-900 w-1/4">Specification</th>
+                      <th className="py-3 px-2 font-black text-slate-900 text-center w-3/16">Starter (₹2.9k/mo)</th>
+                      <th className="py-3 px-2 font-black text-[#007A8C] text-center w-3/16 bg-[#E6F4F6]/50">Professional (₹7.9k/mo)</th>
+                      <th className="py-3 px-2 font-black text-slate-900 text-center w-3/16">Enterprise (₹14.9k/mo)</th>
+                      <th className="py-3 px-2 font-black text-amber-700 text-center w-3/16 bg-amber-50/50">Government (Custom)</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-slate-100">
                     {comparisonCategories.map((cat, cIdx) => (
                       <React.Fragment key={cIdx}>
                         <tr className="bg-slate-100/70 border-t border-b border-slate-200">
-                          <td colSpan={4} className="py-2 px-5 font-mono font-bold text-slate-800 uppercase tracking-wider text-[9px]">
+                          <td colSpan={5} className="py-2 px-4 font-mono font-bold text-slate-800 uppercase tracking-wider text-[9px]">
                             {cat.category}
                           </td>
                         </tr>
                         {cat.rows.map((r, rIdx) => (
                           <tr key={rIdx} className="hover:bg-slate-50/80 transition-colors">
-                            <td className="py-2.5 px-5 font-medium text-slate-700 text-[11px]">{r.name}</td>
-                            <td className="py-2.5 px-3 text-center font-mono text-slate-600 text-[11px]">{r.starter}</td>
-                            <td className="py-2.5 px-3 text-center font-mono font-bold text-[#007A8C] bg-[#E6F4F6]/30 text-[11px]">{r.pro}</td>
-                            <td className="py-2.5 px-3 text-center font-mono text-slate-900 font-semibold text-[11px]">{r.ent}</td>
+                            <td className="py-2.5 px-4 font-medium text-slate-700 text-[11px]">{r.name}</td>
+                            <td className="py-2.5 px-2 text-center font-mono text-slate-600 text-[11px]">{r.starter}</td>
+                            <td className="py-2.5 px-2 text-center font-mono font-bold text-[#007A8C] bg-[#E6F4F6]/30 text-[11px]">{r.pro}</td>
+                            <td className="py-2.5 px-2 text-center font-mono text-slate-900 font-semibold text-[11px]">{r.ent}</td>
+                            <td className="py-2.5 px-2 text-center font-mono text-amber-900 font-semibold bg-amber-50/20 text-[11px]">{r.govt}</td>
                           </tr>
                         ))}
                       </React.Fragment>
@@ -551,7 +622,7 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
             <div className="flex items-center gap-2.5">
               <CheckCircle2 className="w-4 h-4 text-[#C0D725] shrink-0" />
-              <span className="text-slate-200"><strong>30-Day Pilot Guarantee:</strong> Live tests on your benches.</span>
+              <span className="text-slate-200"><strong>14-Day Free Trial:</strong> No credit card required to start.</span>
             </div>
             <div className="flex items-center gap-2.5">
               <ShieldCheck className="w-4 h-4 text-[#C0D725] shrink-0" />
@@ -559,7 +630,7 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
             </div>
             <div className="flex items-center gap-2.5">
               <Users className="w-4 h-4 text-[#C0D725] shrink-0" />
-              <span className="text-slate-200"><strong>Metrologist Onboarding:</strong> Custom template support.</span>
+              <span className="text-slate-200"><strong>Legal Metrology Sync:</strong> Ready for state &amp; eMaap workflows.</span>
             </div>
           </div>
         </div>

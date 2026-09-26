@@ -47,6 +47,38 @@ export function DocumentationSection({ onOpenSampleReport }) {
     }
   ];
 
+  const technicalGuides = [
+    {
+      title: "OIML R-76 Testing Guide",
+      category: "Technical Guide",
+      desc: "Comprehensive manual explaining turning point calculations, ΔL corrections, and MPE threshold formulas for Class I to IV NAWIs.",
+      icon: BookOpen,
+      action: "Read Guide"
+    },
+    {
+      title: "Sample OIML R-76 Test Report",
+      category: "Sample Document",
+      desc: "Download a full publication-ready Type Evaluation report with SHA-256 seal and QR verification.",
+      icon: FileText,
+      action: "View Sample Report",
+      onClick: () => onOpenSampleReport && onOpenSampleReport('REP-2026-001')
+    },
+    {
+      title: "Legal Metrology ISO 17025 Checklist",
+      category: "Compliance",
+      desc: "Audit readiness checklist for non-automatic weighing instrument testing laboratories.",
+      icon: ShieldCheck,
+      action: "Download Checklist"
+    },
+    {
+      title: "TARAZU Developer & API Docs",
+      category: "Documentation",
+      desc: "Technical REST & JSON API documentation for integrating TARAZU with laboratory LIMS software.",
+      icon: ExternalLink,
+      action: "Explore API Docs"
+    }
+  ];
+
   return (
     <section id="documentation" className="py-20 md:py-28 relative border-t border-slate-200 bg-white text-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,16 +89,16 @@ export function DocumentationSection({ onOpenSampleReport }) {
             Technical Documentation & <span className="text-[#007A8C]">OIML Formats</span>
           </h2>
           <p className="text-slate-600 text-sm sm:text-base">
-            Detailed mathematical formulations, test clause references, and downloadable report samples.
+            Detailed mathematical formulations, test clause references, technical guides, and downloadable report samples.
           </p>
         </div>
 
         {/* Tab Controls */}
         <div className="flex justify-center mb-10">
-          <div className="bg-[#F8FAFC] p-1.5 rounded-2xl border border-slate-200 inline-flex gap-2">
+          <div className="bg-[#F8FAFC] p-1.5 rounded-2xl border border-slate-200 inline-flex flex-wrap justify-center gap-2">
             <button
               onClick={() => setActiveDocTab('math')}
-              className={`px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              className={`px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 activeDocTab === 'math' ? 'bg-[#007A8C] text-white shadow-md' : 'text-slate-600 hover:text-[#007A8C]'
               }`}
             >
@@ -74,7 +106,7 @@ export function DocumentationSection({ onOpenSampleReport }) {
             </button>
             <button
               onClick={() => setActiveDocTab('clauses')}
-              className={`px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              className={`px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 activeDocTab === 'clauses' ? 'bg-[#007A8C] text-white shadow-md' : 'text-slate-600 hover:text-[#007A8C]'
               }`}
             >
@@ -82,11 +114,19 @@ export function DocumentationSection({ onOpenSampleReport }) {
             </button>
             <button
               onClick={() => setActiveDocTab('legal')}
-              className={`px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+              className={`px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                 activeDocTab === 'legal' ? 'bg-[#007A8C] text-white shadow-md' : 'text-slate-600 hover:text-[#007A8C]'
               }`}
             >
               Legal Metrology Act 2009
+            </button>
+            <button
+              onClick={() => setActiveDocTab('guides')}
+              className={`px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                activeDocTab === 'guides' ? 'bg-[#007A8C] text-white shadow-md' : 'text-slate-600 hover:text-[#007A8C]'
+              }`}
+            >
+              Technical Guides &amp; Checklists
             </button>
           </div>
         </div>
@@ -138,6 +178,35 @@ export function DocumentationSection({ onOpenSampleReport }) {
                 <div className="font-bold text-[#007A8C]">Seventh Schedule: Non-Automatic Weighing Instruments</div>
                 <div>Requires testing laboratories to issue certificates containing complete metrological logs, environmental observations, and turning point calculations.</div>
               </div>
+            </div>
+          )}
+
+          {activeDocTab === 'guides' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {technicalGuides.map((res, idx) => {
+                const Icon = res.icon;
+                return (
+                  <div 
+                    key={idx} 
+                    onClick={res.onClick}
+                    className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs space-y-3 transition-all cursor-pointer group flex flex-col justify-between hover:border-[#007A8C]"
+                  >
+                    <div className="space-y-2.5">
+                      <div className="w-10 h-10 rounded-xl border bg-[#EEF2FF] text-[#007A8C] border-[#007A8C]/20 group-hover:bg-[#007A8C] group-hover:text-white flex items-center justify-center transition-colors">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <span className="text-[10px] font-mono font-bold uppercase text-slate-400 block">{res.category}</span>
+                      <h4 className="text-sm font-bold text-slate-900 group-hover:text-[#007A8C] transition-colors">{res.title}</h4>
+                      <p className="text-xs text-slate-600 leading-relaxed">{res.desc}</p>
+                    </div>
+
+                    <div className="pt-3 border-t border-slate-100 text-xs text-[#007A8C] font-bold flex items-center justify-between group-hover:translate-x-1 transition-transform">
+                      <span>{res.action}</span>
+                      <Eye className="w-3.5 h-3.5 text-[#007A8C]" />
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           )}
 

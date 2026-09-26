@@ -221,7 +221,7 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
             </div>
 
             <span className="text-[11px] font-mono text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200 font-semibold inline-flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
               2 Months Free Included
             </span>
           </div>
@@ -261,7 +261,7 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
                     {/* Top Floating Badge for Featured */}
                     {isFeatured && (
                       <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full bg-gradient-to-r from-[#007A8C] to-[#C0D725] text-slate-950 text-[10px] font-mono font-black uppercase tracking-wider shadow-md border border-white/30 flex items-center gap-1.5 whitespace-nowrap z-20">
-                        <span className="w-1.5 h-1.5 rounded-full bg-slate-950 animate-ping" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-slate-950" />
                         <span>MOST POPULAR</span>
                       </div>
                     )}

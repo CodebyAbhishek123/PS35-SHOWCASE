@@ -51,7 +51,7 @@ export function Navbar({ activeSection, onNavigate, onOpenSandbox, onOpenDemo })
 
             <div className="hidden sm:flex items-center gap-2 border-l border-slate-200/80 pl-2.5">
               <span className="text-[10px] font-mono font-black tracking-wider text-[#007A8C] uppercase bg-[#E6F4F6] px-2 py-0.5 rounded-full border border-[#007A8C]/20 flex items-center gap-1.5 transition-colors group-hover:bg-[#007A8C] group-hover:text-white">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#007A8C] group-hover:bg-[#C0D725] animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#007A8C] group-hover:bg-[#C0D725]" />
                 <span>OIML R-76</span>
               </span>
             </div>

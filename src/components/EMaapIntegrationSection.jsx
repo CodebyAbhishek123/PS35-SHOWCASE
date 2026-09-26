@@ -92,7 +92,7 @@ export function EMaapIntegrationSection() {
           </h2>
 
           <div className="text-[11px] sm:text-xs font-bold text-[#007A8C] bg-[#EEF2FF] px-3.5 py-1 rounded-full border border-[#007A8C]/30 inline-flex items-center gap-2 shadow-2xs">
-            <span className="w-2 h-2 rounded-full bg-[#007A8C] animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-[#007A8C]" />
             <span>eMaap Integration — Connecting TARAZU with India's Legal Metrology digital ecosystem.</span>
           </div>
         </div>
@@ -105,7 +105,7 @@ export function EMaapIntegrationSection() {
             
             <div className="flex items-center gap-2.5">
               <div className="p-1.5 rounded-lg bg-[#EEF2FF] border border-[#007A8C]/30 text-[#007A8C]">
-                <Server className="w-3.5 h-3.5 animate-pulse" />
+                <Server className="w-3.5 h-3.5" />
               </div>
               <div>
                 <span className="font-bold text-slate-900 text-xs">Live Data Pipeline Simulation</span>
@@ -115,7 +115,7 @@ export function EMaapIntegrationSection() {
 
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1.5 text-emerald-800 font-bold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-300 text-[11px]">
-                <Activity className="w-3 h-3 text-emerald-600 animate-bounce" />
+                <Activity className="w-3 h-3 text-emerald-600" />
                 <span>Payload: AES-256 Encrypted</span>
               </div>
             </div>
@@ -194,7 +194,7 @@ export function EMaapIntegrationSection() {
               
               {/* Connector Pill Badge */}
               <div className="relative group">
-                <div className="absolute -inset-1 bg-[#007A8C]/25 rounded-full blur-sm animate-pulse" />
+                <div className="absolute -inset-1 bg-[#007A8C]/25 rounded-full blur-sm" />
                 <div className="relative px-3 py-1 rounded-full bg-[#EEF2FF] border border-[#007A8C]/40 text-[10px] font-mono font-extrabold text-[#007A8C] flex items-center gap-1.5 shadow-xs">
                   <Lock className="w-3 h-3 text-[#007A8C]" />
                   <span>Secure Sync</span>
@@ -208,7 +208,7 @@ export function EMaapIntegrationSection() {
                 <div className="hidden lg:block w-full h-2 bg-slate-200/80 rounded-full relative overflow-hidden border border-slate-300/80 shadow-inner">
                   
                   {/* Glowing Animated Laser Track */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#007A8C] via-[#06B6D4] to-emerald-500 opacity-40 animate-pulse" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#007A8C] via-[#06B6D4] to-emerald-500 opacity-40" />
                   
                   {/* Travelling Fast Particle Beam */}
                   <div 
@@ -225,7 +225,7 @@ export function EMaapIntegrationSection() {
 
                 {/* Vertical laser pipe for mobile */}
                 <div className="lg:hidden h-14 w-2 bg-slate-200/80 rounded-full relative overflow-hidden border border-slate-300/80 shadow-inner">
-                  <div className="absolute inset-0 bg-gradient-to-b from-[#007A8C] via-[#06B6D4] to-emerald-500 opacity-40 animate-pulse" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-[#007A8C] via-[#06B6D4] to-emerald-500 opacity-40" />
                   <div 
                     className="absolute left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-emerald-500 ring-4 ring-emerald-200 transition-all duration-700 shadow-md"
                     style={{ top: `${Math.min(90, packetPosition)}%` }}
@@ -244,7 +244,7 @@ export function EMaapIntegrationSection() {
               <div className="flex items-center justify-between pb-2.5 border-b border-emerald-200/80">
                 <div className="flex items-center gap-2">
                   <div className="p-2 rounded-xl bg-white border border-emerald-300 text-emerald-700 shadow-2xs">
-                    <Globe className="w-4 h-4 animate-pulse" />
+                    <Globe className="w-4 h-4" />
                   </div>
                   <div>
                     <h3 className="font-black text-slate-900 text-sm">eMaap</h3>

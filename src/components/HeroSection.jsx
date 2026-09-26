@@ -181,7 +181,7 @@ export function HeroSection({ onOpenSandbox, onOpenDemo, onNavigate }) {
                 </div>
 
                 <div className="flex items-center gap-1 text-[10px] text-emerald-800 font-bold bg-emerald-100/90 px-2.5 py-1 rounded-full border border-emerald-300">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                   <span>LIVE WORKSPACE</span>
                 </div>
               </div>

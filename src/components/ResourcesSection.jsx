@@ -26,8 +26,8 @@ export function ResourcesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-10">
         
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+        <div className="text-center max-w-5xl mx-auto space-y-3">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight whitespace-nowrap">
             TARAZU Video Content & Platform Walkthroughs
           </h2>
           <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto">

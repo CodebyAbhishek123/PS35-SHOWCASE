@@ -7,7 +7,7 @@ export function Footer({ onNavigate }) {
   };
 
   return (
-    <footer className="bg-[#F8FAFC] border-t border-slate-200/90 text-slate-600 py-16 text-sm font-sans relative">
+    <footer className="bg-[#F8FAFC] border-t border-slate-200/90 text-slate-600 pt-8 pb-12 text-sm font-sans relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Main Footer Navigation Columns */}

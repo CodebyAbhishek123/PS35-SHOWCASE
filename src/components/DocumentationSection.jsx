@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { 
-  FileText, Download, CheckCircle2, ShieldCheck, Calculator, ExternalLink, Eye 
+  FileText, Download, CheckCircle2, ShieldCheck, Calculator, ExternalLink, Eye, BookOpen 
 } from 'lucide-react';
 
 export function DocumentationSection({ onOpenSampleReport }) {

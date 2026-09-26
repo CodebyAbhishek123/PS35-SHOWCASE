@@ -45,7 +45,7 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
       savings: "Save ₹5,989 / yr",
       icon: Scale,
       featured: false,
-      buttonText: "Start 14-Day Free Trial",
+      buttonText: "Request Pilot Access",
       highlights: [
         { label: "Reports", value: "50 / mo" },
         { label: "Users", value: "1 Account" },
@@ -79,7 +79,7 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
       savings: "Save ₹15,989 / yr",
       icon: ShieldCheck,
       featured: true,
-      buttonText: "Start 14-Day Free Trial",
+      buttonText: "Book a Live Demo",
       highlights: [
         { label: "Reports", value: "200 / mo" },
         { label: "Users", value: "5 Accounts" },
@@ -115,7 +115,7 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
       savings: "Save ₹29,989 / yr",
       icon: Cpu,
       featured: false,
-      buttonText: "Start 14-Day Free Trial",
+      buttonText: "Request Consultation",
       highlights: [
         { label: "Reports", value: "Unlimited" },
         { label: "Users", value: "Unlimited" },
@@ -196,7 +196,7 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
       category: "Support & SLA",
       rows: [
         { name: "Support Model", starter: "Email support", pro: "Priority support", ent: "Dedicated support", govt: "SLA-based support" },
-        { name: "Free Trial Access", starter: "14 days (No CC)", pro: "14 days (No CC)", ent: "14 days (No CC)", govt: "Govt Pilot Walkthrough" },
+        { name: "Pilot Onboarding", starter: "Self-serve Docs", pro: "Priority Onboarding", ent: "Dedicated Account Lead", govt: "Govt Pilot Walkthrough" },
       ]
     }
   ];
@@ -223,7 +223,7 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
             Hover or tap any card to view detailed price breakdowns, target lab sizes, and core features.
           </p>
 
-          {/* Billing Cycle Toggle & Free Trial Callout */}
+          {/* Billing Cycle Toggle */}
           <div className="pt-1 flex flex-wrap items-center justify-center gap-3">
             <div className="inline-flex items-center p-1 rounded-xl bg-white border border-slate-200/90 shadow-xs">
               <button
@@ -251,12 +251,6 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
                 </span>
               </button>
             </div>
-
-            {/* Free Trial Banner Pill */}
-            <span className="text-[11px] font-mono text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200 font-bold inline-flex items-center gap-1.5 shadow-2xs">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-              <span><strong>Free Trial:</strong> 14 days (no credit card required)</span>
-            </span>
           </div>
         </div>
 
@@ -524,35 +518,8 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
           })}
         </div>
 
-        {/* Free Trial Banner Box */}
-        <div className="mt-8 max-w-5xl mx-auto bg-emerald-950/80 border border-emerald-500/30 rounded-2xl p-4 sm:p-5 text-emerald-100 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-lg">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-400/30 flex items-center justify-center shrink-0">
-              <Sparkles className="w-5 h-5 text-emerald-400" />
-            </div>
-            <div>
-              <h4 className="text-sm font-bold text-white flex items-center gap-2">
-                <span>Free Trial: 14 Days</span>
-                <span className="text-[10px] font-mono uppercase bg-emerald-400/20 text-emerald-300 px-2 py-0.5 rounded border border-emerald-400/30">
-                  No Credit Card Required
-                </span>
-              </h4>
-              <p className="text-xs text-emerald-200/90 mt-0.5">
-                Full access to test report generation, OIML R-76 calculations, and tamper-sealed PDF exports.
-              </p>
-            </div>
-          </div>
-          <button
-            onClick={onOpenSandbox}
-            className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs transition-colors shrink-0 cursor-pointer shadow-md flex items-center gap-1.5"
-          >
-            <span>Start 14-Day Free Trial</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
-        </div>
-
         {/* Feature Comparison Accordion Toggle */}
-        <div className="mt-10 max-w-5xl mx-auto">
+        <div className="mt-8 max-w-5xl mx-auto">
           <div className="text-center">
             <button
               onClick={() => setShowComparison(!showComparison)}
@@ -622,7 +589,7 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
             <div className="flex items-center gap-2.5">
               <CheckCircle2 className="w-4 h-4 text-[#C0D725] shrink-0" />
-              <span className="text-slate-200"><strong>14-Day Free Trial:</strong> No credit card required to start.</span>
+              <span className="text-slate-200"><strong>30-Day Pilot Guarantee:</strong> Live tests on your laboratory benches.</span>
             </div>
             <div className="flex items-center gap-2.5">
               <ShieldCheck className="w-4 h-4 text-[#C0D725] shrink-0" />

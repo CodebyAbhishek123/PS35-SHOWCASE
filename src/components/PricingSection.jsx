@@ -255,7 +255,7 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
                         ? 'bg-gradient-to-b from-[#0F2747] via-[#0B1E37] to-[#071322] text-white border-2 border-[#007A8C] shadow-[0_15px_45px_-10px_rgba(0,122,140,0.4)]'
                         : isEnterprise
                         ? 'bg-gradient-to-b from-slate-900 via-[#131F33] to-slate-950 text-white border border-slate-700 shadow-xl'
-                        : 'bg-white text-slate-900 border border-slate-200/90 shadow-lg'
+                        : 'bg-gradient-to-b from-slate-900 via-[#111C2D] to-slate-950 text-white border border-slate-800 shadow-xl'
                     }`}
                   >
                     {/* Top Floating Badge for Featured */}
@@ -275,11 +275,11 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
                               ? 'bg-white/10 text-[#C0D725] border border-white/15'
                               : isEnterprise
                               ? 'bg-teal-950 text-teal-300 border border-teal-700/40'
-                              : 'bg-[#E6F4F6] text-[#007A8C] border border-[#007A8C]/20'
+                              : 'bg-teal-950/80 text-teal-300 border border-teal-700/40'
                           }`}>
                             {p.badge}
                           </span>
-                          <h3 className={`text-xl sm:text-2xl font-black mt-1 ${isFeatured || isEnterprise ? 'text-white' : 'text-slate-950'}`}>
+                          <h3 className="text-xl sm:text-2xl font-black mt-1 text-white">
                             {p.name}
                           </h3>
                         </div>
@@ -289,13 +289,13 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
                             ? 'bg-[#007A8C]/30 text-[#C0D725] border border-teal-400/30'
                             : isEnterprise
                             ? 'bg-slate-800 text-teal-300 border border-slate-700'
-                            : 'bg-[#E6F4F6] text-[#007A8C] border border-[#007A8C]/20'
+                            : 'bg-slate-800 text-teal-300 border border-slate-700'
                         }`}>
                           <PlanIcon className="w-5 h-5" />
                         </div>
                       </div>
 
-                      <p className={`text-xs line-clamp-2 ${isFeatured ? 'text-slate-300' : isEnterprise ? 'text-slate-400' : 'text-slate-600'}`}>
+                      <p className={`text-xs line-clamp-2 ${isFeatured ? 'text-slate-300' : 'text-slate-400'}`}>
                         {p.desc}
                       </p>
 
@@ -307,16 +307,14 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
                             className={`p-1.5 rounded-lg text-center border ${
                               isFeatured
                                 ? 'bg-white/5 border-white/10'
-                                : isEnterprise
-                                ? 'bg-slate-800/40 border-slate-700/50'
-                                : 'bg-slate-50 border-slate-200/60'
+                                : 'bg-slate-800/40 border-slate-700/50'
                             }`}
                           >
-                            <div className={`text-[8px] font-mono uppercase ${isFeatured || isEnterprise ? 'text-slate-400' : 'text-slate-500'}`}>
+                            <div className="text-[8px] font-mono uppercase text-slate-400">
                               {h.label}
                             </div>
                             <div className={`text-[11px] font-mono font-bold truncate ${
-                              isFeatured ? 'text-[#C0D725]' : isEnterprise ? 'text-teal-300' : 'text-slate-900'
+                              isFeatured ? 'text-[#C0D725]' : 'text-teal-300'
                             }`}>
                               {h.value}
                             </div>
@@ -326,9 +324,7 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
 
                       {/* Front Features List */}
                       <div className="space-y-2 pt-1">
-                        <span className={`text-[9px] font-mono font-extrabold uppercase tracking-wider block ${
-                          isFeatured || isEnterprise ? 'text-slate-400' : 'text-slate-500'
-                        }`}>
+                        <span className="text-[9px] font-mono font-extrabold uppercase tracking-wider block text-slate-400">
                           INCLUDED CAPABILITIES:
                         </span>
                         <ul className="space-y-1.5">
@@ -337,13 +333,11 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
                               <div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center shrink-0 ${
                                 isFeatured
                                   ? 'bg-[#007A8C] text-[#C0D725]'
-                                  : isEnterprise
-                                  ? 'bg-teal-900 text-teal-300'
-                                  : 'bg-[#E6F4F6] text-[#007A8C]'
+                                  : 'bg-teal-900 text-teal-300'
                               }`}>
                                 <Check className="w-2.5 h-2.5 stroke-[3]" />
                               </div>
-                              <span className={`truncate ${isFeatured ? 'text-slate-200' : isEnterprise ? 'text-slate-300' : 'text-slate-700'}`}>
+                              <span className="truncate text-slate-300">
                                 {f}
                               </span>
                             </li>
@@ -357,9 +351,7 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
                       <div className={`py-2 px-3 rounded-xl border flex items-center justify-between text-xs font-medium transition-all ${
                         isFeatured
                           ? 'bg-[#C0D725]/15 border-[#C0D725]/40 text-[#C0D725]'
-                          : isEnterprise
-                          ? 'bg-teal-950/60 border-teal-700/40 text-teal-300'
-                          : 'bg-[#E6F4F6] border-[#007A8C]/20 text-[#007A8C]'
+                          : 'bg-teal-950/60 border-teal-700/40 text-teal-300'
                       }`}>
                         <div className="flex items-center gap-2 font-mono text-[11px] font-bold">
                           <RotateCw className="w-3.5 h-3.5 animate-spin" style={{ animationDuration: '6s' }} />
@@ -377,7 +369,7 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
                         ? 'bg-gradient-to-b from-[#0F2747] via-[#0B1E37] to-[#071322] text-white border-2 border-[#007A8C] shadow-[0_20px_50px_-10px_rgba(0,122,140,0.5)]'
                         : isEnterprise
                         ? 'bg-gradient-to-b from-slate-900 via-[#131F33] to-slate-950 text-white border border-slate-700 shadow-2xl'
-                        : 'bg-white text-slate-900 border-2 border-[#007A8C]/30 shadow-xl'
+                        : 'bg-gradient-to-b from-slate-900 via-[#111C2D] to-slate-950 text-white border border-slate-800 shadow-2xl'
                     }`}
                   >
                     {/* Back Header */}
@@ -386,9 +378,7 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
                         <span className={`text-[9px] font-mono font-bold tracking-widest uppercase px-2.5 py-0.5 rounded-md ${
                           isFeatured
                             ? 'bg-white/10 text-[#C0D725]'
-                            : isEnterprise
-                            ? 'bg-teal-950 text-teal-300'
-                            : 'bg-[#E6F4F6] text-[#007A8C]'
+                            : 'bg-teal-950 text-teal-300'
                         }`}>
                           {p.name}
                         </span>
@@ -401,37 +391,33 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
                       <div className={`p-4 rounded-2xl border ${
                         isFeatured
                           ? 'bg-white/6 border-teal-500/30'
-                          : isEnterprise
-                          ? 'bg-slate-800/60 border-slate-700/80'
-                          : 'bg-slate-50 border-slate-200/80'
+                          : 'bg-slate-800/60 border-slate-700/80'
                       }`}>
                         <div className="flex items-baseline gap-1.5">
-                          <span className={`text-4xl sm:text-5xl font-black font-mono tracking-tight ${
-                            isFeatured || isEnterprise ? 'text-white' : 'text-slate-950'
-                          }`}>
+                          <span className="text-4xl sm:text-5xl font-black font-mono tracking-tight text-white">
                             {billingCycle === 'annual' ? p.priceAnnual : p.priceMonthly}
                           </span>
                           {p.priceAnnual !== 'Custom' ? (
                             <div className="flex flex-col">
-                              <span className={`text-xs font-mono font-bold ${isFeatured || isEnterprise ? 'text-slate-300' : 'text-slate-700'}`}>
+                              <span className="text-xs font-mono font-bold text-slate-300">
                                 / mo
                               </span>
-                              <span className={`text-[10px] font-mono ${isFeatured ? 'text-slate-400' : isEnterprise ? 'text-slate-500' : 'text-slate-500'}`}>
+                              <span className="text-[10px] font-mono text-slate-400">
                                 {billingCycle === 'annual' ? p.billedAnnualTotal : 'monthly'}
                               </span>
                             </div>
                           ) : (
-                            <span className={`text-xs font-mono ${isFeatured || isEnterprise ? 'text-teal-300' : 'text-[#007A8C]'}`}>
+                            <span className="text-xs font-mono text-teal-300">
                               / deployment
                             </span>
                           )}
                         </div>
 
                         <div className="mt-2 pt-2 border-t border-slate-200/15 flex items-center justify-between text-[11px]">
-                          <span className={isFeatured ? 'text-[#C0D725] font-bold' : isEnterprise ? 'text-teal-300 font-bold' : 'text-emerald-600 font-bold'}>
+                          <span className={isFeatured ? 'text-[#C0D725] font-bold' : 'text-teal-300 font-bold'}>
                             {billingCycle === 'annual' ? p.savings : 'Flexible monthly'}
                           </span>
-                          <span className={`text-[10px] font-mono ${isFeatured || isEnterprise ? 'text-slate-400' : 'text-slate-500'}`}>
+                          <span className="text-[10px] font-mono text-slate-400">
                             {p.audience}
                           </span>
                         </div>
@@ -439,20 +425,16 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
 
                       {/* Back Feature Summary Pills */}
                       <div className="space-y-1.5 pt-1">
-                        <span className={`text-[9px] font-mono font-extrabold uppercase tracking-wider block ${
-                          isFeatured || isEnterprise ? 'text-slate-400' : 'text-slate-500'
-                        }`}>
+                        <span className="text-[9px] font-mono font-extrabold uppercase tracking-wider block text-slate-400">
                           CORE VALUE DELIVERABLES:
                         </span>
                         <ul className="space-y-1 text-xs">
                           {p.backFeatures.map((bf, bIdx) => (
                             <li key={bIdx} className="flex items-center gap-1.5">
                               <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 ${
-                                isFeatured ? 'text-[#C0D725]' : isEnterprise ? 'text-teal-300' : 'text-[#007A8C]'
+                                isFeatured ? 'text-[#C0D725]' : 'text-teal-300'
                               }`} />
-                              <span className={`truncate text-[11px] ${
-                                isFeatured ? 'text-slate-200 font-medium' : isEnterprise ? 'text-slate-300' : 'text-slate-700'
-                              }`}>
+                              <span className="truncate text-[11px] text-slate-200 font-medium">
                                 {bf}
                               </span>
                             </li>
@@ -471,9 +453,7 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
                         className={`w-full py-3 px-4 rounded-xl font-bold text-xs transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer shadow-md ${
                           isFeatured
                             ? 'bg-gradient-to-r from-[#C0D725] to-[#AEC41F] hover:from-[#C9E026] hover:to-[#B6CC22] text-slate-950 font-black shadow-[#C0D725]/30'
-                            : isEnterprise
-                            ? 'bg-gradient-to-r from-[#007A8C] to-[#0B5E6B] hover:from-[#008DA2] hover:to-[#0C6D7C] text-white font-black shadow-[#007A8C]/25 border border-teal-400/30'
-                            : 'bg-[#0F2747] hover:bg-[#007A8C] text-white'
+                            : 'bg-gradient-to-r from-[#007A8C] to-[#0B5E6B] hover:from-[#008DA2] hover:to-[#0C6D7C] text-white font-black shadow-[#007A8C]/25 border border-teal-400/30'
                         }`}
                       >
                         <Calendar className="w-3.5 h-3.5" />

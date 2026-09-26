@@ -9,11 +9,6 @@ export function FinalCTASection({ onOpenSandbox, onOpenDemo }) {
       <div className="absolute top-1/2 right-10 w-[400px] h-[300px] bg-[#C0D725]/20 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
-        <div className="inline-flex items-center gap-2 px-4.5 py-1.5 rounded-full bg-[#C0D725] border border-[#B3C91F] text-xs font-black text-slate-900 shadow-sm">
-          <ShieldCheck className="w-4 h-4 text-slate-900" />
-          <span>PILOT OFFER FOR ACCREDITED METROLOGY LABORATORIES</span>
-        </div>
-
         <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-slate-900 leading-tight">
           Modernize your <br />
           <span className="text-[#007A8C]">
@@ -22,7 +17,7 @@ export function FinalCTASection({ onOpenSandbox, onOpenDemo }) {
         </h2>
 
         <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
-          See NAWI TestPro using a sample test session. Capture observations, apply controlled OIML R-76 rules, and generate standardized reports in minutes.
+          See TARAZU using a sample test session. Capture observations, apply controlled OIML R-76 rules, and generate standardized reports in minutes.
         </p>
 
         {/* Buttons - Dual Teal & Lime Buttons */}
@@ -32,7 +27,7 @@ export function FinalCTASection({ onOpenSandbox, onOpenDemo }) {
             className="px-8 py-4 rounded-2xl bg-[#007A8C] hover:bg-[#006372] text-white text-base font-extrabold shadow-xl shadow-[#007A8C]/30 transition-all cursor-pointer active:scale-95 flex items-center gap-2.5 border-b-2 border-[#C0D725]"
           >
             <Calendar className="w-5 h-5 text-[#C0D725]" />
-            <span>Book a Demo</span>
+            <span>Get TARAZU</span>
           </button>
 
           <button

@@ -55,10 +55,7 @@ export function ForLaboratoriesSection({ onOpenSandbox, onOpenDemo }) {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#E6F4F6] border border-[#007A8C]/20 text-xs font-bold text-[#007A8C]">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>WHO IT IS FOR</span>
-          </div>
+
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
             Tailored for <span className="text-[#007A8C]">Metrology Teams</span>
           </h2>
@@ -124,7 +121,7 @@ export function ForLaboratoriesSection({ onOpenSandbox, onOpenDemo }) {
               Modernize your NAWI reporting workflow today.
             </h3>
             <p className="text-xs sm:text-sm text-teal-100 max-w-xl">
-              See NAWI TestPro configured with your laboratory's weighing instruments and report templates.
+              See TARAZU configured with your laboratory's weighing instruments and report templates.
             </p>
           </div>
 
@@ -134,7 +131,7 @@ export function ForLaboratoriesSection({ onOpenSandbox, onOpenDemo }) {
               className="px-6 py-3.5 rounded-2xl bg-[#C0D725] hover:bg-[#B3C91F] text-slate-900 text-xs sm:text-sm font-black shadow-md transition-all cursor-pointer flex items-center gap-2 active:scale-95 whitespace-nowrap"
             >
               <Calendar className="w-4 h-4" />
-              <span>Book a Demo</span>
+              <span>Get TARAZU</span>
             </button>
             <button
               onClick={onOpenSandbox}

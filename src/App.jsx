@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
+import { EMaapIntegrationSection } from './components/EMaapIntegrationSection';
 import { ProblemSolutionSection } from './components/ProblemSolutionSection';
 import { CoreFeaturesSection } from './components/CoreFeaturesSection';
 import { HowItWorksSection } from './components/HowItWorksSection';
-import { ProductShowcaseSection } from './components/ProductShowcaseSection';
+import { DocumentationSection } from './components/DocumentationSection';
 import { ForLaboratoriesSection } from './components/ForLaboratoriesSection';
 import { SecurityGovernanceSection } from './components/SecurityGovernanceSection';
 import { PricingSection } from './components/PricingSection';
 import { ResourcesSection } from './components/ResourcesSection';
 import { FAQSection } from './components/FAQSection';
-import { FinalCTASection } from './components/FinalCTASection';
+import { TeamSection } from './components/TeamSection';
 import { Footer } from './components/Footer';
 
 // Marketing Conversion & App Walkthrough Modals
@@ -63,13 +64,13 @@ export function App() {
         'home',
         'product',
         'features',
-        'how-it-works',
-        'showcase',
+        'documentation',
         'for-laboratories',
         'governance',
         'pricing',
         'resources',
-        'faq'
+        'faq',
+        'team'
       ];
       const scrollPosition = window.scrollY + 130;
 
@@ -117,7 +118,11 @@ export function App() {
         <HeroSection 
           onOpenSandbox={() => setSandboxOpen(true)} 
           onOpenDemo={() => setDemoOpen(true)}
+          onNavigate={handleNavigate}
         />
+
+        {/* 2.5 EMAAP INTEGRATION (Animated Government Legal Metrology Ecosystem Pipeline) */}
+        <EMaapIntegrationSection />
 
         {/* 3. PROBLEM → SOLUTION (Compact 4-column SaaS comparison) */}
         <ProblemSolutionSection />
@@ -134,10 +139,9 @@ export function App() {
           onOpenDemo={() => setDemoOpen(true)}
         />
 
-        {/* 6. PRODUCT SCREENSHOT GALLERY (5 Core Screens) */}
-        <ProductShowcaseSection 
-          onOpenSandbox={() => setSandboxOpen(true)} 
-          onOpenDemo={() => setDemoOpen(true)}
+        {/* 5.5 TECHNICAL DOCUMENTATION & OIML CLAUSES */}
+        <DocumentationSection 
+          onOpenSampleReport={handleOpenSampleReport} 
         />
 
         {/* 7. WHO IT IS FOR (4 Target Audience Cards) */}
@@ -161,11 +165,8 @@ export function App() {
         {/* 11. FAQ (8 Blueprint Starter Questions) */}
         <FAQSection />
 
-        {/* 12. FINAL CTA */}
-        <FinalCTASection 
-          onOpenSandbox={() => setSandboxOpen(true)} 
-          onOpenDemo={() => setDemoOpen(true)}
-        />
+        {/* 12. INNOVATORS / TEAM SECTION */}
+        <TeamSection />
       </main>
 
       {/* 13. FOOTER */}

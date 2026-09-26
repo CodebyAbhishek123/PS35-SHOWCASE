@@ -33,12 +33,9 @@ export function ProductShowcaseSection({ onOpenSandbox, onOpenDemo }) {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#E6F4F6] border border-[#007A8C]/20 text-xs font-bold text-[#007A8C]">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>INTERACTIVE PRODUCT WALKTHROUGH</span>
-          </div>
+
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-            Explore the <span className="text-[#007A8C]">NAWI TestPro</span> Workspace
+            Explore the <span className="text-[#007A8C]">TARAZU</span> Workspace
           </h2>
           <p className="text-slate-600 text-base sm:text-lg">
             High-fidelity interactive previews of the 5 core modules driving digital legal metrology evaluations.
@@ -79,7 +76,7 @@ export function ProductShowcaseSection({ onOpenSandbox, onOpenDemo }) {
                 <span className="w-3 h-3 rounded-full bg-emerald-500 inline-block" />
               </div>
               <span className="text-xs font-mono text-slate-400">
-                app.nawitestpro.com/workspace/{activeTab}
+                app.tarazu.com/workspace/{activeTab}
               </span>
             </div>
 

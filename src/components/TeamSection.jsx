@@ -44,16 +44,16 @@ export function TeamSection() {
     <section id="team" className="py-20 md:py-28 relative border-t border-slate-200 bg-[#F8FAFC] text-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header with Purple Accent matching Tarazu theme */}
+        {/* Section Header with Teal Accent matching Tarazu theme */}
         <div className="text-left mb-16 space-y-2">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 inline-block relative pb-3">
-            Meet the <span className="relative">
-              Innovators
+            The Alchemists <span className="relative">
+              Behind TARAZU
               <span className="absolute bottom-0 left-0 w-full h-[4px] bg-[#007A8C] rounded-full"></span>
             </span>
           </h2>
           <p className="text-slate-500 text-sm font-medium">
-            The engineering team behind TARAZU for Smart India Hackathon PS 26035
+            The minds behind TARAZU — transforming metrology challenges into intelligent, compliant solutions.
           </p>
         </div>
 

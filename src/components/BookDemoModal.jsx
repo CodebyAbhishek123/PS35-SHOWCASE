@@ -56,7 +56,7 @@ export function BookDemoModal({ isOpen, onClose }) {
           </div>
 
           <h3 className="text-2xl font-black tracking-tight">
-            Book a Demo of NAWI TestPro
+            Get TARAZU
           </h3>
           <p className="text-xs text-teal-100 mt-1 leading-relaxed">
             See how our OIML R-76 SaaS platform transforms raw observations into audit-ready reports in a controlled, guided workflow.
@@ -74,7 +74,7 @@ export function BookDemoModal({ isOpen, onClose }) {
               <div className="space-y-2">
                 <h4 className="text-xl font-black text-slate-900">Demo Request Received!</h4>
                 <p className="text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
-                  Thank you—your demo request has been received. Our team will contact you within one business day. In the meantime, explore how NAWI TestPro converts raw observations into a controlled report workflow.
+                  Thank you—your demo request has been received. Our team will contact you within one business day. In the meantime, explore how TARAZU converts raw observations into a controlled report workflow.
                 </p>
               </div>
 
@@ -202,7 +202,7 @@ export function BookDemoModal({ isOpen, onClose }) {
                   className="mt-1 w-4 h-4 rounded text-[#007A8C] focus:ring-[#007A8C] border-slate-300"
                 />
                 <label htmlFor="consent" className="text-xs text-slate-500 leading-snug">
-                  I agree to receive communications regarding NAWI TestPro demo requests and confirm that physical testing and final technical approvals remain under qualified laboratory personnel.
+                  I agree to receive communications regarding TARAZU demo requests and confirm that physical testing and final technical approvals remain under qualified laboratory personnel.
                 </label>
               </div>
 
@@ -210,7 +210,7 @@ export function BookDemoModal({ isOpen, onClose }) {
                 type="submit"
                 className="w-full py-3.5 rounded-2xl bg-[#007A8C] hover:bg-[#006372] text-white font-black text-sm shadow-lg shadow-[#007A8C]/30 transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98 border-b-2 border-[#C0D725]"
               >
-                <span>Submit Demo Request</span>
+                <span>Get TARAZU</span>
                 <Send className="w-4 h-4 text-[#C0D725]" />
               </button>
 

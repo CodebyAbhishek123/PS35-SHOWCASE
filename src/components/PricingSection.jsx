@@ -178,10 +178,7 @@ export function PricingSection({ onOpenSandbox, onOpenDemo }) {
         
         {/* Compact Header Section */}
         <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-[#007A8C]/25 text-[11px] font-mono font-bold text-[#007A8C] shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5 text-[#007A8C] animate-pulse" />
-            <span>TRANSPARENT METROLOGY TIERS</span>
-          </div>
+
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-950 tracking-tight leading-tight">
             Predictable Plans for <br className="hidden sm:inline" />

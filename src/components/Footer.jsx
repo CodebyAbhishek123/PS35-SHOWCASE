@@ -26,7 +26,7 @@ export function Footer({ onNavigate }) {
               />
               <div className="flex flex-col border-l border-slate-200 pl-2.5">
                 <span className="text-[11px] font-mono font-bold tracking-wider text-[#007A8C] uppercase leading-none">
-                  NAWI TestPro
+                  TARAZU Platform
                 </span>
                 <span className="text-[9px] font-mono font-semibold text-slate-400 uppercase mt-0.5 leading-none">
                   OIML R-76 SaaS
@@ -50,8 +50,7 @@ export function Footer({ onNavigate }) {
             <ul className="space-y-2 text-xs">
               <li><button onClick={() => onNavigate('product')} className="hover:text-[#007A8C] transition-colors cursor-pointer">Problem &amp; Solution</button></li>
               <li><button onClick={() => onNavigate('features')} className="hover:text-[#007A8C] transition-colors cursor-pointer">8 Core Capabilities</button></li>
-              <li><button onClick={() => onNavigate('how-it-works')} className="hover:text-[#007A8C] transition-colors cursor-pointer">5-Step Workflow</button></li>
-              <li><button onClick={() => onNavigate('showcase')} className="hover:text-[#007A8C] transition-colors cursor-pointer">Product Screens</button></li>
+              <li><button onClick={() => onNavigate('documentation')} className="hover:text-[#007A8C] transition-colors cursor-pointer">Documentation</button></li>
               <li><button onClick={() => onNavigate('pricing')} className="hover:text-[#007A8C] transition-colors cursor-pointer">Pricing &amp; Pilots</button></li>
             </ul>
           </div>
@@ -85,7 +84,7 @@ export function Footer({ onNavigate }) {
         <div className="my-8 p-4 rounded-2xl bg-white border border-slate-200/90 text-xs text-slate-500 leading-relaxed shadow-2xs flex items-start gap-3">
           <Lock className="w-4 h-4 text-[#007A8C] shrink-0 mt-0.5" />
           <p>
-            <strong className="text-slate-700">Regulatory &amp; Integration Notice:</strong> NAWI TestPro is designed to support OIML R-76 reporting workflows. Physical testing and final report approval remain under the authority of qualified laboratory personnel. eMaap-Ready positioning indicates architectural readiness for future secure workflow integration, subject to official API access and regulatory approval.
+            <strong className="text-slate-700">Regulatory &amp; Integration Notice:</strong> TARAZU is designed to support OIML R-76 reporting workflows. Physical testing and final report approval remain under the authority of qualified laboratory personnel. eMaap-Ready positioning indicates architectural readiness for future secure workflow integration, subject to official API access and regulatory approval.
           </p>
         </div>
 
@@ -96,7 +95,7 @@ export function Footer({ onNavigate }) {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span>All systems operational • © {new Date().getFullYear()} TARAZU / NAWI TestPro.</span>
+            <span>All systems operational • © {new Date().getFullYear()} TARAZU Platform.</span>
           </div>
 
           <div className="flex items-center gap-4">

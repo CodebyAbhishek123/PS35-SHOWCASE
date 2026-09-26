@@ -6,8 +6,8 @@ export function FAQSection() {
 
   const faqs = [
     {
-      q: "What is NAWI TestPro (TARAZU)?",
-      a: "NAWI TestPro (TARAZU) is a B2B SaaS platform for laboratories that need a controlled digital workflow for NAWI test observations, OIML R-76 compliance calculations, reviewer approval pipelines, and standardized audit-ready report generation."
+      q: "What is TARAZU?",
+      a: "TARAZU is a B2B SaaS platform for laboratories that need a controlled digital workflow for NAWI test observations, OIML R-76 compliance calculations, reviewer approval pipelines, and standardized audit-ready report generation."
     },
     {
       q: "Does the software make the final approval decision?",
@@ -23,7 +23,7 @@ export function FAQSection() {
     },
     {
       q: "Is eMaap integrated?",
-      a: "NAWI TestPro is designed to be eMaap-ready for future secure workflow integration. Any live eMaap integration depends on official API availability, technical access, and regulatory approvals."
+      a: "TARAZU is designed to be eMaap-ready for future secure workflow integration. Any live eMaap integration depends on official API availability, technical access, and regulatory approvals."
     },
     {
       q: "Is our data secure?",
@@ -45,10 +45,7 @@ export function FAQSection() {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#E6F4F6] border border-[#007A8C]/20 text-xs font-bold text-[#007A8C]">
-            <HelpCircle className="w-3.5 h-3.5" />
-            <span>FREQUENTLY ASKED QUESTIONS</span>
-          </div>
+
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
             Frequently Asked <span className="text-[#007A8C]">Questions</span>
           </h2>
@@ -93,7 +90,7 @@ export function FAQSection() {
         <div className="mt-10 p-4 rounded-2xl bg-[#E6F4F6] border border-[#007A8C]/20 flex items-center gap-3 text-xs text-[#007A8C] font-medium">
           <ShieldCheck className="w-5 h-5 text-[#007A8C] shrink-0" />
           <span>
-            <strong>Human-Control Guarantee:</strong> NAWI TestPro automates calculations, validation, reporting, and traceability. Physical testing and final report approval remain under qualified laboratory personnel.
+            <strong>Human-Control Guarantee:</strong> TARAZU automates calculations, validation, reporting, and traceability. Physical testing and final report approval remain under qualified laboratory personnel.
           </span>
         </div>
 

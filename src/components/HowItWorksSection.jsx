@@ -73,12 +73,9 @@ export function HowItWorksSection({ onOpenSandbox, onOpenDemo }) {
 
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#E6F4F6] border border-[#007A8C]/20 text-xs font-bold text-[#007A8C]">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>5-STEP LABORATORY WORKFLOW</span>
-          </div>
+
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-            How <span className="text-[#007A8C]">NAWI TestPro</span> Works
+            How <span className="text-[#007A8C]">TARAZU</span> Works
           </h2>
           <p className="text-slate-600 text-base sm:text-lg">
             From raw readings to audit-ready reports in five structured, transparent steps.
@@ -153,7 +150,7 @@ export function HowItWorksSection({ onOpenSandbox, onOpenDemo }) {
                 onClick={onOpenDemo}
                 className="px-6 py-3 rounded-xl bg-[#007A8C] hover:bg-[#006372] text-white text-xs sm:text-sm font-bold shadow-md transition-all flex items-center gap-2 cursor-pointer"
               >
-                <span>Book a Demo</span>
+                <span>Get TARAZU</span>
                 <ArrowRight className="w-4 h-4 text-[#C0D725]" />
               </button>
 

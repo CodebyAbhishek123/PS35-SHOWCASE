@@ -186,14 +186,17 @@ export function HeroSection({ onOpenSandbox, onOpenDemo, onNavigate }) {
                 </div>
               </div>
 
-              {/* The Actual Real Dashboard Screenshot */}
+              {/* The Actual Real Dashboard Video */}
               <div
                 style={{ transform: 'translateZ(10px)' }}
                 className="relative rounded-2xl overflow-hidden shadow-md border border-slate-200/80 bg-slate-100 relative z-10"
               >
-                <img
-                  src="/nawi-dashboard-hero.png"
-                  alt="TARAZU Operational Laboratory Dashboard"
+                <video
+                  src="/video/3.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 />
 

@@ -175,10 +175,15 @@ export function HeroSection({ onOpenSandbox, onOpenDemo, onNavigate }) {
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block shadow-xs" />
                 </div>
 
-                <div className="flex items-center gap-1.5 text-slate-800 font-bold bg-white/90 px-3 py-1 rounded-xl border border-slate-200/60 shadow-inner">
+                <a
+                  href="https://sih-iota-five.vercel.app/superadmin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-slate-800 font-bold bg-white/90 px-3 py-1 rounded-xl border border-slate-200/60 shadow-inner hover:bg-slate-50 transition cursor-pointer"
+                >
                   <Lock className="w-3 h-3 text-[#007A8C]" />
                   <span className="text-[11px] tracking-tight">app.tarazu.com/dashboard</span>
-                </div>
+                </a>
 
                 <div className="flex items-center gap-1 text-[10px] text-emerald-800 font-bold bg-emerald-100/90 px-2.5 py-1 rounded-full border border-emerald-300">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
@@ -201,13 +206,18 @@ export function HeroSection({ onOpenSandbox, onOpenDemo, onNavigate }) {
                 />
 
                 {/* Subtle Hover Action Pill Overlay */}
-                <div className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 backdrop-blur-[2px] transition-all duration-300 flex items-center justify-center">
-                  <span className="px-4.5 py-2.5 rounded-2xl bg-white/95 text-slate-900 text-xs font-black shadow-2xl flex items-center gap-2 border border-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                <a
+                  href="https://sih-iota-five.vercel.app/superadmin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 backdrop-blur-[2px] transition-all duration-300 flex items-center justify-center cursor-pointer z-20"
+                >
+                  <span className="px-4.5 py-2.5 rounded-2xl bg-white/95 text-slate-900 text-xs font-black shadow-2xl flex items-center gap-2 border border-white transform translate-y-2 group-hover:translate-y-0 transition-transform hover:scale-105">
                     <Sparkles className="w-4 h-4 text-[#007A8C]" />
                     <span>Explore TARAZU</span>
                     <ExternalLink className="w-3.5 h-3.5 text-[#007A8C]" />
                   </span>
-                </div>
+                </a>
               </div>
 
             </div>

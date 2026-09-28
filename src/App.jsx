@@ -90,6 +90,10 @@ export function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleOpenSandbox = () => {
+    window.open('https://sih-iota-five.vercel.app/superadmin', '_blank');
+  };
+
   const handleOpenSampleReport = (reportId) => {
     const rep = reports.find(r => r.id === reportId) || reports[0];
     setActiveReport(rep);
@@ -107,7 +111,7 @@ export function App() {
       <Navbar
         activeSection={activeSection}
         onNavigate={handleNavigate}
-        onOpenSandbox={() => setSandboxOpen(true)}
+        onOpenSandbox={handleOpenSandbox}
         onOpenDemo={() => setDemoOpen(true)}
       />
 
@@ -115,7 +119,7 @@ export function App() {
       <main className="flex-grow">
         {/* 2. HERO (With interactive 3D glassmorphic dashboard image) */}
         <HeroSection 
-          onOpenSandbox={() => setSandboxOpen(true)} 
+          onOpenSandbox={handleOpenSandbox} 
           onOpenDemo={() => setDemoOpen(true)}
           onNavigate={handleNavigate}
         />
@@ -128,13 +132,13 @@ export function App() {
 
         {/* 4. CORE FEATURES (8 Core Cards + Human Control Statement) */}
         <CoreFeaturesSection 
-          onOpenSandbox={() => setSandboxOpen(true)} 
+          onOpenSandbox={handleOpenSandbox} 
           onOpenDemo={() => setDemoOpen(true)}
         />
 
         {/* 5. HOW IT WORKS (5-Step Visual Pipeline) */}
         <HowItWorksSection 
-          onOpenSandbox={() => setSandboxOpen(true)} 
+          onOpenSandbox={handleOpenSandbox} 
           onOpenDemo={() => setDemoOpen(true)}
         />
 
@@ -145,13 +149,13 @@ export function App() {
 
         {/* 7. WHO IT IS FOR (4 Target Audience Cards) */}
         <ForLaboratoriesSection 
-          onOpenSandbox={() => setSandboxOpen(true)} 
+          onOpenSandbox={handleOpenSandbox} 
           onOpenDemo={() => setDemoOpen(true)}
         />
 
         {/* 9. PRICING & PILOT PLANS */}
         <PricingSection 
-          onOpenSandbox={() => setSandboxOpen(true)} 
+          onOpenSandbox={handleOpenSandbox} 
           onOpenDemo={() => setDemoOpen(true)}
         />
 
@@ -172,12 +176,6 @@ export function App() {
       <BookDemoModal
         isOpen={demoOpen}
         onClose={() => setDemoOpen(false)}
-      />
-
-      <LiveSandboxModal
-        isOpen={sandboxOpen}
-        onClose={() => setSandboxOpen(false)}
-        onReportGenerated={handleReportGenerated}
       />
 
       {activeReport && (

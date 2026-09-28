@@ -91,7 +91,7 @@ export function App() {
   }, []);
 
   const handleOpenSandbox = () => {
-    window.open('https://sih-iota-five.vercel.app/superadmin', '_blank');
+    window.open('https://sih-iota-five.vercel.app/', '_blank');
   };
 
   const handleOpenSampleReport = (reportId) => {

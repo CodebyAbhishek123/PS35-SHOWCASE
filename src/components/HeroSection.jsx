@@ -176,7 +176,7 @@ export function HeroSection({ onOpenSandbox, onOpenDemo, onNavigate }) {
                 </div>
 
                 <a
-                  href="https://sih-iota-five.vercel.app/superadmin"
+                  href="https://sih-iota-five.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-slate-800 font-bold bg-white/90 px-3 py-1 rounded-xl border border-slate-200/60 shadow-inner hover:bg-slate-50 transition cursor-pointer"
@@ -207,7 +207,7 @@ export function HeroSection({ onOpenSandbox, onOpenDemo, onNavigate }) {
 
                 {/* Subtle Hover Action Pill Overlay */}
                 <a
-                  href="https://sih-iota-five.vercel.app/superadmin"
+                  href="https://sih-iota-five.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 backdrop-blur-[2px] transition-all duration-300 flex items-center justify-center cursor-pointer z-20"
